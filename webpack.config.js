@@ -9,13 +9,13 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    'pages/index/index': './src/pages/index/index.js',
+    'pages/articles/articles': './src/pages/articles/articles.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
   },
-  // devtool: 'source-map',
   module: {
     rules: [{
       test: /\.js$/, // регулярное выражение, которое ищет все js файлы
@@ -43,12 +43,6 @@ module.exports = {
       ],
     },
     {
-      test: /\.(webm|h264|ogg|mp4|mpeg)$/,
-      use: [
-        'file-loader?name=video/[name].[ext]',
-      ],
-    },
-    {
       test: /\.(eot|ttf|woff|woff2)$/,
       loader: 'file-loader?name=vendor/[name].[ext]',
     },
@@ -68,8 +62,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       // Означает, что:
       inject: false, // стили НЕ нужно прописывать внутри тегов
-      template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
-      filename: 'index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      template: './src/pages/index/index.html', // откуда брать образец для сравнения с текущим видом проекта
+      filename: './pages/index/index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+    }),
+    new HtmlWebpackPlugin({
+      // Означает, что:
+      inject: false, // стили НЕ нужно прописывать внутри тегов
+      template: './src/pages/articles/articles.html', // откуда брать образец для сравнения с текущим видом проекта
+      filename: './pages/articles/articles.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

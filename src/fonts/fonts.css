@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Inter Regular'), local('Inter-Regular'),
+    url('./inter/inter-regular.woff') format('woff'),
+    url('./inter/inter-regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Roboto'), local('Roboto-Regular'),
+    url('./roboto/roboto-regular.woff') format('woff'),
+    url('./roboto/roboto-regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-style: normal;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+    url('./roboto/roboto-medium.woff') format('woff'),
+    url('./roboto/roboto-medium.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-style: normal;
+  src: local('Roboto Black'), local('Roboto-Black'),
+    url('./roboto/roboto-black.woff') format('woff'),
+    url('.//roboto/roboto-regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+    url('./robotoSlab/robotoslab-regular.woff') format('woff'),
+    url('./robotoSlab/robotoslab-regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), 
+    url('./sourceSansPro/sourcesanspro-regular.woff') format('woff'),
+    url('./sourceSansPro/sourcesanspro-regular.ttf') format('ttf'),
+}
