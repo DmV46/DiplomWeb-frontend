@@ -10,3 +10,7 @@
   background-color: unset;
   outline:none;
 }
+
+.header__button:hover{
+  cursor: pointer;
+}

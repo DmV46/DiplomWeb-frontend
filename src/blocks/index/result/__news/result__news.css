@@ -1,0 +1,14 @@
+.result__news{
+  max-width: 400px;
+  width: 100%;
+  height: 576px;
+  padding-bottom: 24px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.result__news:hover .result__news-img{
+  transform: scale(1.1);
+}

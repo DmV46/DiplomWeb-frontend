@@ -1,0 +1,16 @@
+.result__news-tooltip{
+  display: none;
+  width: 182px;
+  padding: 14px 0;
+  position: absolute;
+  right: 45px;
+  background-color: #fff;
+  
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #1A1B22;
+  border-radius: 8px
+}

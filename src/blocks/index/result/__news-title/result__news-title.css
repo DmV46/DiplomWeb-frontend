@@ -1,0 +1,15 @@
+.result__news-title{
+  display: block;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 1.1;
+  color: #1A1B22;
+  text-decoration: none;
+}
+
+.result__news-title:hover{
+  opacity: .7;
+}

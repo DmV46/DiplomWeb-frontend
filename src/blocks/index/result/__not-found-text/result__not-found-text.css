@@ -1,0 +1,9 @@
+.result__not-found-text{
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 26px;
+  color: #1A1B22;
+}

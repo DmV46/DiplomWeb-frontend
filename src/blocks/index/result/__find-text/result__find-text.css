@@ -1,0 +1,9 @@
+.result__find-text{
+  max-width: 340px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Roboto';
+  font-size: 18px;
+  line-height: 1.3;
+  color: #B6BCBF;
+}

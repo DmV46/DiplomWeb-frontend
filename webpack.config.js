@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
   entry: {
     'pages/index/index': './src/pages/index/index.js',
-    'pages/articles/articles': './src/pages/articles/articles.js',
+    'pages/saved-articles/saved-articles': './src/pages/saved-articles/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -68,8 +68,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       // Означает, что:
       inject: false, // стили НЕ нужно прописывать внутри тегов
-      template: './src/pages/articles/articles.html', // откуда брать образец для сравнения с текущим видом проекта
-      filename: './pages/articles/articles.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      template: './src/pages/saved-articles/index.html', // откуда брать образец для сравнения с текущим видом проекта
+      filename: './pages/saved-articles/index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

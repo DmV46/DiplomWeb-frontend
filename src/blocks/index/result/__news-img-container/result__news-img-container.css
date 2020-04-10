@@ -1,0 +1,6 @@
+.result__news-img-container{
+  max-height: 272px;
+  margin-bottom: 20px;
+  border-radius: 16px 16px 0 0; 
+  overflow: hidden; 
+}
