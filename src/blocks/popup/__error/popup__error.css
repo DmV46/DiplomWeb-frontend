@@ -1,0 +1,14 @@
+.popup__error{
+  height: 16px;
+  margin-bottom: 8px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+}
+
+.popup__error:last-child{
+  margin-bottom: 4px;
+  text-align: center;
+}

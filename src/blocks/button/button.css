@@ -1,0 +1,9 @@
+.button{
+  border-radius: 100px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  outline:none;
+  cursor: pointer;
+}

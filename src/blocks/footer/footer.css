@@ -1,9 +1,9 @@
-@import url(../footer/__container/footer__container.css);
-@import url(../footer/__copyright/footer__copyright.css);
-@import url(../footer/__navigation/footer__navigation.css);
-@import url(../footer/__links/footer__links.css);
-@import url(../footer/__link/footer__link.css);
-@import url(../footer/__social/footer__social.css);
+@import url(./__container/footer__container.css);
+@import url(./__copyright/footer__copyright.css);
+@import url(./__navigation/footer__navigation.css);
+@import url(./__links/footer__links.css);
+@import url(./__link/footer__link.css);
+@import url(./__social/footer__social.css);
 
 .footer{
   width: 100%;

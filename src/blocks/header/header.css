@@ -1,16 +1,22 @@
-@import url(../header/_white/header_white.css);
-@import url(../header/_black/header_black.css);
-@import url(../header/__container/header__container.css);
-@import url(../header/__logo/header__logo.css);
-@import url(../header/__link/header__link.css);
-@import url(../header/__link/_unvisible/header__link_unvisible.css);
-@import url(../header/__link/_selected/header__link_selected.css);
-@import url(../header/__button/header__button.css);
-@import url(../header/__button/_unvisible/header__button_unvisible.css);
+@import url(./_white/header_white.css);
+@import url(./_black/header_black.css);
+@import url(./__container/header__container.css);
+@import url(./__logo/header__logo.css);
+@import url(./__logo/_color/_white/header__logo_color_white.css);
+@import url(./__logo/_color/_black/header__logo_color_black.css);
+
+@import url(./__link/header__link.css);
+@import url(./__link/_color/_white/header__link_color_white.css);
+@import url(./__link/_color/_black/header__link_color_black.css);
+@import url(./__link/_color/_gray/header__link_color_gray.css);
+@import url(./__link/_unvisible/header__link_unvisible.css);
+@import url(./__link/_selected/header__link_selected.css);
+@import url(./__button/header__button.css);
+@import url(./__button/_color/_white/header__button_color_white.css);
+@import url(./__button/_color/_black/header__button_color_black.css);
+@import url(./__button/_unvisible/header__button_unvisible.css);
 
 .header{
   width: 100%;
-  position: absolute;
   border-bottom: 1px solid rgba(196, 196, 196, 0.1);
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
 }
