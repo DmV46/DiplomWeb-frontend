@@ -11,7 +11,7 @@
 @import url(./__news/result__news.css);
 @import url(./__keywords/result__keywords.css);
 @import url(./__news-tooltip/result__news-tooltip.css);
-@import url(./__news-tooltip/_text/_small/result__news-tooltip_text_small.css);
+@import url(./__news-tooltip/_deleted/result__news-tooltip_deleted.css);
 @import url(./__news-selected/result__news-selected.css);
 @import url(./__news-img-container/result__news-img-container.css);
 @import url(./__news-img/result__news-img.css);

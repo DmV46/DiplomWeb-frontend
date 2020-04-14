@@ -4,10 +4,9 @@
 @import url(./_size/_large/roboto_size_large.css);
 @import url(./_size/_extra-large/roboto_size_extra-large.css);
 @import url(./_size/_extra-extra-large/roboto_size_extra-extra-large.css);
-@import url(./_weight/_normal/roboto_weight_normal.css);
 @import url(./_weight/_medium/roboto_weight_medium.css);
-@import url(./_weight/_bold/roboto_weight_bold.css);
+@import url(./_weight/_black/roboto_weight_black.css);
 
 .roboto{
-  font-family: 'Roboto', 'Arial', sans-serif;
+  font-family: 'Roboto', 'Arial', 'sans-serif';
 }
