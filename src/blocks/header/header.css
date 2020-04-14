@@ -4,7 +4,6 @@
 @import url(./__logo/header__logo.css);
 @import url(./__logo/_color/_white/header__logo_color_white.css);
 @import url(./__logo/_color/_black/header__logo_color_black.css);
-
 @import url(./__link/header__link.css);
 @import url(./__link/_color/_white/header__link_color_white.css);
 @import url(./__link/_color/_black/header__link_color_black.css);
@@ -15,6 +14,8 @@
 @import url(./__button/_color/_white/header__button_color_white.css);
 @import url(./__button/_color/_black/header__button_color_black.css);
 @import url(./__button/_unvisible/header__button_unvisible.css);
+@import url(./__container-sign-out/header__container-sign-out.css);
+@import url(./__icon/header__icon.css);
 
 .header{
   width: 100%;

@@ -1,0 +1,11 @@
+@import url(./_size/_extra-small/roboto-slab_size_extra-small.css);
+@import url(./_size/_small/roboto-slab_size_small.css);
+@import url(./_size/_medium/roboto-slab_size_medium.css);
+@import url(./_size/_large/roboto-slab_size_large.css);
+@import url(./_size/_extra-large/roboto-slab_size_extra-large.css);
+@import url(./_weight/_normal/roboto-slab_weight_normal.css);
+@import url(./_weight/_bold/roboto-slab_weight_bold.css);
+
+.roboto-slab{
+  font-family: 'Roboto Slab', 'Arial', sans-serif;
+}

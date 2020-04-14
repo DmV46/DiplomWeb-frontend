@@ -1,0 +1,6 @@
+@import url(./_size/_small/inter_size_small.css);
+@import url(./_size/_medium/inter_size_medium.css);
+
+.inter{
+  font-family: 'Inter', 'Arial', sans-serif;
+}
