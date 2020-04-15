@@ -14,10 +14,9 @@
       <div class="header__container">
         <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_white" href="./index.html">FindNews</a>
         <nav class="header__navigation">
-          <!-- не видит жирность шрифта -->
           <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white header__link_selected">Главная</a>
-          <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray">Сохранённые статьи</a>
-          <button id="sign-in" class="button header__button header__button_color_white">Авторизоваться</button>
+          <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray ">Сохранённые статьи</a>
+          <button id="sign-in" class="button header__button header__button_color_white header__link_unvisible">Авторизоваться</button>
           <button id="sign-out" class="button header__button header__button_color_white">
             <div class="header__container-sign-out">
               Дмитрий<img class="header__icon" src="../../images/icon-logout_white.svg" alt="logout_white">
@@ -36,7 +35,7 @@
         </div>
       </div>
     </section>
-    <section class="result">
+    <section class="result result_founded">
       <div class="result__find result__find_unvisible">
         <img class="result__find-img result__find-img_spin"  src="../../images/circle-placeload.png" alt="circle-placeload">
         <p class="roboto roboto_size_extra-large result__find-text">Идет поиск новостей...</p>
@@ -47,7 +46,7 @@
         <p class="roboto roboto_size_extra-large result__find-text">К сожалению по вашему запросу ничего не найдено.</p>
       </div>
       <h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
-        <div class="result__container">
+        <div class="result__container result__container_position_large">
           <div class="result__news">
             <div class="result__news-selected">
               <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
@@ -59,7 +58,7 @@
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
               <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Национальное достояние – парки</a>
-              <p class="result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+              <p class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
               <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
             </div>
           </div>
@@ -89,12 +88,12 @@
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
               <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</a>
-              <p class="result__news-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              <p class="roboto roboto_size_large result__news-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
               <p class="roboto-slab roboto-slab_size_extra-small  result__news-source">Риа</p>
             </div>
-          </div>  
+          </div>
       </div>
-      <button class="button result__button-more" >Показать еще</button>    
+      <button class="button result__button-more" >Показать еще</button>
     </section>
     <section class="about">
       <div class="about__container">
@@ -118,10 +117,10 @@
           </div>
           <div class="footer__socials">
             <a class="footer__social" href="https://github.com/DmV46/DiplomWeb-frontend" target="_blank">
-              <img src="../../images/icon-github.svg" alt="github">
+              <img class="footer__img" src="../../images/icon-github.svg" alt="github">
             </a>
             <a class="footer__social" href="https://www.facebook.com/yandex.praktikum" target="_blank">
-              <img src="../../images/icon-facebook.svg" alt="facebook">
+              <img class="footer__img" src="../../images/icon-facebook.svg" alt="facebook">
             </a>
           </div>
         </div>
@@ -172,7 +171,7 @@
       </form>
     </div>
   </div>
-  <div class="popup" >
+  <div class="popup"style="display: none;" >
     <div class="popup__content">
       <img src= "../../images/close.svg" alt="" class="popup__close" >
       <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title popup__title_position">Пользователь успешно зарегистрирован!</h1>

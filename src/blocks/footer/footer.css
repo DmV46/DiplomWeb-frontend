@@ -3,8 +3,24 @@
 @import url(./__navigation/footer__navigation.css);
 @import url(./__links/footer__links.css);
 @import url(./__link/footer__link.css);
+@import url(./__socials/footer__socials.css);
 @import url(./__social/footer__social.css);
+@import url(./__img/footer__img.css);
 
 .footer{
   width: 100%;
+}
+
+@media (max-width: 768px){
+  .footer__container{
+    max-width: 688px;
+  }
+
+  .footer__navigation{
+    max-width: 360px;
+  }
+
+  .footer__links{
+    max-width: 264px;
+  }
 }

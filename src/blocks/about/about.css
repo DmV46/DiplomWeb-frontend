@@ -4,3 +4,25 @@
 @import url(./__text-container/about__text-container.css);
 @import url(./__title/about__title.css);
 @import url(./__text/about__text.css);
+
+@media (max-width: 768px){
+  .about__container{
+    max-width: 688px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .about__fhoto-container{
+    max-width: 232px;
+  }
+
+  .about__title{
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .about__text:last-child{
+    margin-top: 16px;
+  }
+}
