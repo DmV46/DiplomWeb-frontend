@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.saved_articles.css %>">
   <title>Сохраненные статьи</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
       <div class="header__container">
         <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_black" href="../index/index.html">FindNews</a>
         <nav class="header__navigation">
-          <a href="../index/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black ">Главная</a>
+          <a href="/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black ">Главная</a>
           <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black header__link_selected">Сохранённые статьи</a>
           <button id="sign-out" class="button header__button header__button_color_black">
             <div class="header__container-sign-out">
@@ -27,7 +27,7 @@
       </label>
       <aside class="header__aside header__aside_color_white">
         <div class="header__aside-content">
-          <a href="../index/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Главная</a>
+          <a href="/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Главная</a>
           <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Сохранённые статьи</a>
           <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
           <button id="sign-out" class="button header__button header__button_color_black">
@@ -92,7 +92,7 @@
           </div>
           <div class="result__news-description" >
             <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="#">Лесные огоньки: история одной фотографии</a>
             <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
             <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
           </div>
@@ -151,5 +151,6 @@
       </div>
     </footer>
   </div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.chunks.saved_articles.entry %>"></script>
 </body>
 </html>

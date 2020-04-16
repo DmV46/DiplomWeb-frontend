@@ -9,12 +9,12 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    'pages/index/index': './src/pages/index/index.js',
-    'pages/saved-articles/saved-articles': './src/pages/saved-articles/index.js',
+    'main': './src/pages/index/index.js',
+    'saved_articles': './src/pages/saved-articles/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: '[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [{
@@ -25,7 +25,7 @@ module.exports = {
     {
       test: /\.css$/, // применять это правило только к CSS-файлам
       use: [
-        (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+        isDev ? { loader: 'style-loader' } : { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } },
         'css-loader',
         'postcss-loader',
       ], // к этим файлам нужно применить пакеты, которые мы уже установили
@@ -33,7 +33,7 @@ module.exports = {
     {
       test: /\.(png|jpg|gif|ico|svg)$/,
       use: [
-        'file-loader?name=images/[name].[ext]', // абсолютный путь!!!
+        isDev ? 'file-loader?name=./images/[name].[ext]' : 'file-loader?name=images/[name].[ext]',
         {
           loader: 'image-webpack-loader',
           options: {
@@ -44,13 +44,14 @@ module.exports = {
     },
     {
       test: /\.(eot|ttf|woff|woff2)$/,
-      loader: 'file-loader?name=vendor/[name].[ext]',
+      loader: 'file-loader?name=./vendor/fonts/[name].[ext]&publicPath=../',
     },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ 
-      filename: 'style.[contenthash].css' }),
+    new MiniCssExtractPlugin({
+      filename: '[name]/[name].[contenthash].css'
+    }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
@@ -60,20 +61,20 @@ module.exports = {
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
-      // Означает, что:
       inject: false, // стили НЕ нужно прописывать внутри тегов
+      // chunks: ['index'],
       template: './src/pages/index/index.html', // откуда брать образец для сравнения с текущим видом проекта
-      filename: './pages/index/index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      filename: './index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
     }),
     new HtmlWebpackPlugin({
-      // Означает, что:
       inject: false, // стили НЕ нужно прописывать внутри тегов
+      // chunks: ['saved-articles'],
       template: './src/pages/saved-articles/index.html', // откуда брать образец для сравнения с текущим видом проекта
-      filename: './pages/saved-articles/index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      filename: './saved_articles/index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
 };

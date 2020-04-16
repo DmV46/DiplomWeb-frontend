@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис поиска новостных статей">
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
   <link rel="icon" href="../../images/favicon.svg" type="image/svg">
   <title>Главная</title>
 </head>
@@ -15,7 +15,7 @@
         <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_white" href="./index.html">FindNews</a>
         <nav class="header__navigation">
           <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white header__link_selected">Главная</a>
-          <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray ">Сохранённые статьи</a>
+          <a href="/saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray ">Сохранённые статьи</a>
           <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
           <button id="sign-out" class="button header__button header__button_color_white">
             <div class="header__container-sign-out">
@@ -31,7 +31,7 @@
         <aside class="header__aside header__aside_color_black">
           <div class="header__aside-content">
             <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Главная</a>
-            <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Сохранённые статьи</a>
+            <a href="/saved-articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Сохранённые статьи</a>
             <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
             <button id="sign-out" class="button header__button header__button_color_white">
               <div class="header__container-sign-out">
@@ -90,7 +90,7 @@
             </div>
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="#">Лесные огоньки: история одной фотографии</a>
               <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
               <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
             </div>
@@ -105,7 +105,7 @@
             </div>
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</a>
+              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="#">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</a>
               <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
               <p class="roboto-slab roboto-slab_size_extra-small  result__news-source">Риа</p>
             </div>
@@ -196,5 +196,6 @@
         <p class="inter inter_size_large popup__text popup__text_position"><a href="#" class="popup__link">Выполнить вход</a></p>
     </div>
   </div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>
