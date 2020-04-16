@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="main">
-    <header class="header header_black">
+    <header class="header header_white">
       <div class="header__container">
         <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_black" href="../index/index.html">FindNews</a>
         <nav class="header__navigation">
@@ -20,7 +20,25 @@
             </div>
           </button>
         </nav>
+        <input class="header__mobile-menu" type="checkbox" id="myInput">
+        <label class="header__label" for="myInput">
+          <span class="header__bar header__bar_top header__bar_color_black"></span>
+          <span class="header__bar header__bar_bottom header__bar_color_black"></span>
+      </label>
+      <aside class="header__aside header__aside_color_white">
+        <div class="header__aside-content">
+          <a href="../index/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Главная</a>
+          <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Сохранённые статьи</a>
+          <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
+          <button id="sign-out" class="button header__button header__button_color_black">
+            <div class="header__container-sign-out">
+              Дмитрий<img class="header__icon" src="../../images/icon-logout_dark.svg" alt="logout_dark">
+            </div>
+          </button>
+        </div>
+      </aside>
       </div>
+      <hr class="header__line">
     </header>
     <section class="info">
       <div class="info__container">

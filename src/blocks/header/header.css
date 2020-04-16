@@ -1,5 +1,4 @@
-@import url(./_white/header_white.css);
-@import url(./_black/header_black.css);
+@import url(./_position/header_position.css);
 @import url(./__container/header__container.css);
 @import url(./__logo/header__logo.css);
 @import url(./__logo/_color/_white/header__logo_color_white.css);
@@ -8,18 +7,26 @@
 @import url(./__link/_color/_white/header__link_color_white.css);
 @import url(./__link/_color/_black/header__link_color_black.css);
 @import url(./__link/_color/_gray/header__link_color_gray.css);
-@import url(./__link/_unvisible/header__link_unvisible.css);
 @import url(./__link/_selected/header__link_selected.css);
 @import url(./__button/header__button.css);
 @import url(./__button/_color/_white/header__button_color_white.css);
 @import url(./__button/_color/_black/header__button_color_black.css);
-@import url(./__button/_unvisible/header__button_unvisible.css);
 @import url(./__container-sign-out/header__container-sign-out.css);
 @import url(./__icon/header__icon.css);
+@import url(./__mobile-menu/header__mobile-menu.css);
+@import url(./__label/header__label.css);
+@import url(./__bar/header__bar.css);
+@import url(./__bar/_color/_white/header__bar_color_white.css);
+@import url(./__bar/_color/_black/header__bar_color_black.css);
+@import url(./__aside/header__aside.css);
+@import url(./__aside/_color/_black/header__aside_color_black.css);
+@import url(./__aside/_color/_white/header__aside_color_white.css);
+@import url(./__aside-content/header__aside-content.css);
+@import url(./__line/header__line.css);
 
 .header{
   width: 100%;
-  border-bottom: 1px solid rgba(196, 196, 196, 0.1);
+  border-bottom: 1px solid rgba(196, 196, 196, 0.01);
 }
 
 @media (max-width: 768px){
@@ -35,5 +42,33 @@
 
   .header__button{
     font-size: 16px;
+  }
+}
+
+@media (max-width: 320px){
+  .header__aside{
+    display: flex;
+  }
+
+  .header__container{
+    max-width: 288px;
+    height: 56px;
+  }
+
+  .header__logo{
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .header__navigation{
+    display: none;
+  }
+
+  .header__label{
+    display: block;
+  }
+
+  .header__container-sign-out{
+    justify-content: center;
   }
 }

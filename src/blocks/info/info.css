@@ -37,3 +37,23 @@
     line-height: 24px;
   }
 }
+
+@media (max-width: 320px){
+  .info{
+    padding-top: 8px;
+  }
+
+  .info__container{
+    max-width: 288px;
+  }
+
+  .info__saved{
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .info__subtitle{
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

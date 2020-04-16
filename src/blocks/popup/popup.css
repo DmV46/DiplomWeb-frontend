@@ -24,5 +24,17 @@
   align-items: center;
   justify-content: center;
   z-index: 100000;
-  /* display: block; */
+  display: none;
+}
+
+@media (max-width: 320px){
+  .popup_mobile{
+    align-items: unset;
+    height: calc(100vh - 56px);
+    top: 56px
+  }
+
+  .popup__content{
+    padding: 16px;
+  }
 }

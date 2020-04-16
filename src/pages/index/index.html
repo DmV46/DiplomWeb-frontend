@@ -10,20 +10,38 @@
 </head>
 <body>
   <div class="main">
-    <header class="header header_white">
+    <header class="header header_position">
       <div class="header__container">
         <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_white" href="./index.html">FindNews</a>
         <nav class="header__navigation">
           <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white header__link_selected">Главная</a>
           <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray ">Сохранённые статьи</a>
-          <button id="sign-in" class="button header__button header__button_color_white header__link_unvisible">Авторизоваться</button>
+          <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
           <button id="sign-out" class="button header__button header__button_color_white">
             <div class="header__container-sign-out">
               Дмитрий<img class="header__icon" src="../../images/icon-logout_white.svg" alt="logout_white">
             </div>
           </button>
         </nav>
+        <input class="header__mobile-menu" type="checkbox" id="myInput">
+        <label class="header__label" for="myInput">
+            <span class="header__bar header__bar_top header__bar_color_white"></span>
+            <span class="header__bar header__bar_bottom header__bar_color_white"></span>
+        </label>
+        <aside class="header__aside header__aside_color_black">
+          <div class="header__aside-content">
+            <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Главная</a>
+            <a href="../saved-articles/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Сохранённые статьи</a>
+            <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
+            <button id="sign-out" class="button header__button header__button_color_white">
+              <div class="header__container-sign-out">
+                Дмитрий<img class="header__icon" src="../../images/icon-logout_white.svg" alt="logout_white">
+              </div>
+            </button>
+          </div>
+        </aside>
       </div>
+      <hr class="header__line">
     </header>
     <section class="search">
       <div class="search__container">
@@ -36,11 +54,11 @@
       </div>
     </section>
     <section class="result result_founded">
-      <div class="result__find result__find_unvisible">
+      <div class="result__find unvisible">
         <img class="result__find-img result__find-img_spin"  src="../../images/circle-placeload.png" alt="circle-placeload">
         <p class="roboto roboto_size_extra-large result__find-text">Идет поиск новостей...</p>
       </div>
-      <div class="result__find result__find_unvisible">
+      <div class="result__find unvisible">
         <img class="result__find-img" src="../../images/not-found.svg" alt="not-found">
         <h2 class="roboto-slab roboto-slab_size_medium result__not-found-text">Ничего не найдено</h2>
         <p class="roboto roboto_size_extra-large result__find-text">К сожалению по вашему запросу ничего не найдено.</p>
@@ -58,7 +76,7 @@
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
               <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Национальное достояние – парки</a>
-              <p class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+              <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
               <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
             </div>
           </div>
@@ -88,7 +106,7 @@
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
               <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</a>
-              <p class="roboto roboto_size_large result__news-text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
               <p class="roboto-slab roboto-slab_size_extra-small  result__news-source">Риа</p>
             </div>
           </div>
@@ -134,7 +152,7 @@
       </div>
     </div>
   </template>
-  <div class="popup" style="display: none;">
+  <div class="popup popup_mobile" >
     <div class="popup__content">
       <img src= "../../images/close.svg" alt="" class="popup__close" >
       <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title">Регистрация</h1>
@@ -154,7 +172,7 @@
       </form>
     </div>
   </div>
-  <div class="popup" style="display: none;">
+  <div class="popup popup_mobile">
     <div class="popup__content">
       <img src= "../../images/close.svg" alt="" class="popup__close" >
       <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title">Вход</h1>
@@ -171,7 +189,7 @@
       </form>
     </div>
   </div>
-  <div class="popup"style="display: none;" >
+  <div class="popup" >
     <div class="popup__content">
       <img src= "../../images/close.svg" alt="" class="popup__close" >
       <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title popup__title_position">Пользователь успешно зарегистрирован!</h1>

@@ -1,0 +1,6 @@
+.header__aside-content{
+  max-width: 288px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

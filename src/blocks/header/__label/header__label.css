@@ -1,0 +1,6 @@
+.header__label{
+  display: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 102;
+}

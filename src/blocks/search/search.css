@@ -45,3 +45,31 @@
     padding: 15px 50px;
   }
 }
+
+@media (max-width: 320px){
+  .search{
+    background-image: url(../../images/search_for_320.png);
+  }
+
+  .search__container{
+    max-width: 288px;
+  }
+
+  .search__subtitle{
+    margin-bottom: 122px;
+  }
+  .search__input-container{
+    flex-direction: column;
+  }
+
+  .search__input{
+    width: auto;
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
+
+  .search__button{
+    position: unset;
+
+  }
+}

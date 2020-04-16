@@ -4,6 +4,10 @@
   margin-bottom: 16px;
   color: #1A1B22;
   text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .result__news-title:hover{
