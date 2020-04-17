@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Личный кабинет сохраненных новостных статей">
+  <link rel="stylesheet" href="../saved_articles/saved_articles.3ad444f61328fd1675dc.css">
+  <link rel="icon" href="./images/favicon.svg"  type="image/svg">
+  <title>Сохраненные статьи</title>
+</head>
+<body>
+  <div class="main">
+    <header class="header header_white">
+      <div class="header__container">
+        <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_black" href="/">FindNews</a>
+        <nav class="header__navigation">
+          <a href="/" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black ">Главная</a>
+          <a href="/saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black header__link_selected">Сохранённые статьи</a>
+          <button id="sign-out" class="button header__button header__button_color_black">
+            <div class="header__container-sign-out">
+              Дмитрий<img class="header__icon" src="./images/icon-logout_dark.svg" alt="logout_dark">
+            </div>
+          </button>
+        </nav>
+        <input class="header__mobile-menu" type="checkbox" id="myInput">
+        <label class="header__label" for="myInput">
+          <span class="header__bar header__bar_top header__bar_color_black"></span>
+          <span class="header__bar header__bar_bottom header__bar_color_black"></span>
+      </label>
+      <aside class="header__aside header__aside_color_white">
+        <div class="header__aside-content">
+          <a href="/" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Главная</a>
+          <a href="/saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_black">Сохранённые статьи</a>
+          <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
+          <button id="sign-out" class="button header__button header__button_color_black">
+            <div class="header__container-sign-out">
+              Дмитрий<img class="header__icon" src="./images/icon-logout_dark.svg"  alt="logout_dark">
+            </div>
+          </button>
+        </div>
+      </aside>
+      </div>
+      <hr class="header__line">
+    </header>
+    <section class="info">
+      <div class="info__container">
+        <p class="roboto roboto_size_extra-large info__saved">Сохранённые статьи</p>
+        <h1 class="roboto-slab roboto-slab_size_large info__title">Грета, у вас 5 сохранённых статей </h1>
+        <h2 class="roboto roboto_size_extra-large info__subtitle">По ключевым словам: <span class="info__keywords">Природа</span>, <span class="info__keywords">Тайга</span> и <span class="info__keywords">2 другим</span></h2>
+      </div>
+    </section>
+    <section class="result result_saved">
+      <div class="result__container result__container_position_small">
+        <div class="result__news">
+          <div class="result__keywords">Природа</div>
+          <div class="result__news-selected">
+            <span class="roboto roboto_size_small roboto_weight_medium result__news-tooltip result__news-tooltip_deleted">Убрать из сохранённых</span>
+            <img class="result__news-selected-icon" src="./images/delete-article.svg"  alt="icon-delete">
+          </div>
+          <div class="result__news-img-container">
+            <img class="result__news-img" src="./images/card-image.png"  alt="news-image">
+          </div>
+          <div class="result__news-description" >
+            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+            <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
+          </div>
+        </div>
+        <div class="result__news">
+          <div class="result__keywords">Природа</div>
+          <div class="result__news-selected">
+            <span class="roboto roboto_size_small roboto_weight_medium result__news-tooltip result__news-tooltip_deleted">Убрать из сохранённых</span>
+            <img class="result__news-selected-icon" src="./images/delete-article.svg" alt="icon-delete">
+          </div>
+          <div class="result__news-img-container">
+            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
+          </div>
+          <div class="result__news-description" >
+            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+            <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
+          </div>
+        </div>
+        <div class="result__news">
+          <div class="result__keywords">Природа</div>
+          <div class="result__news-selected">
+            <span class="roboto roboto_size_small roboto_weight_medium result__news-tooltip result__news-tooltip_deleted">Убрать из сохранённых</span>
+            <img class="result__news-selected-icon" src="./images/delete-article.svg" alt="icon-delete">
+          </div>
+          <div class="result__news-img-container">
+            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
+          </div>
+          <div class="result__news-description" >
+            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="#">Лесные огоньки: история одной фотографии</a>
+            <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
+          </div>
+        </div>
+        <div class="result__news">
+          <div class="result__keywords">Природа</div>
+          <div class="result__news-selected">
+            <span class="roboto roboto_size_small roboto_weight_medium result__news-tooltip result__news-tooltip_deleted">Убрать из сохранённых</span>
+            <img class="result__news-selected-icon" src="./images/delete-article.svg"  alt="icon-delete">
+          </div>
+          <div class="result__news-img-container">
+            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
+          </div>
+          <div class="result__news-description" >
+            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+            <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
+          </div>
+        </div>
+        <div class="result__news">
+          <div class="result__keywords">Природа</div>
+          <div class="result__news-selected">
+            <span class="roboto roboto_size_small roboto_weight_medium result__news-tooltip result__news-tooltip_deleted">Убрать из сохранённых</span>
+            <img class="result__news-selected-icon" src="./images/delete-article.svg"  alt="icon-delete">
+          </div>
+          <div class="result__news-img-container">
+            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
+          </div>
+          <div class="result__news-description" >
+            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
+            <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Лесные огоньки: история одной фотографии</a>
+            <p class="roboto roboto_size_large result__news-text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Медуза</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__container">
+        <p class="roboto roboto_size_large footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
+        <div class="footer__navigation">
+          <div class="footer__links">
+            <a class="roboto roboto_size_extra-large footer__link" href="../index/index.html">Главная</a>
+            <a class="roboto roboto_size_extra-large footer__link" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
+          </div>
+          <div class="footer__socials">
+            <a class="footer__social" href="https://github.com/DmV46/DiplomWeb-frontend" target="_blank">
+              <img src="./images/icon-github.svg" alt="github">
+            </a>
+            <a class="footer__social" href="https://www.facebook.com/yandex.praktikum" target="_blank">
+              <img src="./images/icon-facebook.svg" alt="facebook">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../saved_articles/saved_articles.19a631517f6d367c6073.js"></script>
+</body>
+</html>
