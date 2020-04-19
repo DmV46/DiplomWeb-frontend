@@ -12,10 +12,6 @@
     padding-bottom: 60px;
   }
 
-  .about__fhoto-container{
-    max-width: 232px;
-  }
-
   .about__title{
     font-size: 30px;
     line-height: 40px;
@@ -27,7 +23,7 @@
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 320px){
   .about__container{
     max-width: 288px;
     flex-direction: column;
@@ -37,7 +33,6 @@
   }
 
   .about__fhoto-container{
-    max-width: 272px;
     margin-right: 0;
     margin-bottom: 24px;
 

@@ -6,4 +6,6 @@
   line-height: 24px;
   outline:none;
   cursor: pointer;
+  color: inherit;
+  border-color: unset
 }

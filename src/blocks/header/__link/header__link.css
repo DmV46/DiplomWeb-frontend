@@ -1,5 +1,9 @@
 .header__link{
   margin-right: 32px;
-  padding-bottom: 27px;
   text-decoration: none;
+  color: #B6BCBF;
+}
+
+.header__link:hover{
+  color: inherit;
 }

@@ -8,12 +8,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    saved_articles: './src/pages/saved-articles/index.js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
+    main: './src/pages/main/index.js',
+    saved_articles: './src/pages/saved_articles/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -41,7 +37,7 @@ module.exports = {
     {
       test: /\.(png|jpg|gif|ico|svg)$/,
       use: [
-        'file-loader?name=images/[name].[ext]',
+        'file-loader?name=./images/[name].[ext]',
         {
           loader: 'image-webpack-loader',
           options: {
@@ -71,14 +67,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false, // стили НЕ нужно прописывать внутри тегов
-      template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
+      template: './src/pages/main/index.html', // откуда брать образец для сравнения с текущим видом проекта
       filename: './index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
       favicon: './src/favicon.svg'
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/pages/saved-articles/index.html',
-      filename: './saved_articles/index.html',
+      template: './src/pages/saved_articles/index.html',
+      filename: './saved_articles.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

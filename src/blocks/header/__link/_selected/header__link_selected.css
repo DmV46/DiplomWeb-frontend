@@ -1,3 +1,5 @@
 .header__link_selected{
-  border-bottom: 3px solid ;
+  padding-bottom: 28px;
+  color: inherit;
+  border-bottom: 3px solid;
 }

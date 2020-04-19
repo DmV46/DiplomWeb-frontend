@@ -1,32 +1,22 @@
 @import url(./_position/header_position.css);
+@import url(./_color/_white/header_color_white.css);
+@import url(./_color/_black/header_color_black.css);
 @import url(./__container/header__container.css);
 @import url(./__logo/header__logo.css);
-@import url(./__logo/_color/_white/header__logo_color_white.css);
-@import url(./__logo/_color/_black/header__logo_color_black.css);
 @import url(./__link/header__link.css);
-@import url(./__link/_color/_white/header__link_color_white.css);
-@import url(./__link/_color/_black/header__link_color_black.css);
-@import url(./__link/_color/_gray/header__link_color_gray.css);
 @import url(./__link/_selected/header__link_selected.css);
 @import url(./__button/header__button.css);
-@import url(./__button/_color/_white/header__button_color_white.css);
-@import url(./__button/_color/_black/header__button_color_black.css);
 @import url(./__container-sign-out/header__container-sign-out.css);
 @import url(./__icon/header__icon.css);
 @import url(./__mobile-menu/header__mobile-menu.css);
 @import url(./__label/header__label.css);
 @import url(./__bar/header__bar.css);
-@import url(./__bar/_color/_white/header__bar_color_white.css);
-@import url(./__bar/_color/_black/header__bar_color_black.css);
-@import url(./__aside/header__aside.css);
-@import url(./__aside/_color/_black/header__aside_color_black.css);
-@import url(./__aside/_color/_white/header__aside_color_white.css);
-@import url(./__aside-content/header__aside-content.css);
+@import url(./__bar/_bg-color/_white/header__bar_bg-color_white.css);
+@import url(./__bar/_bg-color/_black/header__bar_bg-color_black.css);
 @import url(./__line/header__line.css);
 
 .header{
   width: 100%;
-  border-bottom: 1px solid rgba(196, 196, 196, 0.01);
 }
 
 @media (max-width: 768px){
@@ -36,7 +26,6 @@
 
   .header__link{
     margin-right: 16px;
-    padding-bottom: 28px;
     font-size: 16px;
   }
 
@@ -46,10 +35,6 @@
 }
 
 @media (max-width: 320px){
-  .header__aside{
-    display: flex;
-  }
-
   .header__container{
     max-width: 288px;
     height: 56px;
@@ -61,7 +46,33 @@
   }
 
   .header__navigation{
-    display: none;
+    display: flex;
+    width: 100%;
+    height: 286px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 101;
+    align-items: flex-end;
+  }
+
+  .header__navigation_bg-color_white{
+    background-color: #fff;
+  }
+
+  .header__navigation_bg-color_black{
+    background: #1A1B22;
+  }
+
+  .header__nav-container{
+    max-width: 288px;
+    width: 100%;
+    height: 196px;
+    margin: 0 auto;
+    display: inherit;
+    flex-direction: column;
   }
 
   .header__label{
@@ -70,5 +81,13 @@
 
   .header__container-sign-out{
     justify-content: center;
+  }
+
+  .header__link_selected{
+    border-bottom: unset;
+  }
+
+  .header__button{
+    margin-top: 48px;
   }
 }

@@ -1,6 +1,9 @@
 .header__button{
   padding: 11px 18px;
   background-color: unset;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
 }
 
 .header__button:active{

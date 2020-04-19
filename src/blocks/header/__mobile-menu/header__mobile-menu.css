@@ -3,7 +3,7 @@
   z-index: 102;
 }
 
-.header__mobile-menu:checked ~ .header__aside {
+.header__mobile-menu:checked ~ .header__navigation {
   transform: translateY(0%);
 }
 
