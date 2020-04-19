@@ -18,13 +18,15 @@
             <span class="header__bar header__bar_top header__bar_bg-color_white"></span>
             <span class="header__bar header__bar_bottom header__bar_bg-color_white"></span>
         </label>
+        <!-- FIXME: -->
         <!-- надо менять динамически bg для выпадающего меню -->
-        <nav class="header__navigation header__navigation_bg-color_black">
+        <!-- переделать выпадающее меню без фиксированной высоты -->
+        <nav class="header__navigation ">
           <div class="header__nav-container">
             <a href="./index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_selected">Главная</a>
             <a href="./saved_articles.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Сохранённые статьи</a>
-            <button id="header__sign-in" class="button header__button ">Авторизоваться</button>
-            <button id="header__sign-out" class="button header__button unvisible">
+            <button class="button header__button header__button_auth">Авторизоваться</button>
+            <button class="button header__button header__button_logout">
               <div class="header__container-sign-out">
                 Дмитрий<img class="header__icon" src="<%=require('../../images/icon-logout_white.svg').default%>"  alt="logout_white">
               </div>
