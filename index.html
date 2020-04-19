@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис поиска новостных статей">
-  <link rel="stylesheet" href="main/main.0b535b0d3d55bd13f0e0.css">
+  <link rel="stylesheet" href="main/main.c39e67a1c40893b90fb2.css">
   <link rel="icon" href="favicon.svg"  type="image/svg">
   <title>Главная</title>
 </head>
@@ -12,12 +12,12 @@
   <div class="main">
     <header class="header header_position">
       <div class="header__container">
-        <a class="roboto-slab roboto-slab_size_small header__logo header__logo_color_white" href="/">FindNews</a>
+        <a class="roboto-slab roboto-slab_size_small header__logo" href="/index.html">FindNews</a>
         <nav class="header__navigation">
-          <a href="/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white header__link_selected">Главная</a>
+          <a href="/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_selected">Главная</a>
           <a href="/saved_articles.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_gray ">Сохранённые статьи</a>
-          <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
-          <button id="sign-out" class="button header__button header__button_color_white">
+          <button id="sign-in" class="button header__button unvisible">Авторизоваться</button>
+          <button id="sign-out" class="button header__button">
             <div class="header__container-sign-out">
               Дмитрий<img class="header__icon" src="./images/icon-logout_white.svg"  alt="logout_white">
             </div>
@@ -30,10 +30,10 @@
         </label>
         <aside class="header__aside header__aside_color_black">
           <div class="header__aside-content">
-            <a href="#" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Главная</a>
-            <a href="/saved-articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_color_white">Сохранённые статьи</a>
-            <button id="sign-in" class="button header__button header__button_color_white unvisible">Авторизоваться</button>
-            <button id="sign-out" class="button header__button header__button_color_white">
+            <a href="/index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Главная</a>
+            <a href="/saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Сохранённые статьи</a>
+            <button id="sign-in" class="button header__button unvisible">Авторизоваться</button>
+            <button id="sign-out" class="button header__button">
               <div class="header__container-sign-out">
                 Дмитрий<img class="header__icon" src="./images/icon-logout_white.svg" alt="logout_white">
               </div>
@@ -47,10 +47,10 @@
       <div class="search__container">
         <h1 class="roboto-slab roboto-slab_size_extra-large search__title">Что в мире творится?</h1>
         <h2 class="roboto roboto_size_extra-large search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-        <div class="search__input-container">
+        <form class="search__input-container">
           <input class="roboto roboto_size_large search__input" type="text" placeholder="Введите тему новости">
-          <button class="button search__button">Искать</button>
-        </div>
+          <button class="button search__button" type="submit">Искать</button>
+        </form>
       </div>
     </section>
     <section class="result result_founded">
@@ -75,7 +75,7 @@
             </div>
             <div class="result__news-description" >
               <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="http://">Национальное достояние – парки</a>
+              <a class="roboto-slab roboto-slab_size_medium result__news-title" href="#">Национальное достояние – парки</a>
               <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
               <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
             </div>
@@ -115,12 +115,11 @@
     </section>
     <section class="about">
       <div class="about__container">
-        <!-- <div class="about__fhoto-container"> -->
-          <picture >
-            <source srcset="fhoto.png">
-          </picture>
-          <!-- <img class="about__fhoto" src="./images/fhoto.png" alt="fhoto"> -->
-        <!-- </div> -->
+        <picture class="about__fhoto-container">
+          <source srcset="./images/avatar_mobile.png" media="(max-width: 320px)">
+          <source srcset="./images/avatar_tablet.png" media="(max-width: 768px)">
+          <img src="./images/avatar_desktop.png" alt="fhoto">
+        </picture>
         <div class="about__text-container">
           <h2 class="roboto-slab roboto-slab_size_large about__title">Об авторе</h2>
           <p class="roboto roboto_size_extra-large about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
@@ -133,11 +132,11 @@
         <p class="roboto roboto_size_large footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
         <div class="footer__navigation">
           <div class="footer__links">
-            <a class="roboto roboto_size_extra-large footer__link" href="#">Главная</a>
+            <a class="roboto roboto_size_extra-large footer__link" href="/index.html">Главная</a>
             <a class="roboto roboto_size_extra-large footer__link" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
           </div>
           <div class="footer__socials">
-            <a class="footer__social" href="https://github.com/DmV46/DiplomWeb-frontend" target="_blank">
+            <a class="footer__social" href="https://github.com/DmV46" target="_blank">
               <img class="footer__img" src="./images/icon-github.svg" alt="github">
             </a>
             <a class="footer__social" href="https://www.facebook.com/yandex.praktikum" target="_blank">
@@ -155,50 +154,6 @@
       </div>
     </div>
   </template>
-  <div class="popup popup_mobile" >
-    <div class="popup__content">
-      <img src="./images/close.svg" alt="close" class="popup__close" >
-      <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title">Регистрация</h1>
-      <form class="popup__form">
-        <label class="inter inter_size_small popup__label" for="popup__email">Email</label>
-        <input class="inter inter_size_medium popup__input" type="email" name="email" id="email" placeholder="Введите почту">
-        <span class="inter inter_size_small popup__error"></span>
-        <label class="inter inter_size_small popup__label" for="popup__password">Пароль</label>
-        <input class="inter inter_size_medium popup__input" type="password" name="password" id="password" placeholder="Введите пароль">
-        <span class="inter inter_size_small popup__error"></span>
-        <label class="inter inter_size_small popup__label" for="popup__name">Имя</label>
-        <input class="inter inter_size_medium popup__input" type="text" name="" id="name" placeholder="Введите своё имя">
-        <span class="popup__error"></span>
-        <span class="inter inter_size_small popup__error popup__error_submit">Такой пользователь уже есть</span>
-        <button class="button popup__button" type="submit" disabled>Зарегистрироваться</button>
-        <p class="inter inter_size_medium popup__text">или <a href="#" class="popup__link">Войти</a></p>
-      </form>
-    </div>
-  </div>
-  <div class="popup popup_mobile">
-    <div class="popup__content">
-      <img src="./images/close.svg" alt="close" class="popup__close" >
-      <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title">Вход</h1>
-      <form class="popup__form">
-        <label class="inter inter_size_small popup__label" for="popup__email">Email</label>
-        <input class="inter inter_size_medium popup__input" type="email" name="email" id="email" placeholder="Введите почту">
-        <span class="inter inter_size_small popup__error"></span>
-        <label class="inter inter_size_small popup__label" for="popup__password">Пароль</label>
-        <input class="inter inter_size_medium popup__input" type="password" name="password" id="password" placeholder="Введите пароль">
-        <span class="inter inter_size_small popup__error"></span>
-        <span class="inter inter_size_small popup__error popup__error_submit">vwrgwgwgw</span>
-        <button class="button popup__button" type="submit" disabled>Войти</button>
-        <p class="popup__text">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
-      </form>
-    </div>
-  </div>
-  <div class="popup" >
-    <div class="popup__content">
-      <img src="./images/close.svg" alt="close" class="popup__close" >
-      <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title popup__title_position">Пользователь успешно зарегистрирован!</h1>
-        <p class="inter inter_size_large popup__text popup__text_position"><a href="#" class="popup__link">Выполнить вход</a></p>
-    </div>
-  </div>
   <script type="module" src="main/main.19a631517f6d367c6073.js"></script>
 </body>
 </html>
