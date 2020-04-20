@@ -10,6 +10,10 @@ module.exports = {
     "document": false
   },
   "rules":{
-    "no-underscore-dangle": ["error", { "allowAfterThis": true }]
+    "no-underscore-dangle": ["error",
+    {
+      "allowAfterThis": true,
+      "allowAfterSuper": true
+    }]
   }
 }
