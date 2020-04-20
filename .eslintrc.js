@@ -14,6 +14,7 @@ module.exports = {
     {
       "allowAfterThis": true,
       "allowAfterSuper": true
-    }]
+    }],
+    "no-useless-escape": "off"
   }
 }

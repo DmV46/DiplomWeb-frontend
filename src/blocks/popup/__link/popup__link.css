@@ -5,4 +5,5 @@
 
 .popup__link:hover{
   opacity: .3;
+  cursor: pointer;
 }

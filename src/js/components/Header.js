@@ -9,13 +9,13 @@ export default class Header {
 
   render(props) {
     HEADER.classList.add(this._color);
-    if (props.isLoggedIn === false) {
-      BTN_LOG_OUT.classList.add('unvisible');
-      NAV_LINKS[1].classList.add('unvisible');
-    } else {
+    if (props.isLoggedIn) {
       BTN_AUTH.classList.add('unvisible');
       BTN_LOG_OUT.classList.remove('unvisible');
       NAV_LINKS[1].classList.remove('unvisible');
+    } else {
+      BTN_LOG_OUT.classList.add('unvisible');
+      NAV_LINKS[1].classList.add('unvisible');
     }
   }
 }
