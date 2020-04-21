@@ -9,7 +9,7 @@
   <title>Главная</title>
 </head>
 <body class="main">
-  <header class="header header_position">
+  <header class="header header_position roboto roboto_size_extra-large roboto_weight_medium ">
     <div class="header__container">
       <a class="roboto-slab roboto-slab_size_small header__logo" href="./index.html">FindNews</a>
       <input class="header__mobile-menu" type="checkbox" id="myInput">
@@ -19,15 +19,14 @@
       </label>
       <!-- FIXME: -->
       <!-- переделать выпадающее меню без фиксированной высоты -->
+      <!-- убрать нахрен классы со шрифтами(очень мешают чтению кода) -->
       <nav class="header__navigation ">
         <div class="header__nav-container">
-          <a href="./index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_selected">Главная</a>
-          <a href="./saved_articles.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Сохранённые статьи</a>
+          <a href="./" class="header__link header__link_selected">Главная</a>
+          <a href="./pages/saved_articles/" class="header__link">Сохранённые статьи</a>
           <button class="button header__button header__button_auth">Авторизоваться</button>
-          <button class="button header__button header__button_logout">
-            <div class="header__container-sign-out">
-              Дмитрий<img class="header__icon" src="<%=require('../../images/icon-logout_white.svg').default%>"  alt="logout_white">
-            </div>
+          <button class="button header__button header__button_sign-out">
+              Дмитрий<img class="header__icon" src="<%=require('./images/icon-logout_white.svg').default%>"  alt="logout_white">
           </button>
         </div>
       </nav>
@@ -46,11 +45,11 @@
   </section>
   <section class="result result_founded">
     <div class="result__find unvisible">
-      <img class="result__find-img result__find-img_spin" src="<%=require('../../images/circle-placeload.png').default%>"  alt="circle-placeload">
+      <img class="result__find-img result__find-img_spin" src="<%=require('./images/circle-placeload.png').default%>"  alt="circle-placeload">
       <p class="roboto roboto_size_extra-large result__find-text">Идет поиск новостей...</p>
     </div>
     <div class="result__find unvisible">
-      <img class="result__find-img" src="<%=require('../../images/not-found.svg').default%>" alt="not-found">
+      <img class="result__find-img" src="<%=require('./images/not-found.svg').default%>" alt="not-found">
       <h2 class="roboto-slab roboto-slab_size_medium result__not-found-text">Ничего не найдено</h2>
       <p class="roboto roboto_size_extra-large result__find-text">К сожалению по вашему запросу ничего не найдено.</p>
     </div>
@@ -59,10 +58,10 @@
         <div class="result__news">
           <div class="result__news-selected">
             <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="<%=require('../../images/favorites.svg').default%>" alt="favorites">
+            <img class="result__news-selected-icon" src="<%=require('./images/favorites.svg').default%>" alt="favorites">
           </div>
           <div class="result__news-img-container">
-            <img class="result__news-img" src="<%=require('../../images/card-image.png').default%>" alt="news-image">
+            <img class="result__news-img" src="<%=require('./images/card-image.png').default%>" alt="news-image">
           </div>
           <div class="result__news-description" >
             <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
@@ -74,10 +73,10 @@
         <div class="result__news">
           <div class="result__news-selected">
             <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="<%=require('../../images/favorites.svg').default%>" alt="favorites">
+            <img class="result__news-selected-icon" src="<%=require('./images/favorites.svg').default%>" alt="favorites">
           </div>
           <div class="result__news-img-container">
-            <img class="result__news-img" src="<%=require('../../images/card-image.png').default%>" alt="news-image">
+            <img class="result__news-img" src="<%=require('./images/card-image.png').default%>" alt="news-image">
           </div>
           <div class="result__news-description" >
             <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
@@ -89,10 +88,10 @@
         <div class="result__news">
           <div class="result__news-selected">
             <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="<%=require('../../images/favorites.svg').default%>" alt="favorites">
+            <img class="result__news-selected-icon" src="<%=require('./images/favorites.svg').default%>" alt="favorites">
           </div>
           <div class="result__news-img-container">
-            <img class="result__news-img" src="<%=require('../../images/card-image.png').default%>" alt="news-image">
+            <img class="result__news-img" src="<%=require('./images/card-image.png').default%>" alt="news-image">
           </div>
           <div class="result__news-description" >
             <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
@@ -107,9 +106,9 @@
   <section class="about">
     <div class="about__container">
       <picture class="about__fhoto-container">
-        <source srcset="<%=require('../../images/avatar_mobile.png').default%>" media="(max-width: 320px)">
-        <source srcset="<%=require('../../images/avatar_tablet.png').default%>" media="(max-width: 768px)">
-        <img src="<%=require('../../images/avatar_desktop.png').default%>" alt="fhoto">
+        <source srcset="<%=require('./images/avatar_mobile.png').default%>" media="(max-width: 320px)">
+        <source srcset="<%=require('./images/avatar_tablet.png').default%>" media="(max-width: 768px)">
+        <img src="<%=require('./images/avatar_desktop.png').default%>" alt="fhoto">
       </picture>
       <div class="about__text-container">
         <h2 class="roboto-slab roboto-slab_size_large about__title">Об авторе</h2>
@@ -128,10 +127,10 @@
         </div>
         <div class="footer__socials">
           <a class="footer__social" href="https://github.com/DmV46" target="_blank">
-            <img class="footer__img" src="<%=require('../../images/icon-github.svg').default%>" alt="github">
+            <img class="footer__img" src="<%=require('./images/icon-github.svg').default%>" alt="github">
           </a>
           <a class="footer__social" href="https://www.facebook.com/yandex.praktikum" target="_blank">
-            <img class="footer__img" src="<%=require('../../images/icon-facebook.svg').default%>" alt="facebook">
+            <img class="footer__img" src="<%=require('./images/icon-facebook.svg').default%>" alt="facebook">
           </a>
         </div>
       </div>
@@ -140,7 +139,7 @@
   <template id="popup-template">
     <div class="popup">
       <div class="popup__content">
-        <img src="<%=require('../../images/close.svg').default%>" alt="close" class="popup__close" >
+        <img src="<%=require('./images/close.svg').default%>" alt="close" class="popup__close" >
         <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title"></h1>
       </div>
     </div>

@@ -7,10 +7,11 @@
   box-sizing: border-box;
   border-radius: 100px;
   backdrop-filter: blur(8px);
-  border: unset;
+  border: 1px;
   outline:none;
 }
 
 .search__input::placeholder{
   color: #B6BCBF;
 }
+

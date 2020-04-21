@@ -43,6 +43,7 @@ export default class Popup {
     this._element.querySelector('.popup__close').removeEventListener('click', this._close);
   }
 
+  // TODO: добавить закрытие по нажатию вне попапа
   _handleEscClose(event) {
     if (event.keyCode === ESCAPE_CODE) {
       this._close();

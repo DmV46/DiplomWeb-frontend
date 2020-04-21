@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]/[name].[chunkhash].js',
+    filename: 'pages/[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [{
@@ -49,13 +49,13 @@ module.exports = {
     },
     {
       test: /\.(eot|ttf|woff|woff2)$/i,
-      loader: 'file-loader?name=./vendor/fonts/[name].[ext]',
+      loader: 'file-loader?name=./fonts/[name].[ext]',
     },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]/[name].[contenthash].css'
+      filename: 'pages/[name]/[name].[contenthash].css'
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
@@ -67,14 +67,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false, // стили НЕ нужно прописывать внутри тегов
-      template: './src/pages/main/index.html', // откуда брать образец для сравнения с текущим видом проекта
+      template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
       filename: './index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
       favicon: './src/favicon.svg'
     }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/saved_articles/index.html',
-      filename: './saved_articles.html',
+      filename: './pages/saved_articles/saved_articles.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
