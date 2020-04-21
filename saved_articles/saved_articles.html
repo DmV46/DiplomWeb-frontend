@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Личный кабинет сохраненных новостных статей">
-  <link rel="stylesheet" href="saved_articles/saved_articles.f5510e52d743d213a3f5.css">
+  <link rel="stylesheet" href="../saved_articles/saved_articles.e4dda460b0242121712a.css">
   <link rel="icon" href="favicon.svg"  type="image/svg">
   <title>Сохраненные статьи</title>
 </head>
@@ -12,33 +12,22 @@
   <div class="main">
     <header class="header header_color_black">
       <div class="header__container">
-        <a class="roboto-slab roboto-slab_size_small header__logo" href="/">FindNews</a>
-        <nav class="header__navigation">
-          <a href="./" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Главная</a>
-          <a href="./saved_articles.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_selected">Сохранённые статьи</a>
-          <button id="sign-out" class="button header__button">
-            <div class="header__container-sign-out">
-              Дмитрий<img class="header__icon" src="./images/icon-logout_dark.svg" alt="logout_dark">
-            </div>
-          </button>
-        </nav>
+        <a class="roboto-slab roboto-slab_size_small header__logo" href="./index.html">FindNews</a>
         <input class="header__mobile-menu" type="checkbox" id="myInput">
         <label class="header__label" for="myInput">
-          <span class="header__bar header__bar_top header__bar_color_black"></span>
-          <span class="header__bar header__bar_bottom header__bar_color_black"></span>
-      </label>
-      <aside class="header__aside header__aside_color_white">
-        <div class="header__aside-content">
-          <a href="./index.html" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Главная</a>
-          <a href="./saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Сохранённые статьи</a>
-          <button id="sign-in" class="button header__button unvisible">Авторизоваться</button>
-          <button id="sign-out" class="button header__button">
-            <div class="header__container-sign-out">
-              Дмитрий<img class="header__icon" src="./images/icon-logout_dark.svg"  alt="logout_dark">
+          <span class="header__bar header__bar_top header__bar_bg-color_black "></span>
+          <span class="header__bar header__bar_bottom header__bar_bg-color_black"></span>
+        </label>
+        <!-- надо менять динамически bg для выпадающего меню -->
+        <nav class="header__navigation header__navigation_bg-color_white">
+          <div class="header__nav-container">
+            <a href="../" class="roboto roboto_size_extra-large roboto_weight_medium header__link">Главная</a>
+            <a href="../saved_articles" class="roboto roboto_size_extra-large roboto_weight_medium header__link header__link_selected">Сохранённые статьи</a>
+            <div id="sign-out" class="button header__button header__button_sign-out">
+                Дмитрий<img class="header__icon" src="./images/icon-logout_dark.svg" alt="logout_dark">
             </div>
-          </button>
-        </div>
-      </aside>
+          </div>
+        </nav>
       </div>
       <hr class="header__line">
     </header>
@@ -153,6 +142,6 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="saved_articles/saved_articles.19a631517f6d367c6073.js"></script>
+  <script type="module" src="../saved_articles/saved_articles.7869a1e614cde37f1b4f.js"></script>
 </body>
 </html>
