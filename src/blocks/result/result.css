@@ -1,9 +1,8 @@
 @import url(./_saved/result_saved.css);
 @import url(./_founded/result_founded.css);
-@import url(./__find/_unvisible/result__find_unvisible.css);
+@import url(./_unvisible/result_unvisible.css);
 @import url(./__find-img/result__find-img.css);
 @import url(./__find-img/_spin/result__find-img_spin.css);
-@import url(./__find/result__find.css);
 @import url(./__find-text/result__find-text.css);
 @import url(./__not-found-text/result__not-found-text.css);
 @import url(./__title/result__title.css);

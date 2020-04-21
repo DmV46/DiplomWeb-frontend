@@ -36,6 +36,14 @@
   }
 
   .popup__content{
+    border-radius: 16px 16px 0 0;
     padding: 16px;
+  }
+
+  .popup__close{
+    width: 24px;
+    height: 24px;
+    top: -41px;
+    right: 12px;
   }
 }

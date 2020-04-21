@@ -18,12 +18,7 @@ export default class PopupSignIn extends Popup {
   open(contentSignUp) {
     this._element.querySelector('.popup__title').textContent = 'Вход';
     this._element.querySelector('.popup__content').insertAdjacentHTML('beforeend', popupSignIn);
-    this._element.querySelector('.popup__link').addEventListener('click', () => this._heandlerChange(contentSignUp));
+    this._element.querySelector('.popup__link').addEventListener('click', () => super._heandlerChange(contentSignUp));
     super.open();
-  }
-
-  _heandlerChange(content) {
-    super._close();
-    content.open(this);
   }
 }

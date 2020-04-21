@@ -3,9 +3,13 @@
 @import url(./_color/_black/header_color_black.css);
 @import url(./__container/header__container.css);
 @import url(./__logo/header__logo.css);
+@import url(./__navigation/header__navigation.css);
+@import url(./__link-container/header__link-container.css);
 @import url(./__link/header__link.css);
 @import url(./__link/_selected/header__link_selected.css);
+@import url(./__link/_unvisible/header__link_unvisible.css);
 @import url(./__button/header__button.css);
+@import url(./__button/_unvisible/header__button_unvisible.css);
 @import url(./__icon/header__icon.css);
 @import url(./__mobile-menu/header__mobile-menu.css);
 @import url(./__label/header__label.css);
@@ -24,7 +28,6 @@
   }
 
   .header__link{
-    margin-right: 16px;
     font-size: 16px;
   }
 
@@ -47,14 +50,16 @@
   .header__navigation{
     display: flex;
     width: 100%;
-    height: 286px;
+    height: fit-content;
+    padding-top: 72px;
+    padding-bottom: 24px;
     position: absolute;
     top: 0;
     left: 0;
     transform: translateY(-100%);
     transition: transform 0.4s ease-in-out;
     z-index: 101;
-    align-items: flex-end;
+    flex-direction: column;
   }
 
   .header__navigation_bg-color_white{
@@ -65,28 +70,32 @@
     background: #1A1B22;
   }
 
-  .header__nav-container{
+  .header__link-container{
     max-width: 288px;
+    height: fit-content;
     width: 100%;
-    height: 196px;
-    margin: 0 auto;
-    display: inherit;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .header__link{
+    margin-top: 16px;
+    margin-bottom: 24px;
   }
 
   .header__label{
     display: block;
   }
 
-  .header__container-sign-out{
-    justify-content: center;
-  }
-
   .header__link_selected{
+    padding-bottom: unset;
+    align-self: unset;
     border-bottom: unset;
   }
 
   .header__button{
-    margin-top: 48px;
+    width: 288px;
+    justify-content: center;
   }
 }

@@ -16,15 +16,35 @@ const formSignUp = `<form class="popup__form">
   </form>`;
 
 export default class PopupSignUp extends Popup {
-  open(contentSignIn) {
+  constructor(selector, container) {
+    super(selector, container);
+    this._label = null;
+    this._showMobMenu = this._showMobMenu.bind(this);
+  }
+
+  open(contentSignIn, labelMenuHeader) {
+    this._label = labelMenuHeader;
     this._element.querySelector('.popup__title').textContent = 'Регистрация';
     this._element.querySelector('.popup__content').insertAdjacentHTML('beforeend', formSignUp);
-    this._element.querySelector('.popup__link').addEventListener('click', () => this._heandlerChange(contentSignIn));
+    this._element.querySelector('.popup__link').addEventListener('click', () => super._heandlerChange(contentSignIn));
+    this._setEventListeners();
+
     super.open();
   }
 
-  _heandlerChange(content) {
-    super._close();
-    content.open(this);
+  _setEventListeners() {
+    if (document.body.clientWidth <= 320) {
+      this._element.querySelector('.popup__close').addEventListener('click', this._showMobMenu);
+    }
+    super._setEventListeners();
+  }
+
+  _removeEventListeners() {
+    this._element.querySelector('.popup__close').removeEventListener('click', this._showMobMenu);
+    super._removeEventListeners();
+  }
+
+  _showMobMenu() {
+    this._label.style.display = 'block';
   }
 }

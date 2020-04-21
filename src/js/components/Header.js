@@ -1,5 +1,5 @@
 import {
-  HEADER, BTN_AUTH, BTN_LOG_OUT, NAV_LINKS,
+  HEADER, BTN_AUTH, BTN_SIGN_OUT, NAV_LINKS,
 } from '../constants/constants';
 
 export default class Header {
@@ -10,12 +10,12 @@ export default class Header {
   render(props) {
     HEADER.classList.add(this._color);
     if (props.isLoggedIn) {
-      BTN_AUTH.classList.add('unvisible');
-      BTN_LOG_OUT.classList.remove('unvisible');
-      NAV_LINKS[1].classList.remove('unvisible');
+      BTN_AUTH.classList.add('header__button_unvisible');
+      BTN_SIGN_OUT.classList.remove('header__button_unvisible');
+      NAV_LINKS[1].classList.remove('header__link_unvisible');
     } else {
-      BTN_LOG_OUT.classList.add('unvisible');
-      NAV_LINKS[1].classList.add('unvisible');
+      BTN_SIGN_OUT.classList.add('header__button_unvisible');
+      NAV_LINKS[1].classList.add('header__link_unvisible');
     }
   }
 }

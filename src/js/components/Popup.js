@@ -49,4 +49,9 @@ export default class Popup {
       this._close();
     }
   }
+
+  _heandlerChange(content) {
+    this._close();
+    content.open(this);
+  }
 }
