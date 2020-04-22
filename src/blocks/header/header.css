@@ -1,6 +1,4 @@
 @import url(./_position/header_position.css);
-@import url(./_color/_white/header_color_white.css);
-@import url(./_color/_black/header_color_black.css);
 @import url(./__container/header__container.css);
 @import url(./__logo/header__logo.css);
 @import url(./__navigation/header__navigation.css);

@@ -2,16 +2,18 @@ import './index.css';
 import Header from './js/components/Header';
 import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
-import { props, HEADER_BUTTON, BODY } from './js/constants/constants';
+import {
+  props, HEADER_BUTTON, BODY,
+} from './js/constants/constants';
 
-const header = new Header('header_color_white', props);
+const header = new Header('#fff');
 const popupSignUp = new PopupSignUp('#popup-template', BODY);
 const popupSignIn = new PopupSignIn('#popup-template', BODY);
 
-// временно
-header.propsUser.userName = 'Дмитрий';
-header.propsUser.isLoggedIn = true;
-header.render();
+props.isLoggedIn = false;
+header.render(props);
+document.querySelectorAll('.header__link')[0].classList.add('header__link_selected');
+
 
 if (HEADER_BUTTON.classList.contains('header__button_auth')) {
   HEADER_BUTTON.addEventListener('click', () => {
@@ -19,7 +21,7 @@ if (HEADER_BUTTON.classList.contains('header__button_auth')) {
   });
 } else {
   HEADER_BUTTON.addEventListener('click', () => {
-    document.querySelectorAll('.header__link')[1].remove();
-    header.render(props);
+    // document.querySelectorAll('.header__link')[1].remove();
+    // header.render(props);
   });
 }

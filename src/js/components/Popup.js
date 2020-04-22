@@ -10,6 +10,7 @@ export default class Popup {
     this.open = this.open.bind(this);
   }
 
+  // TODO: переделать открытие и вставку контента..
   open() {
     this._setContent();
     this._element.classList.add('popup_is-opened');
