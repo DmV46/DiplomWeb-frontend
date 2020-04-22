@@ -1,7 +1,7 @@
 export const ESCAPE_CODE = 27;
 
 export const props = {
-  isLoggedIn: false,
+  isLoggedIn: true,
   userName: null,
 };
 export const BODY = document.querySelector('.main');

@@ -9,6 +9,8 @@ const popupSignUp = new PopupSignUp('#popup-template', BODY);
 const popupSignIn = new PopupSignIn('#popup-template', BODY);
 
 // временно
+props.isLoggedIn = true;
+props.userName = 'Дмитрий';
 header.render();
 
 if (HEADER_BUTTON.classList.contains('header__button_auth')) {
