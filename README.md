@@ -1,7 +1,10 @@
 # DiplomWeb-frontend
 
-- developer - Volodin Dmitry;
-- version - [v1.0.0](https://github.com/DmV46/DiplomWeb-frontend.git);
+- Developer - Volodin Dmitry;
+- gh-pages [v1.0.0] (https://dmv46.github.io/DiplomWeb-frontend/);
+
+## The project is the result of completing the final diploma at Yandex.Practicum at the faculty of web development
+## Result - 2 page web site interacting with two APIs (internal and external)
 
 ### Beginning of work
 
@@ -15,7 +18,7 @@
     npm -v
     ```
 
-    if necessary, install NPM 
+    if necessary, install NPM
     ```
     npm init
     ```
@@ -38,7 +41,6 @@ npm run deploy
 ```
 
 #### Syntax and style checking
-additionally option --fix (look file package.json)
 ```
 npm run eslint
 ```

@@ -1,7 +1,7 @@
 import './index.css';
 import Header from './js/components/Header';
 import {
-  props, BTN_AUTH, BTN_SIGN_OUT, BODY, CHECKBOX_MENU, LABEL_MENU,
+  props, BTN_AUTH, BTN_SIGN_OUT, BODY,
 } from './js/constants/constants';
 import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
