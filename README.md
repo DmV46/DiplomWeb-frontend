@@ -3,8 +3,9 @@
 - Developer - Volodin Dmitry;
 - gh-pages [v1.0.0] (https://dmv46.github.io/DiplomWeb-frontend/);
 
-The project is the result of completing the final diploma at Yandex.Practicum at the faculty of web development.
-Result - 2 page web site interacting with two APIs (internal and external)
+The project is the result of completing the final diploma at Yandex.Practicum at the faculty of web development
+
+Result - a two-page web site interacting with two Api (internal and external)
 
 #### Beginning of work
 
