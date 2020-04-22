@@ -15,11 +15,7 @@ header.render(props);
 
 if (!BTN_AUTH.classList.contains('header__button_unvisible')) {
   BTN_AUTH.addEventListener('click', () => {
-    popupSignUp.open(popupSignIn, LABEL_MENU);
-    if (BODY.clientWidth <= 320) {
-      CHECKBOX_MENU.checked = false;
-      LABEL_MENU.style.display = 'none';
-    }
+    popupSignUp.open(popupSignIn, header);
   });
 } else {
   BTN_SIGN_OUT.addEventListener('click', () => {

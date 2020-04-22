@@ -50,8 +50,8 @@ export default class Popup {
     }
   }
 
-  _heandlerChange(content) {
+  _heandlerChange(content, header) {
     this._close();
-    content.open(this);
+    content.open(this, header);
   }
 }
