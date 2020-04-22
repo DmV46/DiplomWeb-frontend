@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис поиска новостных статей">
-  <link rel="stylesheet" href="main/main.5657121a0a0bc5334b61.css">
+  <link rel="stylesheet" href="main/main.d82e79f75d1095a2c76e.css">
   <link rel="icon" href="favicon.svg"  type="image/svg">
   <title>Главная</title>
 </head>
@@ -12,23 +12,20 @@
   <header class="header header_position roboto roboto_size_extra-large roboto_weight_medium ">
     <div class="header__container">
       <a class="roboto-slab roboto-slab_size_small header__logo" href="./index.html">FindNews</a>
-      <input class="header__mobile-menu" type="checkbox" id="myInput">
-      <label class="header__label" for="myInput">
+      <input class="header__mobile-menu" type="checkbox" id="mobile-input">
+      <label class="header__label" for="mobile-input">
           <span class="header__bar header__bar_top header__bar_bg-color_white"></span>
           <span class="header__bar header__bar_bottom header__bar_bg-color_white"></span>
       </label>
-      <!-- FIXME: -->
-      <!-- переделать выпадающее меню без фиксированной высоты -->
-      <!-- убрать нахрен классы со шрифтами(очень мешают чтению кода) -->
-      <nav class="header__navigation ">
-        <div class="header__nav-container">
-          <a href="index.html" class="header__link header__link_selected">Главная</a>
-          <a href="./saved_articles/index.html" class="header__link">Сохранённые статьи</a>
-          <button class="button header__button header__button_auth">Авторизоваться</button>
-          <div class="button header__button header__button_sign-out">
-              Дмитрий<img class="header__icon" src="./images/icon-logout_white.svg"  alt="logout_white">
-          </div>
+      <nav class="header__navigation header__navigation_bg-color_black">
+        <div class="header__link-container">
+          <a href="./" class="header__link header__link_selected">Главная</a>
+          <a href="./saved_articles" class="header__link">Сохранённые статьи</a>
         </div>
+        <button class="button header__button header__button_auth">Авторизоваться</button>
+        <button class="button header__button header__button_sign-out">
+            Дмитрий<img class="header__icon" src="./images/icon-logout_white.svg"  alt="logout_white">
+        </button>
       </nav>
     </div>
     <hr class="header__line">
@@ -44,16 +41,17 @@
     </div>
   </section>
   <section class="result result_founded">
-    <div class="result__find unvisible">
+    <div class="result__search-in-progress result_unvisible">
       <img class="result__find-img result__find-img_spin" src="./images/circle-placeload.png"  alt="circle-placeload">
       <p class="roboto roboto_size_extra-large result__find-text">Идет поиск новостей...</p>
     </div>
-    <div class="result__find unvisible">
+    <div class="result__not-found result_unvisible">
       <img class="result__find-img" src="./images/not-found.svg" alt="not-found">
       <h2 class="roboto-slab roboto-slab_size_medium result__not-found-text">Ничего не найдено</h2>
       <p class="roboto roboto_size_extra-large result__find-text">К сожалению по вашему запросу ничего не найдено.</p>
     </div>
-    <h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
+    <div class="result__found">
+      <h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
       <div class="result__container result__container_position_large">
         <div class="result__news">
           <div class="result__news-selected">
@@ -100,8 +98,9 @@
             <p class="roboto-slab roboto-slab_size_extra-small  result__news-source">Риа</p>
           </div>
         </div>
-    </div>
+      </div>
     <button class="button result__button-more" >Показать еще</button>
+    </div>
   </section>
   <section class="about">
     <div class="about__container">
@@ -137,13 +136,13 @@
     </div>
   </footer>
   <template id="popup-template">
-    <div class="popup">
+    <div class="popup popup_mobile">
       <div class="popup__content">
         <img src="./images/close.svg" alt="close" class="popup__close" >
         <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title"></h1>
       </div>
     </div>
   </template>
-  <script type="module" src="main/main.6792cf68aa4a5b53e409.js"></script>
+  <script type="module" src="main/main.ff9f72cad5b60e6408b6.js"></script>
 </body>
 </html>
