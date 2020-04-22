@@ -4,7 +4,7 @@
 @import url(./__container/header__container.css);
 @import url(./__logo/header__logo.css);
 @import url(./__navigation/header__navigation.css);
-@import url(./__link-container/header__link-container.css);
+@import url(./__links-container/header__links-container.css);
 @import url(./__link/header__link.css);
 @import url(./__link/_selected/header__link_selected.css);
 @import url(./__link/_unvisible/header__link_unvisible.css);
@@ -70,7 +70,7 @@
     background: #1A1B22;
   }
 
-  .header__link-container{
+  .header__links-container{
     max-width: 288px;
     height: fit-content;
     width: 100%;

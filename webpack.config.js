@@ -77,8 +77,5 @@ module.exports = {
       filename: './saved_articles/index.html',
     }),
     new WebpackMd5Hash(),
-    new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    }),
   ],
 };

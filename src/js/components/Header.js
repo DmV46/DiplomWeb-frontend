@@ -1,23 +1,37 @@
+import iconLogoutDark from '../../images/icon-logout_dark.svg';
+import iconLogoutWhite from '../../images/icon-logout_white.svg';
 import {
-  HEADER, BTN_AUTH, BTN_SIGN_OUT, NAV_LINKS, CHECKBOX_MENU, LABEL_MENU,
+  HEADER,
+  HEADER_BUTTON,
+  HEADER_LINKS_CONTAINER,
+  CHECKBOX_MENU,
+  LABEL_MENU,
 } from '../constants/constants';
 
+
 export default class Header {
-  constructor(color) {
+  constructor(color, props) {
     this._color = color;
+    this.propsUser = props;
     this._boxMenu = CHECKBOX_MENU;
     this._labelMenu = LABEL_MENU;
   }
 
-  render(props) {
+  render() {
     HEADER.classList.add(this._color);
-    if (props.isLoggedIn) {
-      BTN_AUTH.classList.add('header__button_unvisible');
-      BTN_SIGN_OUT.classList.remove('header__button_unvisible');
-      NAV_LINKS[1].classList.remove('header__link_unvisible');
+    if (this.propsUser.isLoggedIn) {
+      HEADER_BUTTON.classList.add('header__button_sign-out');
+      HEADER_BUTTON.innerHTML = `<span class='header__user'>${this.propsUser.userName}</span><img class="header__icon" src="${iconLogoutWhite}" alt="logout_dark">`;
+      HEADER_LINKS_CONTAINER.insertAdjacentHTML('beforeend', '<a href="../saved_articles" class="header__link ">Сохранённые статьи</a>');
+      if (document.location.pathname === '/') {
+        document.querySelectorAll('.header__link')[0].classList.add('header__link_selected');
+      } else {
+        document.querySelectorAll('.header__link')[1].classList.add('header__link_selected');
+        HEADER_BUTTON.querySelector('.header__icon').src = iconLogoutDark;
+      }
     } else {
-      BTN_SIGN_OUT.classList.add('header__button_unvisible');
-      NAV_LINKS[1].classList.add('header__link_unvisible');
+      HEADER_BUTTON.classList.add('header__button_auth');
+      HEADER_BUTTON.innerHTML = 'Авторизоваться';
     }
   }
 
