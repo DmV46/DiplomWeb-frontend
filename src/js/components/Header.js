@@ -16,7 +16,6 @@ export default class Header {
   }
 
   render(props) {
-    console.log(this._color);
     HEADER.style.color = `${this._color}`;
     if (props.isLoggedIn) {
       HEADER_BUTTON.classList.add('header__button_sign-out');
