@@ -81,7 +81,7 @@
   }
 
   .header__links-container{
-    max-width: 288px;
+    max-width: 382px;
     height: fit-content;
     width: 100%;
     flex-direction: column;
@@ -105,7 +105,7 @@
   }
 
   .header__button{
-    width: 288px;
+    width: 382px;
     justify-content: center;
   }
 }
@@ -114,10 +114,27 @@
   .header__container{
     max-width: 336px;
   }
+
+  .header__links-container{
+    max-width: 336px;
+  }
+
+  .header__button{
+    width: 336px;
+  }
 }
 
 @media (max-width: 320px){
   .header__container{
     max-width: 288px;
   }
+
+  .header__links-container{
+    max-width: 288px;
+  }
+
+  .header__button{
+    width: 288px;
+  }
+
 }

@@ -23,17 +23,18 @@ export default class PopupSignUp extends Popup {
 
   open(contentSignIn, header) {
     this._header = header;
+    console.log(this._header);
     this._element.querySelector('.popup__title').textContent = 'Регистрация';
     this._element.querySelector('.popup__content').insertAdjacentHTML('beforeend', formSignUp);
     this._element.querySelector('.popup__link').addEventListener('click', () => super._heandlerChange(contentSignIn, header));
-    if (document.body.clientWidth <= 320) {
+    if (document.body.clientWidth <= 414) {
       this._header.hideMobileMenu();
     }
     super.open();
   }
 
   _close() {
-    if (document.body.clientWidth <= 320) {
+    if (document.body.clientWidth <= 414) {
       this._header.showMobileMenu();
     }
     super._close();

@@ -21,7 +21,6 @@ if (HEADER_BUTTON.classList.contains('header__button_auth')) {
   });
 } else {
   HEADER_BUTTON.addEventListener('click', () => {
-    // document.querySelectorAll('.header__link')[1].remove();
-    // header.render(props);
+
   });
 }
