@@ -10,12 +10,14 @@ import {
 export default class Header {
   constructor(color) {
     this._color = color;
+
     this._boxMenu = CHECKBOX_MENU;
     this._labelMenu = LABEL_MENU;
   }
 
   render(props) {
-    HEADER.style.color = this._color;
+    console.log(this._color);
+    HEADER.style.color = `${this._color}`;
     if (props.isLoggedIn) {
       HEADER_BUTTON.classList.add('header__button_sign-out');
       HEADER_BUTTON.innerHTML = `<span class='header__user'>${props.userName}</span>

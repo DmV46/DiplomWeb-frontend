@@ -9,6 +9,12 @@
   padding-bottom: 56px;
 }
 
+@media (max-width: 1024px){
+  .info__container{
+    max-width: 944px;
+  }
+}
+
 @media (max-width: 768px){
   .info{
     padding-top: 24px;
@@ -37,6 +43,19 @@
     line-height: 24px;
   }
 }
+
+@media (max-width: 414px){
+  .info__container{
+    max-width: 382px;
+  }
+}
+
+@media (max-width: 375px){
+  .info__container{
+    max-width: 336px;
+  }
+}
+
 
 @media (max-width: 320px){
   .info{
