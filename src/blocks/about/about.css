@@ -1,0 +1,58 @@
+@import url(./__container/about__container.css);
+@import url(./__fhoto-container/about__fhoto-container.css);
+@import url(./__fhoto/about__fhoto.css);
+@import url(./__text-container/about__text-container.css);
+@import url(./__title/about__title.css);
+@import url(./__text/about__text.css);
+
+@media (max-width: 1024px){
+  .about__container{
+    max-width: 944px;
+  }
+}
+
+@media (max-width: 768px){
+  .about__container{
+    max-width: 688px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .about__title{
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .about__text:last-child{
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 414px){
+  .about__container{
+    max-width: 382px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+
+  .about__fhoto-container{
+    margin-right: 0;
+    margin-bottom: 24px;
+
+  }
+}
+
+@media (max-width: 375px){
+  .about__container{
+    max-width: 336px;
+  }
+}
+
+@media (max-width: 320px){
+  .about__container{
+    max-width: 288px;
+  }
+}

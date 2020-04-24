@@ -1,0 +1,12 @@
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.result__find-img_spin{
+  width: 74px;
+	height: 74px;
+  animation: spin .9s infinite linear;
+}
+

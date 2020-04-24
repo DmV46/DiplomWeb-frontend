@@ -1,0 +1,9 @@
+.result__news-description{
+  max-height: 304px;
+  height: 100%;
+  padding: 20px 24px 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

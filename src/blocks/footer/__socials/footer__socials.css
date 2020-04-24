@@ -1,0 +1,7 @@
+.footer__socials{
+  max-width: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

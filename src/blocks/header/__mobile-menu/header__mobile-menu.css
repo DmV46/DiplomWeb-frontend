@@ -1,0 +1,17 @@
+.header__mobile-menu{
+  display: none;
+  z-index: 102;
+}
+
+.header__mobile-menu:checked ~ .header__navigation {
+  transform: translateY(0%);
+}
+
+.header__mobile-menu:checked ~ .header__label .header__bar_top {
+  transform: translateY(2px) rotateZ(45deg);
+}
+
+.header__mobile-menu:checked ~ .header__label .header__bar_bottom {
+
+  transform: translateY(-4px) rotateZ(-45deg);
+}

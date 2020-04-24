@@ -1,0 +1,8 @@
+.header__line{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  border-width: .5px;
+  border-color: rgba(196, 196, 196, 0.3);
+  position: relative;
+  z-index: 102;
+}

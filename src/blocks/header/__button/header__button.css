@@ -1,0 +1,11 @@
+.header__button{
+  display: inline-flex;
+  padding: 11px 18px;
+  background-color: unset;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.header__button:active{
+  transform: scale(.95);
+}

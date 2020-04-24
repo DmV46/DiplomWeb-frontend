@@ -1,0 +1,25 @@
+.result__news-selected{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.result__news-selected:hover{
+  cursor: pointer;
+}
+
+.result__news-selected:hover .result__news-selected-icon{
+  opacity: 1;
+}
+
+.result__news-selected:hover .result__news-tooltip{
+  display: block;
+}

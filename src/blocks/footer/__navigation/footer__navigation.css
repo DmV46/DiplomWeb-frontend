@@ -1,0 +1,6 @@
+.footer__navigation{
+  max-width: 416px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

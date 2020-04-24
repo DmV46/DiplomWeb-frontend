@@ -1,0 +1,21 @@
+.search__input{
+  width: 99%;
+  text-align: start;
+  padding-left: 24px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  border: 1px;
+  outline:none;
+}
+
+.search__input::placeholder{
+  color: #B6BCBF;
+}
+
+.search__input:focus{
+  box-shadow: inset 1px 1px 5px 1px #2f71e5;
+}
+

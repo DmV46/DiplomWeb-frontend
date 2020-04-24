@@ -1,0 +1,8 @@
+.result__news-text{
+  margin: 0;
+  color: #1A1B22;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

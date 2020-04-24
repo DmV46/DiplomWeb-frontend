@@ -1,0 +1,7 @@
+.header__bar{
+  display: block;
+  width: 16px;
+  height: 2px;
+  margin: 4px auto;
+  transition: transform 0.4s ease-in;
+}

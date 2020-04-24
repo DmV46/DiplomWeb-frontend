@@ -1,0 +1,6 @@
+.header__link_selected{
+  padding-bottom: 24px;
+  align-self: flex-end;
+  color: inherit;
+  border-bottom: 3px solid;
+}
