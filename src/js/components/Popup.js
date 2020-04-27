@@ -10,11 +10,9 @@ export default class Popup {
     this.open = this.open.bind(this);
   }
 
-  // TODO: переделать открытие и вставку контента..
   open() {
     this._setContent();
     this._element.classList.add('popup_is-opened');
-    this._setEventListeners();
     document.body.style.overflow = 'hidden';
   }
 
@@ -22,13 +20,8 @@ export default class Popup {
     this._container.appendChild(this._element);
   }
 
-  _clearContent() {
-    this._element.querySelector('.popup__content').lastElementChild.remove();
-  }
-
   _close() {
     this._element.classList.remove('popup_is-opened');
-    this._clearContent();
     this._removeEventListeners();
     this._element.remove();
     document.body.style.overflow = '';
@@ -44,15 +37,9 @@ export default class Popup {
     this._element.querySelector('.popup__close').removeEventListener('click', this._close);
   }
 
-  // TODO: добавить закрытие по нажатию вне попапа
   _handleEscClose(event) {
     if (event.keyCode === ESCAPE_CODE) {
       this._close();
     }
-  }
-
-  _heandlerChange(content, header) {
-    this._close();
-    content.open(this, header);
   }
 }

@@ -9,7 +9,3 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-.result__news-title:hover{
-  opacity: .7;
-}

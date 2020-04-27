@@ -16,9 +16,6 @@ export default class Header {
   }
 
   render(props) {
-    console.log(this._boxMenu = CHECKBOX_MENU);
-    console.log(this._labelMenu = LABEL_MENU);
-
     HEADER.style.color = `${this._color}`;
     if (props.isLoggedIn) {
       HEADER_BUTTON.classList.add('header__button_sign-out');

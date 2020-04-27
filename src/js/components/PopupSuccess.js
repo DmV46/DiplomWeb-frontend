@@ -1,14 +1,42 @@
 import Popup from './Popup';
+import iconClose from '../../images/close.svg';
 
-const popupContent = '<p class="inter inter_size_large popup__text popup__text_position"><span class="popup__link">Выполнить вход</span></p>';
+const popupSuccess = `<img src="${iconClose}" alt="close" class="popup__close">
+  <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title popup__title_position">Пользователь успешно зарегистрирован</h1>
+  <p class="inter inter_size_large popup__text popup__text_position"><span class="popup__link">Выполнить вход</span></p>`;
 
-const popupSuccess = popupContent;
+export default class PopupSuccess extends Popup {
+  constructor(selector, container, popupSignIn, header) {
+    super(selector, container);
+    this._header = header;
+    this._popupSignIn = popupSignIn;
+  }
 
-export default class PopupSignIn extends Popup {
+  open(popupSignUp) {
+    super.open();
+    this._setEventListeners(popupSignUp);
+    if (document.body.clientWidth <= 414) {
+      this._header.hideMobileMenu();
+    }
+  }
+
   _setContent() {
-    this._element.querySelector('.popup__title').classList.add('popup__title_position');
-    this._element.querySelector('.popup__title').textContent = 'Пользователь успешно зарегистрирован';
     this._element.querySelector('.popup__content').insertAdjacentHTML('beforeend', popupSuccess);
     super._setContent();
+  }
+
+  _close() {
+    if (document.body.clientWidth <= 414) {
+      this._header.showMobileMenu();
+    }
+    super._close();
+  }
+
+  _setEventListeners(popupSignUp) {
+    super._setEventListeners();
+    this._element.querySelector('.popup__link').addEventListener('click', () => {
+      this._popupSignIn.open(popupSignUp);
+      this._close();
+    });
   }
 }

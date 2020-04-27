@@ -7,8 +7,10 @@
   position: relative;
   border-radius: 16px;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .result__news:hover .result__news-img{
   transform: scale(1.1);
+  cursor: pointer;
 }
