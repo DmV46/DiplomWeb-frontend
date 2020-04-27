@@ -28,7 +28,7 @@ export const apiNews = new ApiNews({
   url: 'https://newsapi.org/v2/everything',
   apiKey: 'a5e22ff49bdf4b98bd01999682617eaa',
   from: Date.now() - 604800000,
-  to: Date.now(),
+  to: new Date(),
   pageSize: 100,
 });
 
@@ -53,3 +53,12 @@ export const LABEL_MENU = document.querySelector('.header__label');
 // //////////////// //
 
 export const FORM_SEARCH = document.querySelector('.search__form');
+
+// //////////////// //
+//   result block   //
+// //////////////// //
+
+export const PRELOADER = document.querySelector('.result__search-in-progress');
+export const RESULT_SEARCH = document.querySelector('.result');
+export const RESULT_NOT_FOUND = document.querySelector('.result__not-found');
+export const RESULT_FOUND = document.querySelector('.result__found');

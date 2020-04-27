@@ -4,10 +4,8 @@ module.exports = {
     "ecmaVersion": 2017
   },
   "env": {
-    "es6": true
-  },
-  "globals": {
-    "document": false
+    "es6": true,
+    "browser": true
   },
   "rules":{
     "no-underscore-dangle": ["error",
