@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис поиска новостных статей">
   <meta name="author" content="Дмитрий Володин">
-  <link rel="stylesheet" href="main/main.2b3dbdaf5d0317aab830.css">
-  <link rel="icon" href="favicon.svg"  type="image/svg">
+  <link rel="stylesheet" href="main/main.b2a052136f2643dc8ea0.css">
+  <link rel="icon" href="./images/favicon.svg" type="image/svg">
   <title>Главная</title>
 </head>
 <body class="main">
@@ -31,13 +31,13 @@
     <div class="search__container">
       <h1 class="roboto-slab roboto-slab_size_extra-large search__title">Что в мире творится?</h1>
       <h2 class="roboto roboto_size_extra-large search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-      <form class="search__input-container">
-        <input class="roboto roboto_size_large search__input" type="text" placeholder="Введите тему новости" required>
+      <form class="search__form">
+        <input class="roboto roboto_size_large search__input" type="text" name="keyword" placeholder="Введите тему новости" required>
         <button class="button search__button" type="submit">Искать</button>
       </form>
     </div>
   </section>
-  <section class="result result_founded">
+  <section class="result result_founded result_unvisible">
     <div class="result__search-in-progress result_unvisible">
       <img class="result__find-img result__find-img_spin" src="./images/circle-placeload.png"  alt="circle-placeload">
       <p class="roboto roboto_size_extra-large result__find-text">Идет поиск новостей...</p>
@@ -47,56 +47,10 @@
       <h2 class="roboto-slab roboto-slab_size_medium result__not-found-text">Ничего не найдено</h2>
       <p class="roboto roboto_size_extra-large result__find-text">К сожалению по вашему запросу ничего не найдено.</p>
     </div>
-    <div class="result__found">
+    <div class="result__found result_unvisible">
       <h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
-      <div class="result__container result__container_position_large">
-        <a class="result__news" href="#">
-          <div class="result__news-selected">
-            <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="./images/favorites.svg" alt="favorites">
-          </div>
-          <div class="result__news-img-container">
-            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
-          </div>
-          <div class="result__news-description" >
-            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-            <p class="roboto-slab roboto-slab_size_medium result__news-title">Национальное достояние – парки</p>
-            <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
-            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
-          </div>
-        </a>
-        <a class="result__news" href="#">
-          <div class="result__news-selected">
-            <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="./images/favorites.svg" alt="favorites">
-          </div>
-          <div class="result__news-img-container">
-            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
-          </div>
-          <div class="result__news-description" >
-            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-            <p class="roboto-slab roboto-slab_size_medium result__news-title">Национальное достояние – парки</p>
-            <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
-            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
-          </div>
-        </a>
-        <a class="result__news" href="#">
-          <div class="result__news-selected">
-            <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-            <img class="result__news-selected-icon" src="./images/favorites.svg" alt="favorites">
-          </div>
-          <div class="result__news-img-container">
-            <img class="result__news-img" src="./images/card-image.png" alt="news-image">
-          </div>
-          <div class="result__news-description" >
-            <p class="source-sans-pro source-sans-pro_size_medium result__news-date">2 августа, 2019</p>
-            <p class="roboto-slab roboto-slab_size_medium result__news-title">Национальное достояние – парки</p>
-            <div class="roboto roboto_size_large result__news-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</div>
-            <p class="roboto-slab roboto-slab_size_extra-small result__news-source">Лента.ру</p>
-          </div>
-        </a>
-      </div>
-    <button class="button result__button-more" type="submit">Показать еще</button>
+      <div class="result__container result__container_position_large"></div>
+    <button class="button result__button-more">Показать еще</button>
     </div>
   </section>
   <section class="about">
@@ -138,6 +92,24 @@
       </div>
     </div>
   </template>
-  <script type="module" src="main/main.c6fb715d87dcb1eeee10.js"></script>
+  <template id="news-template">
+    <div class="result__news">
+      <a class="result__news-link" href="#" target="_blank"></a>
+      <div class="result__news-selected">
+        <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
+        <img class="result__news-selected-icon" src="./images/favorites.svg" alt="favorites">
+      </div>
+      <div class="result__news-img-container">
+        <img class="result__news-img" src="" alt="news-image">
+      </div>
+      <div class="result__news-description" >
+        <p class="source-sans-pro source-sans-pro_size_medium result__news-date"></p>
+        <p class="roboto-slab roboto-slab_size_medium result__news-title"></p>
+        <div class="roboto roboto_size_large result__news-text"></div>
+        <p class="roboto-slab roboto-slab_size_extra-small result__news-source"></p>
+      </div>
+    </div>
+  </template>
+  <script type="module" src="main/main.3430531ffd04899d3481.js"></script>
 </body>
 </html>
