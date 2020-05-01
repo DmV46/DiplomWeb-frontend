@@ -61,10 +61,10 @@ export default class PopupSignUp extends Popup {
     const form = this._element.querySelector('.popup__form');
     event.preventDefault();
     this._popupSuccess.open(this);
-    // this._api
-    //   .signUp(form.elements.email.value, form.elements.password.value, form.elements.name.value)
-    //   .then(() => this._contentSuccess.open(this.contentSignIn, this._header, this._api))
-    //   .catch((err) => console.log(err));
+    this._apiFindNews
+      .signUp(form.elements.email.value, form.elements.password.value, form.elements.name.value)
+      .then(() => this._contentSuccess.open(this.contentSignIn, this._header, this._api))
+      .catch((err) => console.log(err));
     this._close();
   }
 }

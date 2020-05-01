@@ -15,10 +15,7 @@ export const props = {
 
 export const apiFindNews = new ApiFindNews({
   url: 'https://api.find-news.ru',
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-Type': 'application/json',
-  },
+  token: `Bearer ${localStorage.getItem('token')}`,
 });
 
 // //////////////////////// //

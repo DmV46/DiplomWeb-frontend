@@ -53,7 +53,7 @@ export default class PopupSignIn extends Popup {
     this._element.querySelector('.popup__form').addEventListener('submit', this._heandlerSubmit);
   }
 
-  _heandlerSubmit(event) {
+  _heandlerSubmit() {
     const form = this._element.querySelector('.popup__form');
     this._apiFindNews
       .signIn(form.elements.email.value, form.elements.password.value)

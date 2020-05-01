@@ -7,15 +7,17 @@ function getResponseData(response) {
 }
 
 export default class ApiFindNews {
-  constructor(param) {
-    this._url = param.url;
-    this._headers = param.headers;
+  constructor({ url, token }) {
+    this._url = url;
+    this._token = token;
   }
 
   async signUp(email, password, name) {
     const response = await fetch(`${this._url}/signup`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         email,
         password,
@@ -29,7 +31,9 @@ export default class ApiFindNews {
   async signIn(email, password) {
     const response = await fetch(`${this._url}/signin`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         email,
         password,
@@ -41,7 +45,32 @@ export default class ApiFindNews {
 
   async getMe() {
     const response = await fetch(`${this._url}/users/me`, {
-      headers: this._headers,
+      headers: {
+        authorization: this._token,
+      },
+      credentials: 'include',
+    });
+
+    return getResponseData(response);
+  }
+
+  async saveNews(news, keyword) {
+    const response = await fetch(`${this._url}/articles`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: this._token,
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        keyword,
+        title: news.title,
+        text: news.description,
+        date: news.publishedAt,
+        source: news.source.name,
+        link: news.url,
+        image: news.urlToImage,
+      }),
     });
 
     return getResponseData(response);

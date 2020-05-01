@@ -12,22 +12,25 @@ import {
   PRELOADER, RESULT_SEARCH, RESULT_NOT_FOUND,
   RESULT_FOUND, RESULT_BUTTON,
 } from './js/constants/constants';
+import ApiFindNews from './js/api/ApiFindNews';
 
 const header = new Header('#fff');
 const newsList = new NewsList('.result__container');
 const popupSignIn = new PopupSignIn('#popup-template', BODY, header, apiFindNews);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
 const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, apiFindNews);
+
 if (localStorage.getItem('token')) {
   props.isLoggedIn = true;
-  // apiFindNews.headers.authorization = `jwt=${localStorage.getItem('token')}`;
   apiFindNews.getMe()
-    .then((result) => console.log(result))
-    .catch((err) => console.log(err));
+    .then((user) => {
+      props.userName = user.name;
+      header.render(props);
+    })
+    .catch((err) => alert(err));
+} else {
+  header.render(props);
 }
-
-header.render(props);
-document.querySelectorAll('.header__link')[0].classList.add('header__link_selected');
 
 
 if (HEADER_BUTTON.classList.contains('header__button_auth')) {
@@ -66,7 +69,7 @@ FORM_SEARCH.addEventListener('submit', (event) => {
       newsList.clearCounter();
       for (let i = 0; i < 3; i++) {
         newsList.getNews(newsList.list[i], (date) => {
-          const news = new News('#news-template', date, getFormatDate);
+          const news = new News('#news-template', date, getFormatDate, apiFindNews);
           news.keyword = keyword;
           return news.node;
         });
@@ -74,9 +77,10 @@ FORM_SEARCH.addEventListener('submit', (event) => {
       RESULT_BUTTON.addEventListener('click', () => {
         const countRender = newsList.counter + 3;
         for (let i = newsList.counter; i < countRender; i++) {
-          newsList.getNews(newsList.list[i], (news) => {
-            const date = new News('#news-template', news, getFormatDate);
-            return date.node;
+          newsList.getNews(newsList.list[i], (date) => {
+            const news = new News('#news-template', date, getFormatDate, apiFindNews);
+            news.keyword = keyword;
+            return news.node;
           });
           if (countRender === 99) {
             RESULT_BUTTON.classList.add('result__button-more_unvisible');

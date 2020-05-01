@@ -10,6 +10,7 @@
 @import url(./__container/_position/_large/result__container_position_large.css);
 @import url(./__container/_position/_small/result__container_position_small.css);
 @import url(./__news/result__news.css);
+@import url(./__news/_saved/result__news_saved.css);
 @import url(./__news-link/result__news-link.css);
 @import url(./__keywords/result__keywords.css);
 @import url(./__news-tooltip/result__news-tooltip.css);

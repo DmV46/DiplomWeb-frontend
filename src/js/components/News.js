@@ -1,26 +1,38 @@
+import favoritesBlue from '../../images/favorites_blue.svg';
+
 export default class News {
-  constructor(template, news, getFormatDate) {
+  constructor(template, news, getFormatDate, apiFindNews) {
     this._template = document.querySelector(template).content.querySelector('.result__news');
     this._element = this._template.cloneNode(true);
-    this._source = news.source.name;
-    this._title = news.title;
-    this._description = news.description;
-    this._publishedAt = news.publishedAt;
-    this._url = news.url;
-    this._urlToImage = news.urlToImage;
+    this._news = news;
     this._keyWord = null;
+    this._apiFindNews = apiFindNews;
     this._getFormatDate = getFormatDate;
+    this._setEventListeners = this._setEventListeners.bind(this);
   }
 
   get node() {
-    this._element.querySelector('.result__news-link').href = this._url;
-    this._element.querySelector('.result__news-img').src = this._urlToImage;
-    this._element.querySelector('.result__news-date').textContent = this._getFormatDate(this._publishedAt);
-    this._element.querySelector('.result__news-title').textContent = this._title;
-    this._element.querySelector('.result__news-text').textContent = this._description;
-    this._element.querySelector('.result__news-source').textContent = this._source;
+    this._element.querySelector('.result__news-link').href = this._news.url;
+    this._element.querySelector('.result__news-img').src = this._news.urlToImage;
+    this._element.querySelector('.result__news-date').textContent = this._getFormatDate(this._news.publishedAt);
+    this._element.querySelector('.result__news-title').textContent = this._news.title;
+    this._element.querySelector('.result__news-text').textContent = this._news.description;
+    this._element.querySelector('.result__news-source').textContent = this._news.source.name;
+
+    if (localStorage.getItem('token')) {
+      this._element.querySelector('.result__news-tooltip').style.display = 'none';
+      this._setEventListeners();
+    }
 
     return this._element;
+  }
+
+  _setEventListeners() {
+    this._element.querySelector('.result__news-selected').addEventListener('click', () => {
+      this._element.querySelector('.result__news-selected-icon').src = favoritesBlue;
+      this._element.classList.add('result__news_saved');
+      this._apiFindNews.saveNews(this._news, this._keyWord);
+    });
   }
 
   /**
