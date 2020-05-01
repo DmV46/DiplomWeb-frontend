@@ -9,13 +9,13 @@ function getResponseData(response) {
 export default class ApiFindNews {
   constructor(param) {
     this._url = param.url;
-    this.headers = param.headers;
+    this._headers = param.headers;
   }
 
   async signUp(email, password, name) {
     const response = await fetch(`${this._url}/signup`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify({
         email,
         password,
@@ -29,7 +29,7 @@ export default class ApiFindNews {
   async signIn(email, password) {
     const response = await fetch(`${this._url}/signin`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify({
         email,
         password,
@@ -41,7 +41,7 @@ export default class ApiFindNews {
 
   async getMe() {
     const response = await fetch(`${this._url}/users/me`, {
-      headers: this.headers,
+      headers: this._headers,
     });
 
     return getResponseData(response);

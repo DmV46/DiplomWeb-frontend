@@ -10,6 +10,7 @@
 @import url(./__container/_position/_large/result__container_position_large.css);
 @import url(./__container/_position/_small/result__container_position_small.css);
 @import url(./__news/result__news.css);
+@import url(./__news-link/result__news-link.css);
 @import url(./__keywords/result__keywords.css);
 @import url(./__news-tooltip/result__news-tooltip.css);
 @import url(./__news-tooltip/_deleted/result__news-tooltip_deleted.css);
@@ -23,6 +24,7 @@
 @import url(./__news-text/result__news-text.css);
 @import url(./__news-source/result__news-source.css);
 @import url(./__button-more/result__button-more.css);
+@import url(./__button-more/_unvisible/result__button-more_unvisible.css);
 
 .result{
   background-color: #F5F6F7;

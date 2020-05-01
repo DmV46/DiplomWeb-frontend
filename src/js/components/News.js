@@ -13,7 +13,7 @@ export default class News {
   }
 
   get node() {
-    this._element.href = this._url;
+    this._element.querySelector('.result__news-link').href = this._url;
     this._element.querySelector('.result__news-img').src = this._urlToImage;
     this._element.querySelector('.result__news-date').textContent = this._getFormatDate(this._publishedAt);
     this._element.querySelector('.result__news-title').textContent = this._title;
@@ -27,6 +27,6 @@ export default class News {
    * @param {any} keyWord
    */
   set keyword(keyWord) {
-    this._keyword = keyWord;
+    this._keyWord = keyWord;
   }
 }

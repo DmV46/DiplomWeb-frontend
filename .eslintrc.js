@@ -13,6 +13,7 @@ module.exports = {
       "allowAfterThis": true,
       "allowAfterSuper": true
     }],
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }

@@ -12,5 +12,4 @@
 
 .result__news:hover .result__news-img{
   transform: scale(1.1);
-  cursor: pointer;
 }

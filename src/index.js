@@ -5,14 +5,13 @@ import PopupSignIn from './js/components/PopupSignIn';
 import PopupSuccess from './js/components/PopupSuccess';
 import NewsList from './js/components/NewsList';
 import News from './js/components/News';
-import getFormatDate from './js/utils/utils';
+import { getFormatDate } from './js/utils/utils';
 import {
   props, apiFindNews, apiNews,
   HEADER_BUTTON, BODY, FORM_SEARCH,
   PRELOADER, RESULT_SEARCH, RESULT_NOT_FOUND,
-  RESULT_FOUND,
+  RESULT_FOUND, RESULT_BUTTON,
 } from './js/constants/constants';
-
 
 const header = new Header('#fff');
 const newsList = new NewsList('.result__container');
@@ -21,10 +20,10 @@ const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, head
 const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, apiFindNews);
 if (localStorage.getItem('token')) {
   props.isLoggedIn = true;
-  apiFindNews.headers.authorization = `jwt=${localStorage.getItem('token')}`;
-  // apiFindNews.getMe()
-  //   .then((result) => console.log(result))
-  //   .catch((err) => console.log(err));
+  // apiFindNews.headers.authorization = `jwt=${localStorage.getItem('token')}`;
+  apiFindNews.getMe()
+    .then((result) => console.log(result))
+    .catch((err) => console.log(err));
 }
 
 header.render(props);
@@ -54,8 +53,6 @@ FORM_SEARCH.addEventListener('submit', (event) => {
   if (!RESULT_FOUND.classList.contains('result_unvisible')) {
     RESULT_FOUND.classList.add('result_unvisible');
   }
-
-
   PRELOADER.classList.remove('result_unvisible');
   apiNews.getNews(keyword)
     .then((masNews) => {
@@ -64,9 +61,28 @@ FORM_SEARCH.addEventListener('submit', (event) => {
         return;
       }
       RESULT_FOUND.classList.remove('result_unvisible');
-      masNews.articles.map((item) => {
-        const news = new News('#news-template', item, getFormatDate);
-        console.log(news.node);
+      newsList.add = masNews.articles;
+      newsList.clearContainer();
+      newsList.clearCounter();
+      for (let i = 0; i < 3; i++) {
+        newsList.getNews(newsList.list[i], (date) => {
+          const news = new News('#news-template', date, getFormatDate);
+          news.keyword = keyword;
+          return news.node;
+        });
+      }
+      RESULT_BUTTON.addEventListener('click', () => {
+        const countRender = newsList.counter + 3;
+        for (let i = newsList.counter; i < countRender; i++) {
+          newsList.getNews(newsList.list[i], (news) => {
+            const date = new News('#news-template', news, getFormatDate);
+            return date.node;
+          });
+          if (countRender === 99) {
+            RESULT_BUTTON.classList.add('result__button-more_unvisible');
+            return;
+          }
+        }
       });
     })
     .catch((err) => alert(err))

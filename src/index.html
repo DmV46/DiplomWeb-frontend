@@ -6,7 +6,7 @@
   <meta name="description" content="Сервис поиска новостных статей">
   <meta name="author" content="Дмитрий Володин">
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-  <link rel="icon" href="favicon.svg"  type="image/svg">
+  <link rel="icon" href="<%=require('./images/favicon.svg').default%>" type="image/svg">
   <title>Главная</title>
 </head>
 <body class="main">
@@ -50,7 +50,7 @@
     <div class="result__found result_unvisible">
       <h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
       <div class="result__container result__container_position_large"></div>
-    <button class="button result__button-more" type="submit">Показать еще</button>
+    <button class="button result__button-more">Показать еще</button>
     </div>
   </section>
   <section class="about">
@@ -93,7 +93,8 @@
     </div>
   </template>
   <template id="news-template">
-    <a class="result__news" href="#" target="_blank">
+    <div class="result__news">
+      <a class="result__news-link" href="#" target="_blank"></a>
       <div class="result__news-selected">
         <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
         <img class="result__news-selected-icon" src="<%=require('./images/favorites.svg').default%>" alt="favorites">
@@ -107,7 +108,7 @@
         <div class="roboto roboto_size_large result__news-text"></div>
         <p class="roboto-slab roboto-slab_size_extra-small result__news-source"></p>
       </div>
-    </a>
+    </div>
   </template>
   <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>

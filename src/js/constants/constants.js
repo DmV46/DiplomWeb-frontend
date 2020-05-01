@@ -1,5 +1,6 @@
 import ApiFindNews from '../api/ApiFindNews';
 import ApiNews from '../api/ApiNews';
+import { getIsoDate } from '../utils/utils';
 
 export const ESCAPE_CODE = 27;
 
@@ -15,20 +16,20 @@ export const props = {
 export const apiFindNews = new ApiFindNews({
   url: 'https://api.find-news.ru',
   headers: {
-    authorization: null,
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',
   },
 });
 
 // //////////////////////// //
 //  API external resource   //
-// //////////////////////// //
+// //////////////////////// // 2020-04-26
 
 export const apiNews = new ApiNews({
   url: 'https://newsapi.org/v2/everything',
   apiKey: 'a5e22ff49bdf4b98bd01999682617eaa',
-  from: Date.now() - 604800000,
-  to: new Date(),
+  from: getIsoDate('-604800000'),
+  to: getIsoDate(),
   pageSize: 100,
 });
 
@@ -62,3 +63,4 @@ export const PRELOADER = document.querySelector('.result__search-in-progress');
 export const RESULT_SEARCH = document.querySelector('.result');
 export const RESULT_NOT_FOUND = document.querySelector('.result__not-found');
 export const RESULT_FOUND = document.querySelector('.result__found');
+export const RESULT_BUTTON = document.querySelector('.result__button-more');
