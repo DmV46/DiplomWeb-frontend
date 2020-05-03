@@ -10,6 +10,11 @@
   <title>Сохраненные статьи</title>
 </head>
 <body>
+  <script>
+    if (!localStorage.getItem('token')) {
+  window.location.href = '../';
+  }
+  </script>
   <div class="main">
     <header class="header roboto roboto_size_extra-large roboto_weight_medium
     roboto roboto_size_extra-large roboto_weight_medium ">
@@ -79,6 +84,6 @@
       </div>
     </div>
   </template>
-  <script type="module" src="../saved_articles/saved_articles.cca9a32b9d3ed53a9829.js"></script>
+  <script type="module" src="../saved_articles/saved_articles.c5c9b353bd36b5959e25.js"></script>
 </body>
 </html>
