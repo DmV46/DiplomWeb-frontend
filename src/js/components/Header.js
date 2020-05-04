@@ -3,7 +3,7 @@ export default class Header {
     this._color = color;
     this._header = document.querySelector('.header');
     this._button = document.querySelector('.header__button');
-    this._links = document.querySelectorAll('.header__link');
+    this._links = null;
     this._linksContainer = document.querySelector('.header__links-container');
     this._boxMenu = document.querySelector('.header__mobile-menu');
     this._labelMenu = document.querySelector('.header__label');
@@ -39,7 +39,8 @@ export default class Header {
   }
 
   _setSelectedLink() {
-    if (window.location.href === '/saved_articles') {
+    this._links = document.querySelectorAll('.header__link');
+    if (window.location.pathname === '/saved_articles') {
       this._links[1].classList.add('header__link_selected');
     } else {
       this._links[0].classList.add('header__link_selected');

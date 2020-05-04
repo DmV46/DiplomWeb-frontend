@@ -15,9 +15,12 @@ export function getIsoDate(timeStap = 0) {
   return date;
 }
 
-function upperFirstSimbol(string) {
+export function toUpperFirstSimbol(string) {
   const newString = string.split('');
   newString[0] = newString[0].toUpperCase();
+  for (let i = 1; i < newString.length; i++) {
+    newString[i] = newString[i].toLowerCase();
+  }
   return newString.join('');
 }
 
@@ -29,7 +32,7 @@ export function sortNews(array) {
 
   const sortable = [];
   for (const item in newObj) {
-    sortable.push([upperFirstSimbol(item), newObj[item]]);
+    sortable.push([item, newObj[item]]);
   }
 
   return sortable.sort((a, b) => b[1] - a[1]);

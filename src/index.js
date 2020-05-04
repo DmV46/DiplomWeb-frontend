@@ -3,8 +3,8 @@ import Header from './js/components/Header';
 import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
 import PopupSuccess from './js/components/PopupSuccess';
-import News from './js/components/News';
-import { getFormatDate } from './js/utils/utils';
+import NewsFounded from './js/components/NewsFounded';
+import { getFormatDate, toUpperFirstSimbol } from './js/utils/utils';
 import {
   props, mainApi, apiNews, newsList,
   HEADER_BUTTON, BODY, FORM_SEARCH,
@@ -59,15 +59,16 @@ FORM_SEARCH.addEventListener('submit', (event) => {
         RESULT_NOT_FOUND.classList.remove('result_unvisible');
         return;
       }
-      console.log(masNews);
       RESULT_FOUND.classList.remove('result_unvisible');
       newsList.add = masNews.articles;
       newsList.clearContainer();
       newsList.clearCounter();
       for (let i = 0; i < 3; i++) {
         newsList.renderNews(newsList.list[i], (data) => {
-          const news = new News('#news-template', data, getFormatDate, mainApi);
-          news.keyword = keyword;
+          const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
+          news.keyword = toUpperFirstSimbol(keyword);
+          console.log(news._keyword);
+          console.log(news);
           return news.node;
         });
       }
@@ -75,8 +76,9 @@ FORM_SEARCH.addEventListener('submit', (event) => {
         const countRender = newsList.counter + 3;
         for (let i = newsList.counter; i < countRender; i++) {
           newsList.renderNews(newsList.list[i], (data) => {
-            const news = new News('#news-template', data, getFormatDate, mainApi);
-            news.keyword = keyword;
+            const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
+            news.keyword = toUpperFirstSimbol(keyword);
+            console.log(news._keyword);
             return news.node;
           });
           if (countRender === 99) {

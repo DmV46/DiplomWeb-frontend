@@ -1,6 +1,6 @@
 import './index.css';
 import Header from '../js/components/Header';
-import News from '../js/components/News';
+import NewsSaved from '../js/components/NewsSaved';
 import { getFormatDate, sortNews } from '../js/utils/utils';
 import {
   props, mainApi, newsList, INFO_USER, COUNT_NEWS,
@@ -8,7 +8,6 @@ import {
 
 const header = new Header('#1A1B22');
 let MAS_KEYWORD = [];
-
 mainApi.getInfo()
   .then((info) => {
     props.isLoggedIn = true;
@@ -20,13 +19,12 @@ mainApi.getInfo()
 
     info[1].map((news) => {
       newsList.renderNews(news, (data) => {
-        const articles = new News('#news-template', data, getFormatDate, mainApi);
+        const articles = new NewsSaved('#news-template', data, getFormatDate, mainApi);
         return articles.nodeSave;
       });
-      MAS_KEYWORD.push(news.keyword.toLowerCase());
+      MAS_KEYWORD.push(news.keyword);
     });
     MAS_KEYWORD = sortNews(MAS_KEYWORD);
-    console.log(MAS_KEYWORD);
     if (MAS_KEYWORD.length > 3) {
       for (let i = 0; i < 2; i++) {
         document.querySelector('.info__subtitle').insertAdjacentHTML('beforeend', `<span class="info__keywords">${MAS_KEYWORD[i][0]}, </span>`);
@@ -35,4 +33,3 @@ mainApi.getInfo()
     }
   })
   .catch();
-// <span class="info__keywords">Природа</span>, <span class="info__keywords">Тайга</span> и <span class="info__keywords">2 другим</span>
