@@ -5,17 +5,17 @@ export default class NewsList {
     this._countAdded = 0;
   }
 
+  renderNews(news, onCreate) {
+    this._container.appendChild(onCreate(news));
+    this._countAdded += 1;
+  }
+
   clearContainer() {
     this._container.innerHTML = '';
   }
 
   clearCounter() {
     this._countAdded = 0;
-  }
-
-  getNews(news, onCreate) {
-    this._container.appendChild(onCreate(news));
-    this._countAdded += 1;
   }
 
   /**

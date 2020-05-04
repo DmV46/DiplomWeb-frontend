@@ -3,26 +3,23 @@ import Header from './js/components/Header';
 import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
 import PopupSuccess from './js/components/PopupSuccess';
-import NewsList from './js/components/NewsList';
 import News from './js/components/News';
 import { getFormatDate } from './js/utils/utils';
 import {
-  props, apiFindNews, apiNews,
+  props, mainApi, apiNews, newsList,
   HEADER_BUTTON, BODY, FORM_SEARCH,
   PRELOADER, RESULT_SEARCH, RESULT_NOT_FOUND,
   RESULT_FOUND, RESULT_BUTTON,
 } from './js/constants/constants';
-import ApiFindNews from './js/api/ApiFindNews';
 
 const header = new Header('#fff');
-const newsList = new NewsList('.result__container');
-const popupSignIn = new PopupSignIn('#popup-template', BODY, header, apiFindNews);
+const popupSignIn = new PopupSignIn('#popup-template', BODY, header, mainApi);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
-const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, apiFindNews);
+const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, mainApi);
 
 if (localStorage.getItem('token')) {
   props.isLoggedIn = true;
-  apiFindNews.getMe()
+  mainApi.getUserData()
     .then((user) => {
       props.userName = user.name;
       header.render(props);
@@ -31,7 +28,6 @@ if (localStorage.getItem('token')) {
 } else {
   header.render(props);
 }
-
 
 if (HEADER_BUTTON.classList.contains('header__button_auth')) {
   HEADER_BUTTON.addEventListener('click', () => {
@@ -63,13 +59,14 @@ FORM_SEARCH.addEventListener('submit', (event) => {
         RESULT_NOT_FOUND.classList.remove('result_unvisible');
         return;
       }
+      console.log(masNews);
       RESULT_FOUND.classList.remove('result_unvisible');
       newsList.add = masNews.articles;
       newsList.clearContainer();
       newsList.clearCounter();
       for (let i = 0; i < 3; i++) {
-        newsList.getNews(newsList.list[i], (date) => {
-          const news = new News('#news-template', date, getFormatDate, apiFindNews);
+        newsList.renderNews(newsList.list[i], (data) => {
+          const news = new News('#news-template', data, getFormatDate, mainApi);
           news.keyword = keyword;
           return news.node;
         });
@@ -77,8 +74,8 @@ FORM_SEARCH.addEventListener('submit', (event) => {
       RESULT_BUTTON.addEventListener('click', () => {
         const countRender = newsList.counter + 3;
         for (let i = newsList.counter; i < countRender; i++) {
-          newsList.getNews(newsList.list[i], (date) => {
-            const news = new News('#news-template', date, getFormatDate, apiFindNews);
+          newsList.renderNews(newsList.list[i], (data) => {
+            const news = new News('#news-template', data, getFormatDate, mainApi);
             news.keyword = keyword;
             return news.node;
           });

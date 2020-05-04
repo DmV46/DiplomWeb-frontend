@@ -11,7 +11,8 @@ module.exports = {
     "no-underscore-dangle": ["error",
     {
       "allowAfterThis": true,
-      "allowAfterSuper": true
+      "allowAfterSuper": true,
+      "allow": ["_id"],
     }],
     "no-useless-escape": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]

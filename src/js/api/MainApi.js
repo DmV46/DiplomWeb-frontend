@@ -6,7 +6,7 @@ function getResponseData(response) {
   return Promise.reject(new Error(`Ошибка: ${response.status}`));
 }
 
-export default class ApiFindNews {
+export default class MainApi {
   constructor({ url, token }) {
     this._url = url;
     this._token = token;
@@ -43,7 +43,7 @@ export default class ApiFindNews {
     return getResponseData(response);
   }
 
-  async getMe() {
+  async getUserData() {
     const response = await fetch(`${this._url}/users/me`, {
       headers: {
         authorization: this._token,
@@ -52,6 +52,21 @@ export default class ApiFindNews {
     });
 
     return getResponseData(response);
+  }
+
+  async getArticles() {
+    const response = await fetch(`${this._url}/articles`, {
+      headers: {
+        authorization: this._token,
+      },
+      credentials: 'include',
+    });
+
+    return getResponseData(response);
+  }
+
+  getInfo() {
+    return Promise.all([this.getUserData(), this.getArticles()]);
   }
 
   async saveNews(news, keyword) {
@@ -73,6 +88,16 @@ export default class ApiFindNews {
       }),
     });
 
+    return getResponseData(response);
+  }
+
+  async deleteNews(newsID) {
+    const response = await fetch(`${this._url}/articles/${newsID}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: this._token,
+      },
+    });
     return getResponseData(response);
   }
 }

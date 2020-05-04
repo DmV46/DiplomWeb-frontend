@@ -1,26 +1,18 @@
-import ApiFindNews from '../api/ApiFindNews';
+import MainApi from '../api/MainApi';
 import ApiNews from '../api/ApiNews';
+import NewsList from '../components/NewsList';
 import { getIsoDate } from '../utils/utils';
 
 export const ESCAPE_CODE = 27;
-
 export const props = {
   isLoggedIn: false,
   userName: null,
 };
 
-// //////////////// //
-//   API backend    //
-// //////////////// //
-
-export const apiFindNews = new ApiFindNews({
+export const mainApi = new MainApi({
   url: 'https://api.find-news.ru',
   token: `Bearer ${localStorage.getItem('token')}`,
 });
-
-// //////////////////////// //
-//  API external resource   //
-// //////////////////////// // 2020-04-26
 
 export const apiNews = new ApiNews({
   url: 'https://newsapi.org/v2/everything',
@@ -30,34 +22,16 @@ export const apiNews = new ApiNews({
   pageSize: 100,
 });
 
-// //////////////// //
-//       body       //
-// //////////////// //
-
+export const newsList = new NewsList('.result__container');
 export const BODY = document.querySelector('.main');
-
-// //////////////// //
-//   header block   //
-// //////////////// //
-
-export const HEADER = document.querySelector('.header');
 export const HEADER_BUTTON = document.querySelector('.header__button');
-export const HEADER_LINKS_CONTAINER = document.querySelector('.header__links-container');
-export const CHECKBOX_MENU = document.querySelector('.header__mobile-menu');
-export const LABEL_MENU = document.querySelector('.header__label');
-
-// //////////////// //
-//   form search    //
-// //////////////// //
-
 export const FORM_SEARCH = document.querySelector('.search__form');
-
-// //////////////// //
-//   result block   //
-// //////////////// //
 
 export const PRELOADER = document.querySelector('.result__search-in-progress');
 export const RESULT_SEARCH = document.querySelector('.result');
 export const RESULT_NOT_FOUND = document.querySelector('.result__not-found');
 export const RESULT_FOUND = document.querySelector('.result__found');
 export const RESULT_BUTTON = document.querySelector('.result__button-more');
+
+export const INFO_USER = document.querySelector('.info__user');
+export const COUNT_NEWS = document.querySelector('.info__count-news');

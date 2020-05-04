@@ -31,9 +31,9 @@ export default class PopupSignUp extends Popup {
   open() {
     super.open();
     this._setEventListeners();
-    if (document.body.clientWidth <= 414) {
-      this._header.hideMobileMenu();
-    }
+    // if (document.body.clientWidth <= 414) {
+    //   this._header.hideMobileMenu();
+    // }
   }
 
   _setContent() {
