@@ -4,9 +4,17 @@ import NewsList from '../components/NewsList';
 import { getIsoDate } from '../utils/utils';
 
 export const ESCAPE_CODE = 27;
+
 export const props = {
   isLoggedIn: false,
   userName: null,
+};
+
+export const VALIDATION_ERRORS = {
+  EMPTY: 'Это обязательное поле',
+  LENGTH: 'Должно быть от 2 до 30 символов',
+  NOT_EMAIL: 'Некорректный адрес электронной почты',
+  PASSWORD_LENGTH: 'Минимальная длина пароля 8 символов',
 };
 
 export const mainApi = new MainApi({
@@ -23,6 +31,7 @@ export const apiNews = new ApiNews({
 });
 
 export const newsList = new NewsList('.result__container');
+
 export const BODY = document.querySelector('.main');
 export const HEADER_BUTTON = document.querySelector('.header__button');
 export const FORM_SEARCH = document.querySelector('.search__form');

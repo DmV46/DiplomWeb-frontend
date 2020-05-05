@@ -1,11 +1,13 @@
 import News from './News';
 import favoritesBlue from '../../images/favorites_blue.svg';
+import favorites from '../../images/favorites.svg';
 
 export default class NewsFounded extends News {
   constructor(template, news, getFormatDate, apiFindNews) {
     super(template, news, getFormatDate, apiFindNews);
     this._keyword = null;
     this._articleId = null;
+    this._handlerFavorites = this._handlerFavorites.bind(this);
   }
 
   get node() {
@@ -18,7 +20,7 @@ export default class NewsFounded extends News {
 
     if (localStorage.getItem('token')) {
       this._element.querySelector('.result__news-tooltip').style.display = 'none';
-      // this._setEventListeners();
+      this._setEventListeners();
     }
 
     return this._element;
@@ -31,7 +33,7 @@ export default class NewsFounded extends News {
     this._keyword = keyword;
   }
 
-  _handlerSaved() {
+  _save() {
     this._apiFindNews.saveNews(this._news, this._keyword)
       .then((res) => {
         this._element.querySelector('.result__news-selected-icon').src = favoritesBlue;
@@ -41,9 +43,24 @@ export default class NewsFounded extends News {
       .catch((err) => alert(err));
   }
 
-  // _setEventListeners() {
-  //   this._element.querySelector('.result__news-selected').addEventListener('click', this._handlerNewsIcon);
-  // }
+  _delete() {
+    super._delete(this._articleId);
+    this._articleId = null;
+    this._element.querySelector('.result__news-selected-icon').src = favorites;
+    this._element.classList.remove('result__news_saved');
+  }
+
+  _handlerFavorites() {
+    if (this._articleId === null) {
+      this._save();
+      return;
+    }
+    this._delete();
+  }
+
+  _setEventListeners() {
+    this._element.querySelector('.result__news-selected').addEventListener('click', this._handlerFavorites);
+  }
 
   // _removeEventListeners() {
   //   this._element.querySelector('.result__news-selected').removeEventListener('click', this._handlerNewsIcon);

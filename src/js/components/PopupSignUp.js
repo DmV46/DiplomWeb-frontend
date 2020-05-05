@@ -12,7 +12,7 @@ const formSignUp = `<img src="${iconClose}" alt="close" class="popup__close">
     <span class="inter inter_size_small popup__error"></span>
     <label class="inter inter_size_small popup__label" for="name">Имя</label>
     <input class="inter inter_size_medium popup__input" type="text" name="name" id="name" placeholder="Введите своё имя" required pattern="^[А-Я]{1}[а-яё]+(\-[А-ЯЁ]{1}[а-яё]+)?$" minlength="2" maxlength="30">
-    <span class="popup__error"></span>
+    <span class="inter inter_size_small popup__error"></span>
     <span class="inter inter_size_small popup__error popup__error_submit"></span>
     <button class="button popup__button popup__button_sign-up" type="submit">Зарегистрироваться</button>
     <p class="inter inter_size_medium popup__text">или <span class="popup__link">Войти</span></p>
@@ -25,12 +25,14 @@ export default class PopupSignUp extends Popup {
     this._popupSignIn = popupSignIn;
     this._popupSuccess = popupSuccess;
     this._apiFindNews = apiFindNews;
+    this._form = null;
     this._heandlerSubmit = this._heandlerSubmit.bind(this);
   }
 
-  open() {
+  open(form) {
     super.open();
     this._setEventListeners();
+    this._form = form('.popup__form');
     // if (document.body.clientWidth <= 414) {
     //   this._header.hideMobileMenu();
     // }
@@ -55,6 +57,9 @@ export default class PopupSignUp extends Popup {
       this._close();
     });
     this._element.querySelector('.popup__form').addEventListener('submit', this._heandlerSubmit);
+    this._element.querySelector('.popup__form').addEventListener('input', (event) => {
+      this._form.handlerValidateForm(event);
+    });
   }
 
   _heandlerSubmit(event) {

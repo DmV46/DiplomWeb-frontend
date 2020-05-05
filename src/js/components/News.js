@@ -7,11 +7,8 @@ export default class News {
     this._getFormatDate = getFormatDate;
   }
 
-  _handlerDelete(newsId) {
+  _delete(newsId) {
     this._apiFindNews.deleteNews(newsId)
-      .then(() => {
-        this._element.remove();
-      })
       .catch((err) => alert(err));
   }
 }

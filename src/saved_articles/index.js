@@ -30,6 +30,10 @@ mainApi.getInfo()
         document.querySelector('.info__subtitle').insertAdjacentHTML('beforeend', `<span class="info__keywords">${MAS_KEYWORD[i][0]}, </span>`);
       }
       document.querySelector('.info__subtitle').insertAdjacentHTML('beforeend', `и <span class="info__keywords">${MAS_KEYWORD.length - 2} другим</span>`);
+    } else {
+      for (let i = 0; i < 3; i++) {
+        document.querySelector('.info__subtitle').insertAdjacentHTML('beforeend', `<span class="info__keywords">${MAS_KEYWORD[i][0]}, </span>`);
+      }
     }
   })
   .catch();

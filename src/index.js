@@ -4,6 +4,7 @@ import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
 import PopupSuccess from './js/components/PopupSuccess';
 import NewsFounded from './js/components/NewsFounded';
+import Form from './js/components/Form';
 import { getFormatDate, toUpperFirstSimbol } from './js/utils/utils';
 import {
   props, mainApi, apiNews, newsList,
@@ -12,6 +13,7 @@ import {
   RESULT_FOUND, RESULT_BUTTON,
 } from './js/constants/constants';
 
+
 const header = new Header('#fff');
 const popupSignIn = new PopupSignIn('#popup-template', BODY, header, mainApi);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
@@ -19,25 +21,22 @@ const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupS
 
 if (localStorage.getItem('token')) {
   props.isLoggedIn = true;
-  mainApi.getUserData()
-    .then((user) => {
-      props.userName = user.name;
-      header.render(props);
-    })
-    .catch((err) => alert(err));
-} else {
-  header.render(props);
-}
-
-if (HEADER_BUTTON.classList.contains('header__button_auth')) {
-  HEADER_BUTTON.addEventListener('click', () => {
-    popupSignUp.open();
-  });
-} else {
   HEADER_BUTTON.addEventListener('click', () => {
     localStorage.removeItem('token');
     window.location.reload();
   });
+
+  mainApi.getInfo()
+    .then((info) => {
+      props.userName = info[0].name;
+      header.render(props);
+    })
+    .catch((err) => alert(err));
+} else {
+  HEADER_BUTTON.addEventListener('click', () => {
+    popupSignUp.open((selector) => new Form(selector));
+  });
+  header.render(props);
 }
 
 FORM_SEARCH.addEventListener('submit', (event) => {
@@ -67,8 +66,6 @@ FORM_SEARCH.addEventListener('submit', (event) => {
         newsList.renderNews(newsList.list[i], (data) => {
           const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
           news.keyword = toUpperFirstSimbol(keyword);
-          console.log(news._keyword);
-          console.log(news);
           return news.node;
         });
       }
@@ -78,7 +75,6 @@ FORM_SEARCH.addEventListener('submit', (event) => {
           newsList.renderNews(newsList.list[i], (data) => {
             const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
             news.keyword = toUpperFirstSimbol(keyword);
-            console.log(news._keyword);
             return news.node;
           });
           if (countRender === 99) {
