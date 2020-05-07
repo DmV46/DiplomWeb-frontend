@@ -1,7 +1,3 @@
-import MainApi from '../api/MainApi';
-import ApiNews from '../api/ApiNews';
-import NewsList from '../components/NewsList';
-import { getIsoDate } from '../utils/utils';
 
 export const ESCAPE_CODE = 27;
 
@@ -16,21 +12,6 @@ export const VALIDATION_ERRORS = {
   NOT_EMAIL: 'Некорректный адрес электронной почты',
   PASSWORD_LENGTH: 'Минимальная длина пароля 8 символов',
 };
-
-export const mainApi = new MainApi({
-  url: 'https://api.find-news.ru',
-  token: `Bearer ${localStorage.getItem('token')}`,
-});
-
-export const apiNews = new ApiNews({
-  url: 'https://newsapi.org/v2/everything',
-  apiKey: 'a5e22ff49bdf4b98bd01999682617eaa',
-  from: getIsoDate('-604800000'),
-  to: getIsoDate(),
-  pageSize: 100,
-});
-
-export const newsList = new NewsList('.result__container');
 
 export const BODY = document.querySelector('.main');
 export const HEADER_BUTTON = document.querySelector('.header__button');

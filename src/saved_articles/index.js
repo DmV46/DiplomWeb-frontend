@@ -1,9 +1,11 @@
 import './index.css';
 import Header from '../js/components/Header';
 import NewsSaved from '../js/components/NewsSaved';
+import mainApi from '../js/instances/mainApi';
+import newsList from '../js/instances/newsList';
 import { getFormatDate, sortNews } from '../js/utils/utils';
 import {
-  props, mainApi, newsList, INFO_USER, COUNT_NEWS, RESULT_BLOCK,
+  props, INFO_USER, COUNT_NEWS, RESULT_BLOCK,
 } from '../js/constants/constants';
 
 const header = new Header('#1A1B22');

@@ -15,6 +15,6 @@ module.exports = {
       "allow": ["_id"],
     }],
     "no-useless-escape": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
   }
 }
