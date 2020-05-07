@@ -37,7 +37,7 @@ export const HEADER_BUTTON = document.querySelector('.header__button');
 export const FORM_SEARCH = document.querySelector('.search__form');
 
 export const PRELOADER = document.querySelector('.result__search-in-progress');
-export const RESULT_SEARCH = document.querySelector('.result');
+export const RESULT_BLOCK = document.querySelector('.result');
 export const RESULT_NOT_FOUND = document.querySelector('.result__not-found');
 export const RESULT_FOUND = document.querySelector('.result__found');
 export const RESULT_BUTTON = document.querySelector('.result__button-more');

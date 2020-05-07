@@ -1,7 +1,7 @@
 .popup__error{
   height: 16px;
   margin-bottom: 8px;
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .popup__error:last-child{

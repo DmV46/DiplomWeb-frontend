@@ -5,26 +5,21 @@ export default class Form {
     this._form = document.querySelector(selector);
   }
 
-  // добавляет форме ошибку, пришедшую с сервера;
-  // Такой пользователь уже есть
-  setServerError(err) {
-    this._form.querySelector('popup__error_submit').textContent = err;
-  }
-
-  // валидирует переданный в качестве аргумента инпут;
-  // Неправильный формат email
   _validateInputElement(element) {
     const currentInput = element;
     if (currentInput.validity.valid) {
+      currentInput.style.borderBottomColor = '#31a863';
       currentInput.nextElementSibling.textContent = '';
     }
 
     if (currentInput.validity.valueMissing) {
+      currentInput.style.borderBottomColor = '#ff0000';
       currentInput.nextElementSibling.textContent = VALIDATION_ERRORS.EMPTY;
     }
 
     if (currentInput.validity.tooLong || currentInput.validity.tooShort) {
       if (currentInput.name === 'password') {
+        currentInput.style.borderBottomColor = '#ff0000';
         currentInput.nextElementSibling.textContent = VALIDATION_ERRORS.PASSWORD_LENGTH;
         return;
       }
@@ -32,11 +27,11 @@ export default class Form {
     }
 
     if (currentInput.validity.typeMismatch) {
+      currentInput.style.borderBottomColor = '#ff0000';
       currentInput.nextElementSibling.textContent = VALIDATION_ERRORS.NOT_EMAIL;
     }
   }
 
-  //  валидирует всю форму;
   _checkValidForm() {
     let isValid = 1;
     this._form.querySelectorAll('.popup__input').forEach((input) => {
@@ -56,14 +51,18 @@ export default class Form {
     }
   }
 
-  // вспомогательный метод, очищает поля формы;
-  _clear() {
-    this._form.querySelector('popup__error').textContent = '';
-  }
+  // _clear() {
+  //   this._form.querySelector('popup__error').textContent = '';
+  // }
 
   handlerValidateForm(event) {
-    console.log(event.target);
     this._validateInputElement(event.target);
     this._renderButton(this._checkValidForm());
+  }
+
+  // добавляет форме ошибку, пришедшую с сервера;
+  // Такой пользователь уже есть
+  setServerError(err) {
+    this._form.querySelector('popup__error_submit').textContent = err;
   }
 }

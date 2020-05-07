@@ -1,3 +1,4 @@
 .result_saved{
+  min-height: calc(100vh - 578px);
   padding: 62px 0;
 }

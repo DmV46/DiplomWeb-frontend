@@ -11,7 +11,7 @@ const formSignUp = `<img src="${iconClose}" alt="close" class="popup__close">
     <input class="inter inter_size_medium popup__input" type="password" name="password" id="password" placeholder="Введите пароль" required minlength="8">
     <span class="inter inter_size_small popup__error"></span>
     <label class="inter inter_size_small popup__label" for="name">Имя</label>
-    <input class="inter inter_size_medium popup__input" type="text" name="name" id="name" placeholder="Введите своё имя" required pattern="^[А-Я]{1}[а-яё]+(\-[А-ЯЁ]{1}[а-яё]+)?$" minlength="2" maxlength="30">
+    <input class="inter inter_size_medium popup__input" type="text" name="name" id="name" placeholder="Введите своё имя" required pattern="^([А-ЯЁA-Z]|[а-яёa-z])+(\-[А-ЯЁA-z]{1}[а-яёa-z]+)?$" minlength="2" maxlength="30">
     <span class="inter inter_size_small popup__error"></span>
     <span class="inter inter_size_small popup__error popup__error_submit"></span>
     <button class="button popup__button popup__button_sign-up" type="submit">Зарегистрироваться</button>
@@ -69,7 +69,7 @@ export default class PopupSignUp extends Popup {
     this._apiFindNews
       .signUp(form.elements.email.value, form.elements.password.value, form.elements.name.value)
       .then(() => this._contentSuccess.open(this.contentSignIn, this._header, this._api))
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
     this._close();
   }
 }

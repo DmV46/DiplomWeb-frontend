@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import './index.css';
 import Header from './js/components/Header';
 import PopupSignUp, {} from './js/components/PopupSignUp';
@@ -7,43 +9,50 @@ import NewsFounded from './js/components/NewsFounded';
 import Form from './js/components/Form';
 import { getFormatDate, toUpperFirstSimbol } from './js/utils/utils';
 import {
-  props, mainApi, apiNews, newsList,
-  HEADER_BUTTON, BODY, FORM_SEARCH,
-  PRELOADER, RESULT_SEARCH, RESULT_NOT_FOUND,
+  props, mainApi, apiNews, newsList, BODY, FORM_SEARCH,
+  PRELOADER, RESULT_BLOCK, RESULT_NOT_FOUND,
   RESULT_FOUND, RESULT_BUTTON,
 } from './js/constants/constants';
 
 
-const header = new Header('#fff');
 const popupSignIn = new PopupSignIn('#popup-template', BODY, header, mainApi);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
 const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, mainApi);
 
-if (localStorage.getItem('token')) {
-  props.isLoggedIn = true;
-  HEADER_BUTTON.addEventListener('click', () => {
+const callbacksHeader = {
+  checkAuthorizationCallback: (propsUser) => {
+    if (localStorage.getItem('token')) {
+      propsUser.isLoggedIn = true;
+    }
+  },
+  logoutCallback: () => {
     localStorage.removeItem('token');
     window.location.reload();
-  });
-
-  mainApi.getInfo()
-    .then((info) => {
-      props.userName = info[0].name;
-      header.render(props);
-    })
-    .catch((err) => alert(err));
-} else {
-  HEADER_BUTTON.addEventListener('click', () => {
+  },
+  openSignUpCallback: () => {
     popupSignUp.open((selector) => new Form(selector));
-  });
-  header.render(props);
-}
+  },
+  getUserCallback: (renderButton) => {
+    mainApi.getUserData()
+      .then((user) => {
+        props.userName = user.name;
+        renderButton(props.userName);
+      })
+      .catch(() => {
+        props.userName = 'Noname';
+        renderButton(props.userName);
+      });
+  },
+};
+
+const header = new Header('#fff', callbacksHeader);
+header.render(props);
 
 FORM_SEARCH.addEventListener('submit', (event) => {
   event.preventDefault();
   const keyword = FORM_SEARCH.elements.keyword.value;
-  if (RESULT_SEARCH.classList.contains('result_unvisible')) {
-    RESULT_SEARCH.classList.remove('result_unvisible');
+  if (RESULT_BLOCK.classList.contains('result_unvisible')) {
+    RESULT_BLOCK.classList.remove('result_unvisible');
   }
   if (!RESULT_NOT_FOUND.classList.contains('result_unvisible')) {
     RESULT_NOT_FOUND.classList.add('result_unvisible');
@@ -77,7 +86,8 @@ FORM_SEARCH.addEventListener('submit', (event) => {
             news.keyword = toUpperFirstSimbol(keyword);
             return news.node;
           });
-          if (countRender === 99) {
+          // FIXME: хреново работает
+          if (countRender === newsList.length) {
             RESULT_BUTTON.classList.add('result__button-more_unvisible');
             return;
           }

@@ -58,7 +58,8 @@
   .search__subtitle{
     margin-bottom: 122px;
   }
-  .search__input-container{
+
+  .search__form{
     flex-direction: column;
   }
 
