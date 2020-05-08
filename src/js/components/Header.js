@@ -1,13 +1,33 @@
-export default class Header {
-  constructor(color, {
+import BaseComponent from './BaseComponent';
+
+const header = `
+<div class="header__container">
+  <a class="roboto-slab roboto-slab_size_small header__logo" href="./">FindNews</a>
+  <input class="header__mobile-menu" type="checkbox" id="mobile-input">
+  <label class="header__label" for="mobile-input">
+      <span class="header__bar header__bar_top header__bar_bg-color_white"></span>
+      <span class="header__bar header__bar_bottom header__bar_bg-color_white"></span>
+  </label>
+  <nav class="header__navigation header__navigation_bg-color_black">
+    <div class="header__links-container">
+      <a href="./" class="header__link header__link_selected">Главная</a>
+    </div>
+    <button class="button header__button">Авторизоваться</button>
+  </nav>
+</div>
+<hr class="header__line">`;
+
+export default class Header extends BaseComponent {
+  constructor(container, color, {
     checkAuthorizationCallback, logoutCallback, openSignUpCallback, getUserCallback,
   }) {
+    super(container);
     this._color = color;
-    this._header = document.querySelector('.header');
-    this._button = this._header.querySelector('.header__button');
-    this._linksContainer = this._header.querySelector('.header__links-container');
-    this._boxMenu = this._header.querySelector('.header__mobile-menu');
-    this._labelMenu = this._header.querySelector('.header__label');
+    // this._header = document.querySelector('.header');
+    // this._button = this._header.querySelector('.header__button');
+    // this._linksContainer = this._header.querySelector('.header__links-container');
+    // this._boxMenu = this._header.querySelector('.header__mobile-menu');
+    // this._labelMenu = this._header.querySelector('.header__label');
     this._links = null;
 
     this._checkAuthorizationCallback = checkAuthorizationCallback || (() => {});
@@ -21,18 +41,24 @@ export default class Header {
   }
 
   render(props) {
-    this._checkAuthorizationCallback(props);
-    this._setColorTheme();
-    if (props.isLoggedIn) {
-      this._getUserCallback(this._renderButtonSignOut);
-      this._renderButtonSignOut();
-      this._addNewLinks();
-      this._setSelectedLink();
-      this._setEventListeners(this._logoutCallback);
-    } else {
-      this._renderButtonSignUp();
-      this._setEventListeners(this._openSignUpCallback);
-    }
+    super._createComponent(
+      'header',
+      ['header', 'header_position', 'roboto', 'roboto_size_extra-large', 'roboto_weight_medium'],
+      header,
+    );
+    super._render(this._component);
+    // this._checkAuthorizationCallback(props);
+    // this._setColorTheme();
+    // if (props.isLoggedIn) {
+    //   this._getUserCallback(this._renderButtonSignOut);
+    //   this._renderButtonSignOut();
+    //   this._addNewLinks();
+    //   this._setSelectedLink();
+    //   this._setEventListeners(this._logoutCallback);
+    // } else {
+    //   this._renderButtonSignUp();
+    //   this._setEventListeners(this._openSignUpCallback);
+    // }
 
     // if (document.body.clientWidth <= 414) {
     //   this.onblur = this.hideMobileMenu();

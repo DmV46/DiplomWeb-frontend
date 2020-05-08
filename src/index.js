@@ -1,6 +1,12 @@
 /* eslint-disable no-param-reassign */
 import './index.css';
 import Header from './js/components/Header';
+import Search from './js/components/Search';
+import Result from './js/components/Result/Result';
+import ResultPreloader from './js/components/Result/ResultPreloader';
+import About from './js/components/About';
+import Footer from './js/components/Footer';
+
 import PopupSignUp, {} from './js/components/PopupSignUp';
 import PopupSignIn from './js/components/PopupSignIn';
 import PopupSuccess from './js/components/PopupSuccess';
@@ -10,15 +16,13 @@ import apiNews from './js/instances/apiNews';
 import mainApi from './js/instances/mainApi';
 import newsList from './js/instances/newsList';
 import { getFormatDate, toUpperFirstSimbol } from './js/utils/utils';
-import {
-  props, BODY, FORM_SEARCH, PRELOADER, RESULT_BLOCK, RESULT_NOT_FOUND, RESULT_FOUND, RESULT_BUTTON,
-} from './js/constants/constants';
-import Search from './js/components/Search';
-import Result from './js/components/Result';
+import { props, BODY } from './js/constants/constants';
 
+const preloader = new ResultPreloader('.result');
 const popupSignIn = new PopupSignIn('#popup-template', BODY, header, mainApi);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
 const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, mainApi);
+const result = new Result('.main');
 
 const callbacksHeader = {
   checkAuthorizationCallback: (propsUser) => {
@@ -45,26 +49,37 @@ const callbacksHeader = {
       });
   },
 };
-
-const header = new Header('#fff', callbacksHeader);
-header.render(props);
+const header = new Header('.main', '#fff', callbacksHeader);
 
 const callbacksSearch = {
   submitCallBack: (keyword) => {
-    PRELOADER.classList.remove('result_unvisible');
-    apiNews.getNews(keyword)
-      .then((masNews) => {
-        if (masNews.totalResults !== 0) {
-          newsList.add = masNews.articles;
-        }
-      })
-      .catch((err) => { throw new Error(err); })
-      .finally(() => PRELOADER.classList.add('result_unvisible'));
+    result.show('result_unvisible');
+    // prel oader.render('result_unvisible');
+    // preloader.remove('.result__search-in-progress');
+    // preloader.show('result_unvisible');
+    // preloader.remove('.result__search-in-progress');
+    // result.show('.result__search-in-progress', 'result_unvisible');
+    // apiNews.getNews(keyword)
+    //   .then((masNews) => {
+    //     if (masNews.totalResults === 0) {
+    //       newsList.add = masNews.articles;
+    //       result.show('.result__not-found', 'result_unvisible');
+    //     }
+    //     result.show('.result__found', 'result_unvisible');
+    //   })
+    //   .catch((err) => { throw new Error(err); })
+    //   .finally(() => { result.hide('.result__search-in-progress', 'result_unvisible'); });
   },
 };
+const search = new Search('.main', callbacksSearch);
+const about = new About('.main');
+const footer = new Footer('.main');
 
-const search = new Search('.search__form', callbacksSearch);
-const result = new Result('.result');
+header.render(props);
+search.render();
+result.render();
+about.render();
+footer.render();
 
 // FORM_SEARCH.addEventListener('submit', (event) => {
 //   // event.preventDefault();
