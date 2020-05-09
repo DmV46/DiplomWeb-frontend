@@ -1,28 +1,27 @@
 /* eslint-disable no-param-reassign */
 import './index.css';
-import Header from './js/components/Header';
-import Search from './js/components/Search';
-import Result from './js/components/Result/Result';
-import ResultPreloader from './js/components/Result/ResultPreloader';
-import About from './js/components/About';
-import Footer from './js/components/Footer';
+import Header from './js/classes/Header';
+import Search from './js/classes/Search';
+import Result from './js/classes/Result/Result';
+import ResultPreloader from './js/classes/Result/ResultPreloader';
+import About from './js/classes/About';
+import Footer from './js/classes/Footer';
 
-import PopupSignUp, {} from './js/components/PopupSignUp';
-import PopupSignIn from './js/components/PopupSignIn';
-import PopupSuccess from './js/components/PopupSuccess';
-import NewsFounded from './js/components/NewsFounded';
-import Form from './js/components/Form';
+import PopupSignUp, {} from './js/classes/PopupSignUp';
+import PopupSignIn from './js/classes/PopupSignIn';
+import PopupSuccess from './js/classes/PopupSuccess';
+import NewsFounded from './js/classes/NewsFounded';
+import Form from './js/classes/Form';
 import apiNews from './js/instances/apiNews';
 import mainApi from './js/instances/mainApi';
-import newsList from './js/instances/newsList';
 import { getFormatDate, toUpperFirstSimbol } from './js/utils/utils';
-import { props, BODY } from './js/constants/constants';
+import { props, BODY, RESULT_BUTTON } from './js/constants/constants';
+import ResultNotFound from './js/classes/Result/ResultNotFound';
+import ResultFound from './js/classes/Result/ResultFound';
 
-const preloader = new ResultPreloader('.result');
 const popupSignIn = new PopupSignIn('#popup-template', BODY, header, mainApi);
 const popupSuccess = new PopupSuccess('#popup-template', BODY, popupSignIn, header);
 const popupSignUp = new PopupSignUp('#popup-template', BODY, popupSignIn, popupSuccess, header, mainApi);
-const result = new Result('.main');
 
 const callbacksHeader = {
   checkAuthorizationCallback: (propsUser) => {
@@ -50,83 +49,64 @@ const callbacksHeader = {
   },
 };
 const header = new Header('.main', '#fff', callbacksHeader);
+header.render(props);
 
 const callbacksSearch = {
   submitCallBack: (keyword) => {
+    result.removeChildAll('.result');
     result.show('result_unvisible');
-    // prel oader.render('result_unvisible');
-    // preloader.remove('.result__search-in-progress');
-    // preloader.show('result_unvisible');
-    // preloader.remove('.result__search-in-progress');
-    // result.show('.result__search-in-progress', 'result_unvisible');
-    // apiNews.getNews(keyword)
-    //   .then((masNews) => {
-    //     if (masNews.totalResults === 0) {
-    //       newsList.add = masNews.articles;
-    //       result.show('.result__not-found', 'result_unvisible');
-    //     }
-    //     result.show('.result__found', 'result_unvisible');
-    //   })
-    //   .catch((err) => { throw new Error(err); })
-    //   .finally(() => { result.hide('.result__search-in-progress', 'result_unvisible'); });
+    preloader.render();
+
+    apiNews.getNews(keyword)
+      .then((arrayNews) => {
+        if (arrayNews.totalResults === 0) {
+          resultNotFound.render();
+          return;
+        }
+        resultFound.render();
+        resultFound.addNews = arrayNews.articles;
+        for (let i = 0; i < 3; i++) {
+          resultFound.renderNews(resultFound.list[i], (data) => {
+            const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
+            news.keyword = toUpperFirstSimbol(keyword);
+            return news.node;
+          });
+        }
+      })
+      .catch((err) => { throw new Error(err); })
+      .finally(() => { preloader.hide('result_unvisible'); });
   },
 };
 const search = new Search('.main', callbacksSearch);
-const about = new About('.main');
-const footer = new Footer('.main');
-
-header.render(props);
 search.render();
+
+const result = new Result('.main');
 result.render();
+
+const about = new About('.main');
 about.render();
+
+const footer = new Footer('.main');
 footer.render();
 
-// FORM_SEARCH.addEventListener('submit', (event) => {
-//   // event.preventDefault();
-//   // const keyword = FORM_SEARCH.elements.keyword.value;
-//   if (RESULT_BLOCK.classList.contains('result_unvisible')) {
-//     RESULT_BLOCK.classList.remove('result_unvisible');
-//   }
-//   if (!RESULT_NOT_FOUND.classList.contains('result_unvisible')) {
-//     RESULT_NOT_FOUND.classList.add('result_unvisible');
-//   }
-//   if (!RESULT_FOUND.classList.contains('result_unvisible')) {
-//     RESULT_FOUND.classList.add('result_unvisible');
-//   }
-//
-//   apiNews.getNews(keyword)
-//     .then((masNews) => {
-//       if (masNews.totalResults === 0) {
-//         RESULT_NOT_FOUND.classList.remove('result_unvisible');
-//         return;
-//       }
-//       RESULT_FOUND.classList.remove('result_unvisible');
-//       newsList.add = masNews.articles;
-//       newsList.clearContainer();
-//       newsList.clearCounter();
-//       for (let i = 0; i < 3; i++) {
-//         newsList.renderNews(newsList.list[i], (data) => {
-//           const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
-//           news.keyword = toUpperFirstSimbol(keyword);
-//           return news.node;
-//         });
-//       }
-//       RESULT_BUTTON.addEventListener('click', () => {
-//         const countRender = newsList.counter + 3;
-//         for (let i = newsList.counter; i < countRender; i++) {
-//           newsList.renderNews(newsList.list[i], (data) => {
-//             const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
-//             news.keyword = toUpperFirstSimbol(keyword);
-//             return news.node;
-//           });
-//           // FIXME: хреново работает
-//           if (countRender === newsList.length) {
-//             RESULT_BUTTON.classList.add('result__button-more_unvisible');
-//             return;
-//           }
-//         }
-//       });
-//     })
-//     .catch((err) => alert(err))
-//     .finally(() => PRELOADER.classList.add('result_unvisible'));
-// });
+const preloader = new ResultPreloader('.result');
+const resultNotFound = new ResultNotFound('.result');
+
+const callBackResultFound = {
+  moreNewsCallBack: () => {
+    const { keyword } = search;
+    const countRender = resultFound.countNews + 3;
+    for (let i = resultFound.countNews; i < countRender; i++) {
+      resultFound.renderNews(resultFound.list[i], (data) => {
+        const news = new NewsFounded('#news-template', data, getFormatDate, mainApi);
+        news.keyword = toUpperFirstSimbol(keyword);
+        return news.node;
+      });
+      if (countRender === resultFound.length) {
+        RESULT_BUTTON.classList.add('result__button-more_unvisible');
+        return;
+      }
+    }
+  },
+};
+const resultFound = new ResultFound('.result', callBackResultFound);

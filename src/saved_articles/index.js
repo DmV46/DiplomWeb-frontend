@@ -1,8 +1,7 @@
 import './index.css';
-import Header from '../js/components/Header';
-import NewsSaved from '../js/components/NewsSaved';
+import Header from '../js/classes/Header';
+import NewsSaved from '../js/classes/NewsSaved';
 import mainApi from '../js/instances/mainApi';
-import newsList from '../js/instances/newsList';
 import { getFormatDate, sortNews } from '../js/utils/utils';
 import {
   props, INFO_USER, COUNT_NEWS, RESULT_BLOCK,

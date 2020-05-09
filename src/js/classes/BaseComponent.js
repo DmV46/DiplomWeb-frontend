@@ -1,7 +1,7 @@
 export default class BaseComponent {
   constructor(container) {
     this._container = document.querySelector(container);
-    this._component = null;
+    // this._component = null;
   }
 
   _createComponent(tag, ...args) {
@@ -17,6 +17,12 @@ export default class BaseComponent {
 
   _render(template) {
     this._container.appendChild(template);
+  }
+
+  removeChildAll(element) {
+    while (document.querySelector(element).firstChild) {
+      document.querySelector(element).removeChild(this._component.firstChild);
+    }
   }
 
   remove(className) {

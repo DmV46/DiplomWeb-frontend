@@ -11,8 +11,8 @@ const search = `
 </div>`;
 
 export default class Search extends BaseComponent {
-  constructor(selector, { submitCallBack }) {
-    super(selector);
+  constructor(container, { submitCallBack }) {
+    super(container);
     this._submitCallback = submitCallBack;
     this._hendlerSubmit = this._hendlerSubmit.bind(this);
   }
@@ -33,9 +33,13 @@ export default class Search extends BaseComponent {
   }
 
   _setEventListeners() {
-    this._container.querySelector('.search__form').addEventListener('submit', (event) => {
-      const keyword = this._container.querySelector('.search__form').elements.keyword.value;
-      this._hendlerSubmit(event, keyword);
+    this._component.querySelector('.search__form').addEventListener('submit', (event) => {
+      this._keyword = this._component.querySelector('.search__form').elements.keyword.value;
+      this._hendlerSubmit(event, this._keyword);
     });
+  }
+
+  get keyword() {
+    return this._keyword;
   }
 }
