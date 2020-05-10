@@ -1,5 +1,5 @@
 import iconClose from '../../images/close.svg';
-import PopupSignIn from '../classes/PopupSignIn';
+import PopupSignIn from '../classes/Popup/PopupSignIn';
 import Form from '../classes/Form';
 import popupSignUp from './popupSignUp';
 import header from './header';

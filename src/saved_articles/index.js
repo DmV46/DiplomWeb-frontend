@@ -1,6 +1,6 @@
 import './index.css';
 import Header from '../js/classes/Header';
-import NewsSaved from '../js/classes/NewsSaved';
+import NewsSaved from '../js/classes/News/NewsSaved';
 // import mainApi from '../js/instances/mainApi';
 import { getFormatDate, sortNews } from '../js/utils/utils';
 import {

@@ -1,5 +1,5 @@
 import iconClose from '../../images/close.svg';
-import PopupSuccess from '../classes/PopupSuccess';
+import PopupSuccess from '../classes/Popup/PopupSuccess';
 import popupSignIn from './popupSignIn';
 
 const popupSuccess = new PopupSuccess('.main');

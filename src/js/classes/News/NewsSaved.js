@@ -1,7 +1,7 @@
-import News from './News';
-import deleteArticle from '../../images/delete-article.svg';
+import deleteArticle from '../../../images/delete-article.svg';
+import BaseComponent from '../BaseComponent';
 
-export default class NewsSaved extends News {
+export default class NewsSaved extends BaseComponent {
   constructor(template, news, getFormatDate, apiFindNews) {
     super(template, news, getFormatDate, apiFindNews);
     this._handlerDelete = this._handlerDelete.bind(this);
@@ -25,7 +25,8 @@ export default class NewsSaved extends News {
   }
 
   _delete() {
-    super._delete(this._news._id);
+    this._apiFindNews.deleteNews(this._articleId)
+      .catch((err) => alert(err));
     this._element.remove();
     this._removeEventListeners();
   }

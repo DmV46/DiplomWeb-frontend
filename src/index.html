@@ -11,24 +11,6 @@
 </head>
 <body >
   <div class="main" ></div>
-  <template id="news-template">
-    <div class="result__news">
-      <a class="result__news-link" href="#" target="_blank"></a>
-      <div class="result__news-selected">
-        <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-        <img class="result__news-selected-icon" src="<%=require('./images/favorites.svg').default%>" alt="favorites">
-      </div>
-      <div class="result__news-img-container">
-        <img class="result__news-img" src="" alt="news-image">
-      </div>
-      <div class="result__news-description" >
-        <p class="source-sans-pro source-sans-pro_size_medium result__news-date"></p>
-        <p class="roboto-slab roboto-slab_size_medium result__news-title"></p>
-        <div class="roboto roboto_size_large result__news-text"></div>
-        <p class="roboto-slab roboto-slab_size_extra-small result__news-source"></p>
-      </div>
-    </div>
-  </template>
   <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>

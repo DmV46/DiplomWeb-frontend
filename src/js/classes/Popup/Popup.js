@@ -1,5 +1,5 @@
-import { ESCAPE_CODE } from '../constants/constants';
-import BaseComponent from './BaseComponent';
+import { ESCAPE_CODE } from '../../constants/constants';
+import BaseComponent from '../BaseComponent';
 
 export default class Popup extends BaseComponent {
   constructor(container) {

@@ -1,11 +1,6 @@
 import BaseComponent from '../BaseComponent';
 
 export default class ResultFound extends BaseComponent {
-  constructor({ moreNewsCallBack }) {
-    super();
-    this._getMoreNews = moreNewsCallBack || (() => {});
-  }
-
   render(container) {
     this._container = document.querySelector(container);
     super._render(this._component);
@@ -15,15 +10,10 @@ export default class ResultFound extends BaseComponent {
     this._setEventListenters();
   }
 
-  renderNews(news, onCreate) {
-    this._newsList.appendChild(onCreate(news));
-    this._countNews += 1;
-  }
-
   /**
    * @param {(arg0: any) => void} arrayNews
    */
-  set addNews(arrayNews) {
+  set list(arrayNews) {
     if (this._list.length !== 0) {
       this._list = [];
     }
@@ -34,8 +24,17 @@ export default class ResultFound extends BaseComponent {
     return this._list;
   }
 
+  set countNews(countNews) {
+    this._countNews = countNews;
+  }
+
   get countNews() {
     return this._countNews;
+  }
+
+  set callbacks(callbacks) {
+    this._callbacks = callbacks;
+    this._getMoreNews = this._callbacks.moreNewsCallBack || (() => {});
   }
 
   _setEventListenters() {
