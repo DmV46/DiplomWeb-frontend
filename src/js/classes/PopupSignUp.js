@@ -1,75 +1,38 @@
 import Popup from './Popup';
-import iconClose from '../../images/close.svg';
-
-const formSignUp = `<img src="${iconClose}" alt="close" class="popup__close">
-  <h1 class="roboto roboto_size_extra-extra-large roboto_weight_black popup__title">Регистрация</h1>
-  <form class="popup__form">
-    <label class="inter inter_size_small popup__label" for="email">Email</label>
-    <input class="inter inter_size_medium popup__input" type="email" name="email" id="email" placeholder="Введите почту" required pattern="^[a-z0-9_-]{2,}(\.[a-z0-9_-]+)*@[a-z0-9_-]{2,}(\.[a-z0-9_-]{2,})*\.[a-z]{2,6}$">
-    <span class="inter inter_size_small popup__error"></span>
-    <label class="inter inter_size_small popup__label" for="password">Пароль</label>
-    <input class="inter inter_size_medium popup__input" type="password" name="password" id="password" placeholder="Введите пароль" required minlength="8">
-    <span class="inter inter_size_small popup__error"></span>
-    <label class="inter inter_size_small popup__label" for="name">Имя</label>
-    <input class="inter inter_size_medium popup__input" type="text" name="name" id="name" placeholder="Введите своё имя" required pattern="^([А-ЯЁA-Z]|[а-яёa-z])+(\-[А-ЯЁA-z]{1}[а-яёa-z]+)?$" minlength="2" maxlength="30">
-    <span class="inter inter_size_small popup__error"></span>
-    <span class="inter inter_size_small popup__error popup__error_submit"></span>
-    <button class="button popup__button popup__button_sign-up" type="submit">Зарегистрироваться</button>
-    <p class="inter inter_size_medium popup__text">или <span class="popup__link">Войти</span></p>
-  </form>`;
 
 export default class PopupSignUp extends Popup {
-  constructor(selector, container, popupSignIn, popupSuccess, header, apiFindNews) {
-    super(selector, container);
-    this._header = header;
-    this._popupSignIn = popupSignIn;
-    this._popupSuccess = popupSuccess;
-    this._apiFindNews = apiFindNews;
-    this._form = null;
-    this._heandlerSubmit = this._heandlerSubmit.bind(this);
+  set callbacks(callbacks) {
+    this._callbacks = callbacks;
+    this._hendlerOpenSignIn = this._callbacks.openSignInCallback || (() => {});
+    this._hendlerSubmitSignUp = this._callbacks.submitSignUpCallback || (() => {});
+    this._hendlerValidateForm = this._callbacks.validateFormCallback || (() => {});
+    this._showMobileMenu = this._callbacks.showMobileMenuCallback || (() => {});
+    this._hideMobileMenu = this._callbackshideMobileMenuCallback || (() => {});
   }
 
-  open(form) {
-    super.open();
+  open() {
+    super._open();
     this._setEventListeners();
-    this._form = form('.popup__form');
-    // if (document.body.clientWidth <= 414) {
-    //   this._header.hideMobileMenu();
-    // }
+    this._hideMobileMenu();
   }
 
-  _setContent() {
-    super._setContent();
-    this._element.querySelector('.popup__content').innerHTML = formSignUp;
-  }
-
-  _close() {
-    if (document.body.clientWidth <= 414) {
-      this._header.showMobileMenu();
-    }
+  close() {
+    this._showMobileMenu();
+    this._removeEventListeners();
     super._close();
   }
 
   _setEventListeners() {
     super._setEventListeners();
-    this._element.querySelector('.popup__link').addEventListener('click', () => {
-      this._popupSignIn.open(this);
-      this._close();
-    });
-    this._element.querySelector('.popup__form').addEventListener('submit', this._heandlerSubmit);
-    this._element.querySelector('.popup__form').addEventListener('input', (event) => {
-      this._form.handlerValidateForm(event);
-    });
+    this._component.querySelector('.popup__link').addEventListener('click', this._hendlerOpenSignIn);
+    this._component.querySelector('.popup__form').addEventListener('submit', this._hendlerSubmitSignUp);
+    this._component.querySelector('.popup__form').addEventListener('input', this._hendlerValidateForm);
   }
 
-  _heandlerSubmit(event) {
-    const form = this._element.querySelector('.popup__form');
-    event.preventDefault();
-    this._popupSuccess.open(this);
-    this._apiFindNews
-      .signUp(form.elements.email.value, form.elements.password.value, form.elements.name.value)
-      .then(() => this._contentSuccess.open(this.contentSignIn, this._header, this._api))
-      .catch((err) => alert(err));
-    this._close();
+  _removeEventListeners() {
+    super._removeEventListeners();
+    this._component.querySelector('.popup__link').removeEventListener('click', this._hendlerOpenSignIn);
+    this._component.querySelector('.popup__form').removeEventListener('submit', this._hendlerSubmitSignUp);
+    this._component.querySelector('.popup__form').removeEventListener('input', this._hendlerValidateForm);
   }
 }

@@ -1,24 +1,14 @@
 import BaseComponent from '../BaseComponent';
 
-const resultFound = `
-<h2 class="roboto-slab roboto-slab_size_large result__title" >Результаты поиска</h2>
-<div class="result__container result__container_position_large"></div>
-<button class="button result__button-more">Показать еще</button>`;
-
 export default class ResultFound extends BaseComponent {
-  constructor(container, { moreNewsCallBack }) {
-    super(container);
+  constructor({ moreNewsCallBack }) {
+    super();
     this._getMoreNews = moreNewsCallBack || (() => {});
   }
 
-  render() {
-    super._createComponent(
-      'div',
-      ['result__found'],
-      resultFound,
-    );
+  render(container) {
+    this._container = document.querySelector(container);
     super._render(this._component);
-
     this._list = [];
     this._countNews = 0;
     this._newsList = this._component.querySelector('.result__container');

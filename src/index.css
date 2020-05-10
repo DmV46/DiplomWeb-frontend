@@ -4,13 +4,8 @@
 @import url(./blocks/source-sans-pro/source-sans-pro.css);
 @import url(./blocks/inter/inter.css);
 @import url(./blocks/button/button.css);
-@import url(./blocks/header/header.css);
-@import url(./blocks/search/search.css);
-@import url(./blocks/about/about.css);
-@import url(./blocks/result/result.css);
-@import url(./blocks/footer/footer.css);
-@import url(./blocks/popup/popup.css);
 
+@import url(./blocks/popup/popup.css);
 
 body{
   margin: 0;

@@ -1,5 +1,5 @@
-import ApiNews from '../api/ApiNews';
-import { getIsoDate } from '../utils/utils';
+import ApiNews from '../ApiNews';
+import { getIsoDate } from '../../utils/utils';
 
 const apiNews = new ApiNews({
   url: 'https://newsapi.org/v2/everything',

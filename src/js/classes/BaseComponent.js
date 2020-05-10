@@ -1,16 +1,15 @@
 export default class BaseComponent {
   constructor(container) {
-    this._container = document.querySelector(container);
-    // this._component = null;
+    this._container = document.querySelector(container) || null;
   }
 
-  _createComponent(tag, ...args) {
+  createComponent(tag, arrayClasses, markup) {
     const element = document.createElement(tag);
-    if (args[0]) {
-      args[0].map((className) => element.classList.add(className));
+    if (arrayClasses) {
+      arrayClasses.map((className) => element.classList.add(className));
     }
-    if (args[1]) {
-      element.insertAdjacentHTML('beforeend', args[1]);
+    if (markup) {
+      element.insertAdjacentHTML('beforeend', markup);
     }
     this._component = element;
   }
@@ -26,7 +25,10 @@ export default class BaseComponent {
   }
 
   remove(className) {
-    this._container.querySelector(className).remove();
+    if (className) {
+      this._container.querySelector(className).remove();
+    }
+    this._component.remove();
   }
 
   show(className) {
@@ -36,4 +38,16 @@ export default class BaseComponent {
   hide(className) {
     this._component.classList.add(className);
   }
+
+  // _setEventListeners(arrayListeners) {
+  //   arrayListeners.forEach((item) => {
+  //     this._component.querySelector(item[0]).addEventListener(item[1], item[2]);
+  //   });
+  // }
+
+  // _removeEventListeners(arrayListeners) {
+  //   arrayListeners.forEach((item) => {
+  //     this._component.querySelector(item[0]).removeEventListener(item[1], item[2]);
+  //   });
+  // }
 }

@@ -1,4 +1,4 @@
-import MainApi from '../api/MainApi';
+import MainApi from '../MainApi';
 
 const mainApi = new MainApi({
   url: 'https://api.find-news.ru',

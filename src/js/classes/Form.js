@@ -3,7 +3,9 @@ import { VALIDATION_ERRORS } from '../constants/constants';
 export default class Form {
   constructor(selector) {
     this._form = document.querySelector(selector);
+    this.handlerValidateForm = this.handlerValidateForm.bind(this);
   }
+
 
   _validateInputElement(element) {
     const currentInput = element;
@@ -51,17 +53,11 @@ export default class Form {
     }
   }
 
-  // _clear() {
-  //   this._form.querySelector('popup__error').textContent = '';
-  // }
-
   handlerValidateForm(event) {
     this._validateInputElement(event.target);
     this._renderButton(this._checkValidForm());
   }
 
-  // добавляет форме ошибку, пришедшую с сервера;
-  // Такой пользователь уже есть
   setServerError(err) {
     this._form.querySelector('popup__error_submit').textContent = err;
   }
