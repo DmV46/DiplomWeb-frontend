@@ -7,7 +7,7 @@ export default class Form {
   }
 
 
-  _validateInputElement(element) {
+  static validateInputElement(element) {
     const currentInput = element;
     if (currentInput.validity.valid) {
       currentInput.style.borderBottomColor = '#31a863';
@@ -54,7 +54,7 @@ export default class Form {
   }
 
   handlerValidateForm(event) {
-    this._validateInputElement(event.target);
+    Form.validateInputElement(event.target);
     this._renderButton(this._checkValidForm());
   }
 

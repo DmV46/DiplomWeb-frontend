@@ -31,11 +31,11 @@ const callbacksHeader = {
   },
 };
 
-const header = new Header('.main', '#fff', callbacksHeader);
+const header = new Header('.main', callbacksHeader);
 
 header.createComponent(
   'header',
-  ['header', 'header_position', 'roboto', 'roboto_size_extra-large', 'roboto_weight_medium'],
+  ['header', 'roboto', 'roboto_size_extra-large', 'roboto_weight_medium'],
   `
 <div class="header__container">
   <a class="roboto-slab roboto-slab_size_small header__logo" href="./">FindNews</a>

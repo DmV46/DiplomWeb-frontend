@@ -1,7 +1,7 @@
 import favorites from '../../../images/favorites.svg';
-import BaseComponent from '../BaseComponent';
+import News from './News';
 
-export default class NewsFounded extends BaseComponent {
+export default class NewsFounded extends News {
   constructor(container) {
     super(container);
     this._keyword = null;
@@ -11,35 +11,21 @@ export default class NewsFounded extends BaseComponent {
   }
 
   _createComponent() {
-    super.createComponent(
-      'div',
-      ['result__news'],
-      `
-      <a class="result__news-link" href="#" target="_blank"></a>
-      <div class="result__news-selected">
-        <span class="roboto roboto_size_extra-small roboto_weight_medium result__news-tooltip">Войдите, чтобы сохранять статьи</span>
-        <img class="result__news-selected-icon" src="${favorites}" alt="favorites">
-      </div>
-      <div class="result__news-img-container">
-        <img class="result__news-img" src="" alt="news-image">
-      </div>
-      <div class="result__news-description" >
-        <p class="source-sans-pro source-sans-pro_size_medium result__news-date"></p>
-        <p class="roboto-slab roboto-slab_size_medium result__news-title"></p>
-        <div class="roboto roboto_size_large result__news-text"></div>
-        <p class="roboto-slab roboto-slab_size_extra-small result__news-source"></p>
-      </div>`,
-    );
+    super._createComponent();
+    this._component.querySelector('.result__news-selected').style.backgroundImage = favorites;
+    this._component.querySelector('.result__news-tooltip').textContent = 'Войдите, чтобы сохранять статьи';
+    this._component.querySelector('.result__news-tooltip').classList.add('roboto_size_extra-small');
   }
 
 
   render(news) {
-    this._component.querySelector('.result__news-link').href = news.url;
-    this._component.querySelector('.result__news-img').src = news.urlToImage;
-    this._component.querySelector('.result__news-date').textContent = this._getFormatDate(news.publishedAt);
-    this._component.querySelector('.result__news-title').textContent = news.title;
-    this._component.querySelector('.result__news-text').textContent = news.description;
-    this._component.querySelector('.result__news-source').textContent = news.source.name;
+    this._news = news;
+    this._component.querySelector('.result__news-link').href = this._news.url;
+    this._component.querySelector('.result__news-img').src = this._news.urlToImage;
+    this._component.querySelector('.result__news-date').textContent = this._getFormatDate(this._news.publishedAt);
+    this._component.querySelector('.result__news-title').textContent = this._news.title;
+    this._component.querySelector('.result__news-text').textContent = this._news.description;
+    this._component.querySelector('.result__news-source').textContent = this._news.source.name;
 
     if (localStorage.getItem('token')) {
       this._component.querySelector('.result__news-tooltip').style.display = 'none';
@@ -71,12 +57,12 @@ export default class NewsFounded extends BaseComponent {
     this._deleteNews = this._callbacks.deleteNewsCallback || (() => {});
   }
 
-  _handlerFavorites() {
+  _handlerFavorites(event) {
     if (this._articleId === null) {
-      this._saveNews(this._news, this._keyword);
+      this._saveNews(event, this._news, this._keyword);
       return;
     }
-    this._deleteNews(this._articleId);
+    this._deleteNews(event, this._articleId);
   }
 
   _setEventListeners() {

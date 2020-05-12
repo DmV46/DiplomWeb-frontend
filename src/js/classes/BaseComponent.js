@@ -18,12 +18,6 @@ export default class BaseComponent {
     this._container.appendChild(template);
   }
 
-  removeChildAll(element) {
-    while (document.querySelector(element).firstChild) {
-      document.querySelector(element).removeChild(this._component.firstChild);
-    }
-  }
-
   remove(className) {
     if (className) {
       this._container.querySelector(className).remove();

@@ -35,8 +35,8 @@ popupSignUp.createComponent(
 
 const callbacksPopupSignUp = {
   openSignInCallback: () => {
-    popupSignIn.open();
     popupSignUp.close();
+    popupSignIn.open();
   },
   submitSignUpCallback: (event) => {
     const form = document.querySelector('.popup__form');

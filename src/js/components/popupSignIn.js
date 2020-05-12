@@ -3,6 +3,7 @@ import PopupSignIn from '../classes/Popup/PopupSignIn';
 import Form from '../classes/Form';
 import popupSignUp from './popupSignUp';
 import header from './header';
+import mainApi from '../api/instances/mainApi';
 
 const popupSignIn = new PopupSignIn('.main');
 
@@ -28,21 +29,22 @@ popupSignIn.createComponent(
 
 const callbacksPopupSignIn = {
   openSignUpCallback: () => {
-    popupSignUp.open();
     popupSignIn.close();
+    popupSignUp.open();
   },
-  submitSignInCallback: () => {
-    const form = this._element.querySelector('.popup__form');
-    this._apiFindNews
+  submitSignInCallback: (event) => {
+    event.preventDefault();
+    const form = document.querySelector('.popup__form');
+    mainApi
       .signIn(form.elements.email.value, form.elements.password.value)
       .then((result) => {
         localStorage.setItem('token', result.token);
+        popupSignIn.close();
         window.location.reload();
       })
       .catch(() => {
-
+        // обработка ошибок
       });
-    this.close();
   },
   validateFormCallback: (event) => {
     const form = new Form('.popup__form');

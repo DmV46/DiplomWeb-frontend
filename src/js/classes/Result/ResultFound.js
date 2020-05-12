@@ -10,6 +10,12 @@ export default class ResultFound extends BaseComponent {
     this._setEventListenters();
   }
 
+  clearContainer() {
+    while (this._newsList.firstChild) {
+      this._newsList.removeChild(this._newsList.firstChild);
+    }
+  }
+
   /**
    * @param {(arg0: any) => void} arrayNews
    */

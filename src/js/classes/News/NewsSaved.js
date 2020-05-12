@@ -1,45 +1,52 @@
 import deleteArticle from '../../../images/delete-article.svg';
-import BaseComponent from '../BaseComponent';
+import News from './News';
 
-export default class NewsSaved extends BaseComponent {
-  constructor(template, news, getFormatDate, apiFindNews) {
-    super(template, news, getFormatDate, apiFindNews);
+export default class NewsSaved extends News {
+  constructor(container) {
+    super(container);
     this._handlerDelete = this._handlerDelete.bind(this);
+    this._createComponent();
   }
 
-  get nodeSave() {
-    this._element.querySelector('.result__news-link').href = this._news.link;
-    this._element.querySelector('.result__news-img').src = this._news.image;
-    this._element.querySelector('.result__news-date').textContent = this._getFormatDate(this._news.date);
-    this._element.querySelector('.result__news-title').textContent = this._news.title;
-    this._element.querySelector('.result__news-text').textContent = this._news.text;
-    this._element.querySelector('.result__news-source').textContent = this._news.source;
-    this._element.querySelector('.result__news-tooltip').textContent = 'Убрать из сохранённых';
-    this._element.querySelector('.result__news-tooltip').classList.remove('roboto_size_extra-small');
-    this._element.querySelector('.result__news-tooltip').classList.add('roboto_size_small', 'result__news-tooltip_deleted');
-    this._element.querySelector('.result__news-selected-icon').src = deleteArticle;
-    this._element.insertAdjacentHTML('afterbegin', `<div class="result__keywords">${this._news.keyword}</div>`);
+  _createComponent() {
+    super._createComponent();
+    this._component.querySelector('.result__news-selected').style.backgroundImage = `url(${deleteArticle})`;
+    this._component.querySelector('.result__news-tooltip').textContent = 'Убрать из сохранённых';
+    this._component.querySelector('.result__news-tooltip').classList.add('roboto_size_small', 'result__news-tooltip_deleted');
+  }
+
+  render(news) {
+    this._newsId = news._id;
+    this._component.querySelector('.result__news-link').href = news.link;
+    this._component.querySelector('.result__news-img').src = news.image;
+    this._component.querySelector('.result__news-date').textContent = this._getFormatDate(news.date);
+    this._component.querySelector('.result__news-title').textContent = news.title;
+    this._component.querySelector('.result__news-text').textContent = news.text;
+    this._component.querySelector('.result__news-source').textContent = news.source;
+    this._component.insertAdjacentHTML('afterbegin', `<div class="result__keywords">${news.keyword}</div>`);
     this._setEventListeners();
 
-    return this._element;
+    super._render(this._component);
   }
 
-  _delete() {
-    this._apiFindNews.deleteNews(this._articleId)
-      .catch((err) => alert(err));
-    this._element.remove();
+  set callbacks(callbacks) {
+    this._callbacks = callbacks;
+
+    this._getFormatDate = this._callbacks.getFormatDateCallback || (() => {});
+    this._deleteNews = this._callbacks.deleteNewsCallback || (() => {});
+  }
+
+  _handlerDelete(event) {
+    this._deleteNews(event, this._newsId);
+    this._component.remove();
     this._removeEventListeners();
   }
 
-  _handlerDelete() {
-    this._delete();
-  }
-
   _setEventListeners() {
-    this._element.querySelector('.result__news-selected').addEventListener('click', this._handlerDelete);
+    this._component.querySelector('.result__news-selected').addEventListener('click', this._handlerDelete);
   }
 
   _removeEventListeners() {
-    this._element.querySelector('.result__news-selected').removeEventListener('click', this._handlerDelete);
+    this._component.querySelector('.result__news-selected').removeEventListener('click', this._handlerDelete);
   }
 }

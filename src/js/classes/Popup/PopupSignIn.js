@@ -26,7 +26,7 @@ export default class PopupSignIn extends Popup {
     super._setEventListeners();
     this._component.querySelector('.popup__link').addEventListener('click', this._hendlerOpenSignUp);
     this._component.querySelector('.popup__form').addEventListener('submit', this._hendlerSubmitSignIn);
-    this._component.querySelector('.popup__input').addEventListener('input', this._hendlerValidateForm);
+    this._component.querySelector('.popup__form').addEventListener('input', this._hendlerValidateForm);
   }
 
   _removeEventListeners() {

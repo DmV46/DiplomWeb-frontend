@@ -1,11 +1,11 @@
 import BaseComponent from './BaseComponent';
 
 export default class Header extends BaseComponent {
-  constructor(container, color, {
+  constructor(container, {
     checkAuthorizationCallback, getUserCallback, logoutCallback, openSignUpCallback,
   }) {
     super(container);
-    this._color = color;
+
 
     this._checkAuthorizationCallback = checkAuthorizationCallback || (() => {});
     this._logoutCallback = logoutCallback || (() => {});
@@ -17,7 +17,8 @@ export default class Header extends BaseComponent {
     this._renderButtonSignOut = this._renderButtonSignOut.bind(this);
   }
 
-  render(props) {
+  render(props, color) {
+    this._color = color;
     super._render(this._component);
     this._checkAuthorizationCallback(props);
     this._setColorTheme();
@@ -60,8 +61,7 @@ export default class Header extends BaseComponent {
     this._links = document.querySelectorAll('.header__link');
     if (window.location.pathname === '/saved_articles') {
       this._links[1].classList.add('header__link_selected');
-    } else {
-      this._links[0].classList.add('header__link_selected');
+      this._links[0].classList.remove('header__link_selected');
     }
   }
 
