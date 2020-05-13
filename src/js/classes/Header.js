@@ -54,14 +54,14 @@ export default class Header extends BaseComponent {
   }
 
   _addNewLinks() {
-    this._component.querySelector('.header__links-container').insertAdjacentHTML('beforeend', '<a href="./saved_articles" class="header__link ">Сохранённые статьи</a>');
+    this._component.querySelector('.header__links-container').insertAdjacentHTML('beforeend', '<a href = "./saved_articles" class="header__link ">Сохранённые статьи</a>');
   }
 
   _setSelectedLink() {
     this._links = document.querySelectorAll('.header__link');
-    if (window.location.pathname === '/saved_articles') {
-      this._links[1].classList.add('header__link_selected');
+    if (window.location.pathname === '/DiplomWeb-frontend/saved_articles/') {
       this._links[0].classList.remove('header__link_selected');
+      this._links[1].classList.add('header__link_selected');
     }
   }
 

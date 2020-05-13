@@ -8,7 +8,8 @@ import footer from './js/components/footer';
 import { props } from './js/constants/constants';
 
 header.render(props, '#fff');
-document.querySelector('.header').classList.add('header_position');
+header.addClasslist('header_position');
+document.querySelector('.header__links-container').lastElementChild.href = './saved_articles';
 
 search.render();
 

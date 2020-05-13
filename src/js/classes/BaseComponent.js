@@ -33,15 +33,19 @@ export default class BaseComponent {
     this._component.classList.add(className);
   }
 
-  // _setEventListeners(arrayListeners) {
-  //   arrayListeners.forEach((item) => {
-  //     this._component.querySelector(item[0]).addEventListener(item[1], item[2]);
-  //   });
-  // }
+  setAttribute(element, arrtibute, value) {
+    if (element) {
+      this._component.querySelector(element).setAttribute(arrtibute, value);
+    } else {
+      this._component.setAttribute(arrtibute, value);
+    }
+  }
 
-  // _removeEventListeners(arrayListeners) {
-  //   arrayListeners.forEach((item) => {
-  //     this._component.querySelector(item[0]).removeEventListener(item[1], item[2]);
-  //   });
-  // }
+  addClasslist(...args) {
+    if (args.length === 1) {
+      this._component.classList.add(args[0]);
+    } else {
+      this._component.querySelector(args[0]).classList.add(args[1]);
+    }
+  }
 }

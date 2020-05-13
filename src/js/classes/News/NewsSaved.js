@@ -10,7 +10,7 @@ export default class NewsSaved extends News {
 
   _createComponent() {
     super._createComponent();
-    this._component.querySelector('.result__news-selected').style.backgroundImage = `url(${deleteArticle})`;
+    this._component.querySelector('.result__news-selected').style.backgroundImage = `url(.${deleteArticle})`;
     this._component.querySelector('.result__news-tooltip').textContent = 'Убрать из сохранённых';
     this._component.querySelector('.result__news-tooltip').classList.add('roboto_size_small', 'result__news-tooltip_deleted');
   }

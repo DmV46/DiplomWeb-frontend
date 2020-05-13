@@ -1,8 +1,9 @@
 import './index.css';
+import iconGH from '../images/icon-github.svg';
+import iconFB from '../images/icon-facebook.svg';
 import header from '../js/components/header';
 import resultSaved from '../js/components/resultSaved';
 import footer from '../js/components/footer';
-
 import { props } from '../js/constants/constants';
 import info from '../js/components/info';
 import mainApi from '../js/api/instances/mainApi';
@@ -20,6 +21,12 @@ mainApi.getInfo()
     info.render();
     resultSaved.render();
     footer.render();
+    document.querySelector('.header__logo').href = '../';
+    document.querySelector('.header__links-container').firstElementChild.href = '../';
+    document.querySelector('.header__link_selected').href = './';
+    document.querySelector('.footer__links').firstElementChild.href = '../';
+    document.querySelectorAll('.footer__img')[0].src = `.${iconGH}`;
+    document.querySelectorAll('.footer__img')[1].src = `.${iconFB}`;
 
     info.user = user.name;
     info.countNews = arrayNews.length;
