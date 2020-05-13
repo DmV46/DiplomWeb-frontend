@@ -33,8 +33,6 @@ mainApi.getInfo()
         const callbacksNews = {
           getFormatDateCallback: (date) => { getFormatDate(date); },
           deleteNewsCallback: (event, articleId) => {
-            console.log(masKeyword);
-            console.log(sortNews(masKeyword));
             mainApi.deleteNews(articleId)
               .then(() => {
                 info.countNews -= 1;
@@ -46,8 +44,6 @@ mainApi.getInfo()
                     break;
                   }
                 }
-                console.log(masKeyword);
-                console.log(sortNews(masKeyword));
                 info.updateInfo(sortNews(masKeyword));
               })
               .catch((err) => alert(err));

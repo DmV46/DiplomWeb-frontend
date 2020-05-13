@@ -1,7 +1,7 @@
 import iconClose from '../../images/close.svg';
 import PopupSignUp from '../classes/Popup/PopupSignUp';
 import Form from '../classes/Form';
-import apiNews from '../api/instances/apiNews';
+import mainApi from '../api/instances/mainApi';
 import popupSignIn from './popupSignIn';
 import popupSuccess from './popupSuccess';
 import header from './header';
@@ -39,14 +39,22 @@ const callbacksPopupSignUp = {
     popupSignIn.open();
   },
   submitSignUpCallback: (event) => {
-    const form = document.querySelector('.popup__form');
     event.preventDefault();
-    popupSuccess.open();
-    apiNews
+    const form = new Form('.popup__form');
+
+    mainApi
       .signUp(form.elements.email.value, form.elements.password.value, form.elements.name.value)
-      .then(() => popupSuccess.open())
-      .catch((err) => alert(err));
-    popupSignUp.close();
+      .then(() => {
+        form.clear();
+        popupSignUp.close();
+        popupSuccess.open();
+      })
+      .catch((error) => {
+        error
+          .then((message) => {
+            form.setServerError(message.message);
+          });
+      });
   },
   validateFormCallback: (event) => {
     const form = new Form('.popup__form');
@@ -55,9 +63,12 @@ const callbacksPopupSignUp = {
   showMobileMenuCallback: () => {
     header.showMobileMenu();
   },
-
   hideMobileMenuCallback: () => {
     header.hideMobileMenu();
+  },
+  clearFormCallback: () => {
+    const form = new Form('.popup__form');
+    form.clear();
   },
 };
 

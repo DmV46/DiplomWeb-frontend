@@ -4,6 +4,7 @@ export default class Search extends BaseComponent {
   constructor(container, { submitCallBack }) {
     super(container);
     this._submitCallback = submitCallBack || (() => {});
+    // this._setValidation = setValidationCallback || (() => {});
     this._submitCallback = this._submitCallback.bind(this);
   }
 

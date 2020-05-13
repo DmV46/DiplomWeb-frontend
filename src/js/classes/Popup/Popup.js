@@ -1,3 +1,4 @@
+import '../../../blocks/popup/popup.css';
 import { ESCAPE_CODE } from '../../constants/constants';
 import BaseComponent from '../BaseComponent';
 
@@ -5,7 +6,7 @@ export default class Popup extends BaseComponent {
   constructor(container) {
     super(container);
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._close = this._close.bind(this);
+    this._hendlerClose = this._hendlerClose.bind(this);
     this.open = this.open.bind(this);
   }
 
@@ -21,14 +22,18 @@ export default class Popup extends BaseComponent {
     document.body.style.overflow = '';
   }
 
+  _hendlerClose() {
+    this._close();
+  }
+
   _setEventListeners() {
     document.addEventListener('keyup', this._handleEscClose);
-    this._component.querySelector('.popup__close').addEventListener('click', this._close);
+    this._component.querySelector('.popup__close').addEventListener('click', this._hendlerClose);
   }
 
   _removeEventListeners() {
     document.removeEventListener('keyup', this._handleEscClose);
-    this._component.querySelector('.popup__close').removeEventListener('click', this._close);
+    this._component.querySelector('.popup__close').removeEventListener('click', this._hendlerClose);
   }
 
   _handleEscClose(event) {

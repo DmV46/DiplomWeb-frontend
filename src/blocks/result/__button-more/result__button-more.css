@@ -9,5 +9,5 @@
 }
 
 .result__button-more:hover{
-  box-shadow: inset 140px 140px  rgba(0,0,0,0.06);
+  box-shadow: inset 140px 140px  rgba(0,0,0,0.1);
 }

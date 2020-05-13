@@ -3,9 +3,9 @@ import Popup from './Popup';
 export default class PopupSuccess extends Popup {
   set callbacks(callbacks) {
     this._callbacks = callbacks;
-    this._hendlerOpenSignUp = this._callbacks.openSignUpCallback || (() => {});
-    this._showMobileMenu = this._callbacks.validateFormCallback || (() => {});
-    this._hideMobileMenu = this._callbackshideMobileMenuCallback || (() => {});
+    this._hendlerOpenSignIn = this._callbacks.openSignInCallback || (() => {});
+    this._showMobileMenu = this._callbacks.showMobileMenuCallback || (() => {});
+    this._hideMobileMenu = this._callbacks.hideMobileMenuCallback || (() => {});
   }
 
   open() {
@@ -22,11 +22,11 @@ export default class PopupSuccess extends Popup {
 
   _setEventListeners() {
     super._setEventListeners();
-    this._component.querySelector('.popup__link').addEventListener('click', this._hendlerOpenSignUp);
+    this._component.querySelector('.popup__link').addEventListener('click', this._hendlerOpenSignIn);
   }
 
   _removeEventListeners() {
     super._removeEventListeners();
-    this._component.querySelector('.popup__link').removeEventListener('click', this._hendlerOpenSignUp);
+    this._component.querySelector('.popup__link').removeEventListener('click', this._hendlerOpenSignIn);
   }
 }

@@ -10,6 +10,7 @@ import resultNotFound from './resultNotFound';
 import resultFound from './resultFound';
 import { toUpperFirstSimbol, getFormatDate } from '../utils/utils';
 import NewsFounded from '../classes/News/NewsFounded';
+import Form from '../classes/Form';
 
 const callbacksSearch = {
   submitCallBack: (keyword) => {
@@ -60,6 +61,10 @@ const callbacksSearch = {
       .finally(() => {
         preloader.remove();
       });
+  },
+  setValidationCallback: () => {
+    const form = Form('.search__form');
+    form.querySelector('.search__input').setCustomValidity('Обязательное поле');
   },
 };
 

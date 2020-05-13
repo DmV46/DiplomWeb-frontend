@@ -12,6 +12,7 @@
 .popup__input::placeholder{
   opacity: 0.2;
 }
+.popup__input
 
 .popup__input:focus{
   border-bottom: 1px solid #2a65cc;

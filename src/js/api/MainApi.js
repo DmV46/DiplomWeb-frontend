@@ -2,8 +2,7 @@ function getResponseData(response) {
   if (response.ok) {
     return response.json();
   }
-
-  return Promise.reject(new Error(`Ошибка: ${response.status}`));
+  return Promise.reject(response.json());
 }
 
 export default class MainApi {
@@ -48,7 +47,6 @@ export default class MainApi {
       headers: {
         authorization: this._token,
       },
-      credentials: 'include',
     });
 
     return getResponseData(response);
@@ -59,7 +57,6 @@ export default class MainApi {
       headers: {
         authorization: this._token,
       },
-      credentials: 'include',
     });
 
     return getResponseData(response);
@@ -76,7 +73,6 @@ export default class MainApi {
         'Content-Type': 'application/json',
         authorization: this._token,
       },
-      credentials: 'include',
       body: JSON.stringify({
         keyword,
         title: news.title,

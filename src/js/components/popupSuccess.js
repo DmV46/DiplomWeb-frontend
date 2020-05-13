@@ -1,6 +1,7 @@
 import iconClose from '../../images/close.svg';
 import PopupSuccess from '../classes/Popup/PopupSuccess';
 import popupSignIn from './popupSignIn';
+import header from './header';
 
 const popupSuccess = new PopupSuccess('.main');
 
@@ -17,9 +18,15 @@ popupSuccess.createComponent(
 );
 
 const callbacksPopupSuccess = {
-  openSignIn: () => {
+  openSignInCallback: () => {
     popupSignIn.open();
     popupSuccess.close();
+  },
+  showMobileMenuCallback: () => {
+    header.showMobileMenu();
+  },
+  hideMobileMenuCallback: () => {
+    header.hideMobileMenu();
   },
 };
 popupSuccess.callbacks = callbacksPopupSuccess;

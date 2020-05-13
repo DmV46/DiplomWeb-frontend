@@ -6,9 +6,12 @@ export default class Form {
     this.handlerValidateForm = this.handlerValidateForm.bind(this);
   }
 
+  get elements() {
+    return this._form.elements;
+  }
 
-  static validateInputElement(element) {
-    const currentInput = element;
+  static validateInputElement(event) {
+    const currentInput = event.target;
     if (currentInput.validity.valid) {
       currentInput.style.borderBottomColor = '#31a863';
       currentInput.nextElementSibling.textContent = '';
@@ -34,17 +37,8 @@ export default class Form {
     }
   }
 
-  _checkValidForm() {
-    let isValid = 1;
-    this._form.querySelectorAll('.popup__input').forEach((input) => {
-      isValid *= input.validity.valid;
-    });
-
-    return isValid;
-  }
-
-  _renderButton(isValid) {
-    if (isValid) {
+  _checkValidityForm() {
+    if (this._form.checkValidity()) {
       this._form.querySelector('.popup__button').removeAttribute('disabled');
       this._form.querySelector('.popup__button').classList.add('popup__button_active');
     } else {
@@ -54,11 +48,25 @@ export default class Form {
   }
 
   handlerValidateForm(event) {
-    Form.validateInputElement(event.target);
-    this._renderButton(this._checkValidForm());
+    Form.validateInputElement(event);
+    this._checkValidityForm();
   }
 
   setServerError(err) {
-    this._form.querySelector('popup__error_submit').textContent = err;
+    this._form.querySelector('.popup__error_submit').textContent = err;
+  }
+
+  clear() {
+    this._form.reset();
+    this._form.querySelectorAll('.popup__error').forEach((item) => {
+      const input = item;
+      input.textContent = '';
+    });
+    this._form.querySelectorAll('.popup__input').forEach((item) => {
+      const input = item;
+      input.style.borderBottomColor = 'rgba(26, 27, 34, 0.2)';
+    });
+
+    this._checkValidityForm();
   }
 }

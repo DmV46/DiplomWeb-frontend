@@ -7,7 +7,8 @@ export default class PopupSignUp extends Popup {
     this._hendlerSubmitSignUp = this._callbacks.submitSignUpCallback || (() => {});
     this._hendlerValidateForm = this._callbacks.validateFormCallback || (() => {});
     this._showMobileMenu = this._callbacks.showMobileMenuCallback || (() => {});
-    this._hideMobileMenu = this._callbackshideMobileMenuCallback || (() => {});
+    this._hideMobileMenu = this._callbacks.hideMobileMenuCallback || (() => {});
+    this._clearForm = this._callbacks.clearFormCallback || (() => {});
   }
 
   open() {
@@ -19,6 +20,12 @@ export default class PopupSignUp extends Popup {
   close() {
     this._showMobileMenu();
     this._removeEventListeners();
+    this._clearForm();
+    super._close();
+  }
+
+  _close() {
+    this._clearForm();
     super._close();
   }
 

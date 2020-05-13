@@ -53,16 +53,16 @@ export default class NewsFounded extends News {
     this._callbacks = callbacks;
 
     this._getFormatDate = this._callbacks.getFormatDateCallback || (() => {});
-    this._saveNews = this._callbacks.saveNewsCallback || (() => {});
-    this._deleteNews = this._callbacks.deleteNewsCallback || (() => {});
+    this._handlersaveNews = this._callbacks.saveNewsCallback || (() => {});
+    this._handlerdeleteNews = this._callbacks.deleteNewsCallback || (() => {});
   }
 
   _handlerFavorites(event) {
     if (this._articleId === null) {
-      this._saveNews(event, this._news, this._keyword);
+      this._handlersaveNews(event, this._news, this._keyword);
       return;
     }
-    this._deleteNews(event, this._articleId);
+    this._handlerdeleteNews(event, this._articleId);
   }
 
   _setEventListeners() {

@@ -34,16 +34,20 @@ const callbacksPopupSignIn = {
   },
   submitSignInCallback: (event) => {
     event.preventDefault();
-    const form = document.querySelector('.popup__form');
+    const form = new Form('.popup__form');
     mainApi
       .signIn(form.elements.email.value, form.elements.password.value)
       .then((result) => {
         localStorage.setItem('token', result.token);
+        form.clear();
         popupSignIn.close();
         window.location.reload();
       })
-      .catch(() => {
-        // обработка ошибок
+      .catch((error) => {
+        error
+          .then((message) => {
+            form.setServerError(message.message);
+          });
       });
   },
   validateFormCallback: (event) => {
@@ -56,6 +60,10 @@ const callbacksPopupSignIn = {
 
   hideMobileMenuCallback: () => {
     header.hideMobileMenu();
+  },
+  clearFormCallback: () => {
+    const form = new Form('.popup__form');
+    form.clear();
   },
 };
 
