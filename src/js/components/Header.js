@@ -1,42 +1,57 @@
-import {
-  HEADER,
-  HEADER_BUTTON,
-  HEADER_LINKS_CONTAINER,
-  CHECKBOX_MENU,
-  LABEL_MENU,
-} from '../constants/constants';
+import '../../blocks/header/header.css';
+import Header from '../classes/Header';
+import popupSignUp from './popupSignUp';
+import mainApi from '../api/instances/mainApi';
+import { props } from '../constants/constants';
 
-
-export default class Header {
-  constructor(color) {
-    this._color = color;
-
-    this._boxMenu = CHECKBOX_MENU;
-    this._labelMenu = LABEL_MENU;
-  }
-
-  render(props) {
-    console.log(this._boxMenu = CHECKBOX_MENU);
-    console.log(this._labelMenu = LABEL_MENU);
-
-    HEADER.style.color = `${this._color}`;
-    if (props.isLoggedIn) {
-      HEADER_BUTTON.classList.add('header__button_sign-out');
-      HEADER_BUTTON.innerHTML = `<span class='header__user'>${props.userName}</span>
-      <svg class="header__icon" width="18" height="16" viewBox="0 0 18 16" fill="${this._color}" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2L2 2L2 14H6V16H2C0.89543 16 0 15.1046 0 14V2C0 0.89543 0.895432 0 2 0H6V2ZM13.5856 9.00002L9.29274 13.1339L10.707 14.4958L17.4141 8.03706L10.707 1.57837L9.29274 2.9402L13.5856 7.0741H4V9.00002H13.5856Z"/></svg>`;
-      HEADER_LINKS_CONTAINER.insertAdjacentHTML('beforeend', '<a href="./saved_articles" class="header__link ">Сохранённые статьи</a>');
-    } else {
-      HEADER_BUTTON.classList.add('header__button_auth');
-      HEADER_BUTTON.innerHTML = 'Авторизоваться';
+const callbacksHeader = {
+  checkAuthorizationCallback: (propsUser) => {
+    const user = propsUser;
+    if (localStorage.getItem('token')) {
+      user.isLoggedIn = true;
     }
-  }
+  },
+  getUserCallback: (renderButton) => {
+    mainApi.getUserData()
+      .then((user) => {
+        props.userName = user.name;
+        renderButton(props.userName);
+      })
+      .catch(() => {
+        props.userName = 'Noname';
+        renderButton(props.userName);
+      });
+  },
+  logoutCallback: () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  },
+  openSignUpCallback: () => {
+    popupSignUp.open();
+  },
+};
 
-  showMobileMenu() {
-    this._labelMenu.style.display = 'block';
-  }
+const header = new Header('.main', callbacksHeader);
 
-  hideMobileMenu() {
-    this._boxMenu.checked = false;
-    this._labelMenu.style.display = 'none';
-  }
-}
+header.createComponent(
+  'header',
+  ['header', 'roboto', 'roboto_size_extra-large', 'roboto_weight_medium'],
+  `
+<div class="header__container">
+  <a class="roboto-slab roboto-slab_size_small header__logo" href="./">FindNews</a>
+  <input class="header__mobile-menu" type="checkbox" id="mobile-input">
+  <label class="header__label" for="mobile-input">
+      <span class="header__bar header__bar_top header__bar_bg-color_white"></span>
+      <span class="header__bar header__bar_bottom header__bar_bg-color_white"></span>
+  </label>
+  <nav class="header__navigation header__navigation_bg-color_black">
+    <div class="header__links-container">
+      <a href="./" class="header__link header__link_selected">Главная</a>
+    </div>
+    <button class="button header__button">Авторизоваться</button>
+  </nav>
+</div>
+<hr class="header__line">`,
+);
+
+export default header;

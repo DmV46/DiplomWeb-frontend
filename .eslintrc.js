@@ -4,17 +4,17 @@ module.exports = {
     "ecmaVersion": 2017
   },
   "env": {
-    "es6": true
-  },
-  "globals": {
-    "document": false
+    "es6": true,
+    "browser": true
   },
   "rules":{
     "no-underscore-dangle": ["error",
     {
       "allowAfterThis": true,
-      "allowAfterSuper": true
+      "allowAfterSuper": true,
+      "allow": ["_id"],
     }],
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
   }
 }

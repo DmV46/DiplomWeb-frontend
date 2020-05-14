@@ -9,15 +9,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 8;
+  background-image: url(../../../images/favorites.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0px 0px 20px 20px rgba(255, 255, 255, .4);
 }
 
 .result__news-selected:hover{
   cursor: pointer;
 }
 
-.result__news-selected:hover .result__news-selected-icon{
-  opacity: 1;
+.result__news-selected:hover {
+  box-shadow: inset 0px 0px 20px 20px rgba(255, 255, 255, 0);
 }
 
 .result__news-selected:hover .result__news-tooltip{

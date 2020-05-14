@@ -1,26 +1,20 @@
 import './index.css';
-import Header from './js/components/Header';
-import PopupSignUp, {} from './js/components/PopupSignUp';
-import PopupSignIn from './js/components/PopupSignIn';
-import {
-  props, HEADER_BUTTON, BODY,
-} from './js/constants/constants';
+import header from './js/components/header';
+import search from './js/components/search';
+import result from './js/components/result';
+import about from './js/components/about';
+import footer from './js/components/footer';
 
-const header = new Header('#fff');
-const popupSignUp = new PopupSignUp('#popup-template', BODY);
-const popupSignIn = new PopupSignIn('#popup-template', BODY);
+import { props } from './js/constants/constants';
 
-props.isLoggedIn = false;
-header.render(props);
-document.querySelectorAll('.header__link')[0].classList.add('header__link_selected');
+header.render(props, '#fff');
+header.addClasslist('header_position');
+document.querySelector('.header__links-container').lastElementChild.href = './saved_articles';
 
+search.render();
 
-if (HEADER_BUTTON.classList.contains('header__button_auth')) {
-  HEADER_BUTTON.addEventListener('click', () => {
-    popupSignUp.open(popupSignIn, header);
-  });
-} else {
-  HEADER_BUTTON.addEventListener('click', () => {
+result.render();
 
-  });
-}
+about.render();
+
+footer.render();
